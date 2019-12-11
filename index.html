@@ -214,6 +214,7 @@
             <script src="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 <!--
             <script>
+              // Oldtimer trifft Flugplatz - Popup
               jQuery.featherlight(
                 $('<a href="https://www.oldtimer-trifft-flugplatz.de/" target="_blank"><img src="https://www.oldtimer-trifft-flugplatz.de/img/oldtimer-trifft-flugplatz-2019-shareit.jpg" width="1250" height="657"/></a>'),
                 {
@@ -224,6 +225,17 @@
             });
             </script>
 -->
+            <script>
+              // Sonnwendfeier — Popup
+              jQuery.featherlight(
+                $('<a href="https://www.facebook.com/events/459591344936247/" target="_blank"><img src="assets/sonnwendfeier-popup.jpg" width="1875" height="984"/></a>'),
+                {
+                    afterOpen: function(event) {
+                        var $content = this.$content.closest('.featherlight-content');
+                        $content.css('marginTop', '85px');
+                    }
+            });
+            </script>
           </div>
         </div>
       </div>
