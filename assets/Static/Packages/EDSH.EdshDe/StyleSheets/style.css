@@ -19,6 +19,20 @@
 @import url("shortcodes.css");			/* Shortcode Styles */
 @import url("../../../../../featherlight.min.css");				/* Default Reset, Typography, Forms, etc. */
 
+@media only screen and (max-width: 767px) {
+	/* break out parent .container's width, https://twitter.com/una/status/951519740840873984 */
+	.mobile-full-width,
+	img.mobile-full-width { /* include img explicitly because of selector weighing */
+		width: 100vw;
+		max-width: 100vw;
+		position: relative;
+		left: 50%;
+		right: 50%;
+		margin-left: -50vw;
+		margin-right: -50vw;
+	}
+}
+
 /*================================================= */
 /* Header
 ================================================== */
