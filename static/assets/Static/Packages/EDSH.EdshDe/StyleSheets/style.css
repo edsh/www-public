@@ -17,7 +17,6 @@
 @import url("pricing_tables.css");		/* Pricing Table Styles */
 @import url("imagebox.css");			/* Responsive Lightbox */
 @import url("shortcodes.css");			/* Shortcode Styles */
-@import url("../../../../../featherlight.min.css");				/* Default Reset, Typography, Forms, etc. */
 
 @media only screen and (max-width: 767px) {
 	/* break out parent .container's width, https://twitter.com/una/status/951519740840873984 */

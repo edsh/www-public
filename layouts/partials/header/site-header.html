@@ -1,0 +1,104 @@
+
+<div id="header">
+
+    <div class="container">
+
+        <div class="four columns">
+            <div id="logo"><a href="{{ "/" | absURL }}"><img src="../assets/Static/Packages/EDSH.EdshDe/Images/logo.png"
+                                                      alt="Logo des Luftsportvereins Backnang e.V."/></a></div>
+        </div>
+
+        <div class="twelve columns">
+
+            <div id="navigation">
+
+
+                <ul id="nav">
+
+                    {{ $currentPage := . }}
+                    {{ range .Site.Menus.main }}
+
+                        <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ else }}normal{{ end }}">
+                            <a href="{{ if .HasChildren }}#{{ else }}{{ .URL }}{{ end }}">{{ .Name }}</a>
+                            {{ if .HasChildren }}
+                            <ul>
+                                {{ range .Children }}
+                                <li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ else }}normal{{ end }}">
+                                    <a href="{{ .URL }}">{{ .Name }}</a>
+                                </li>
+                                {{ end }}
+                            </ul>
+                            {{ end }}
+                        </li>
+
+                    {{ end }}
+
+<!--
+                    <li class="normal">
+                        <a href="flugplatz/piloteninfo.html">Flugplatz</a>
+
+                        <ul>
+
+
+                            <li class="normal">
+                                <a href="flugplatz/piloteninfo.html">für Piloten</a>
+
+                            </li>
+
+                            <li class="normal">
+                                <a href="flugplatz/besucher.html">für Besucher</a>
+
+                            </li>
+
+                            <li class="normal">
+                                <a href="flugplatz/bewirtung.html">Bewirtung</a>
+                            </li>
+
+                            <li class="normal last">
+                                <a href="flugplatz/webcam.html">Webcam</a>
+                            </li>
+
+
+                        </ul>
+
+                    </li>
+
+                    <li class="normal">
+                        <a href="verein/ueber-uns.html">Verein</a>
+
+                        <ul>
+
+
+                            <li class="normal">
+                                <a href="verein/ueber-uns.html">Über uns</a>
+
+                            </li>
+
+                            <li class="normal last">
+                                <a href="verein/flugzeuge.html">Flugzeuge</a>
+
+                            </li>
+
+
+                        </ul>
+
+                    </li>
+
+                    <li class="normal">
+                        <a href="kontakt.html">Kontakt</a>
+
+                    </li>
+
+                    <li class="normal last">
+                        <a href="impressum.html">Impressum</a>
+
+                    </li>
+
+-->
+                </ul>
+
+
+            </div>
+        </div>
+    </div>
+</div>

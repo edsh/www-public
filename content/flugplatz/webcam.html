@@ -1,0 +1,90 @@
+---
+name: webcams
+title: Webcams
+menu:
+"main":
+  parent: "Flugplatz"
+---
+
+<div id="subtitle">
+  <div class="container">
+    <div class="sixteen columns">
+      <h3 style="display: inline-block">Webcams</h3>
+      <a href="javascript:window.location.reload()" class="button blue large">Neu laden</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="eight columns">
+      <div class="neos-contentcollection">
+        <div class="typo3-neos-nodetypes-text">
+          <div><h2>Piste 10</h2></div>
+        </div>
+        <div class="typo3-neos-nodetypes-image">
+
+          <figure>
+
+            <img onclick="this.requestFullscreen();"
+                 style="cursor: pointer;"
+                 class="mobile-full-width"
+                 width="2592" height="1944"
+                 alt="Webcam-Bild in Richtung Osten, Piste 10"
+                 src="https://snapshots.runwaycam.cloud.edsh.de/rwy0.jpg"/>
+
+            <!--<figcaption>
+
+            </figcaption>-->
+
+          </figure>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="eight columns">
+      <div class="neos-contentcollection">
+        <div class="typo3-neos-nodetypes-text">
+          <div><h2>Piste 28</h2></div>
+        </div>
+        <div class="typo3-neos-nodetypes-image">
+
+          <figure>
+            <img onclick="this.requestFullscreen();"
+                 style="cursor: pointer;"
+                 class="mobile-full-width"
+                 width="2592" height="1944"
+                 alt="Webcam-Bild in Richtung Westen, Piste 28"
+                 src="https://snapshots.runwaycam.cloud.edsh.de/rwy1.jpg"/>
+
+                 <!--<figcaption>
+
+            </figcaption>-->
+
+          </figure>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="neos-contentcollection">
+
+    <div class=" sixteen columns">
+      <div class="neos-contentcollection">
+        <div class="typo3-neos-nodetypes-headline">
+          <div><h2>Funktionsweise</h2></div>
+        </div>
+        <p>Die Bilder werden alle 10 Minuten aktualisiert. Das Projekt, das von unserem Webcam-RTSP-Stream regelmäßig
+          Bilder schießt, ist mit Amazon AWS umgesetzt und
+          auf <a href="https://github.com/edsh/runway-cam" target="_blank">GitHub</a> veröffentlicht.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,128 @@
+---
+title: Kontakt
+menu:
+  "main":
+    weight: "60"
+---
+
+<div class="neos-contentcollection">
+  <div class="typo3-neos-nodetypes-html">
+    <div id="subtitle">
+
+      <!-- 960 Container -->
+      <div class="container">
+        <div class="sixteen columns">
+          <h3>Kontakt</h3>
+        </div>
+      </div>
+      <!-- End 960 Container -->
+
+    </div>
+  </div>
+  <div class="typo3-neos-nodetypes-html">
+    <div class="container">
+      <div class="sixteen columns">
+        <h3 class="page_headline">Unser Standort auf der Karte</h3>
+        <div id="contact-map"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="neos-contentcollection">
+
+      <div class=" twelve columns">
+        <div class="neos-contentcollection">
+          <div class="typo3-neos-nodetypes-html">
+
+            <h3 class="page_headline">Schicken Sie uns eine E-Mail!</h3>
+
+          </div>
+          <form method="post" class="b-form" action="https://formspree.io/info@edsh.de">
+            <div style="display: none">
+
+            </div>
+
+            <ol>
+              <li class="required b-form-row">
+                <label for="name">Ihr Name</label>
+
+
+                <div class="b-form-inputs">
+                  <input id="name" type="text" name="name" required/>
+                </div>
+              </li>
+              <li class="required b-form-row">
+                <label for="email">Ihre E-Mail-Adresse</label>
+
+
+                <div class="b-form-inputs">
+                  <input id="email" type="email" name="email" required/>
+                </div>
+              </li>
+              <li class="b-form-row">
+                <label for="message">Ihre Nachricht</label>
+
+
+                <div class="b-form-inputs">
+                  <textarea rows="10" cols="50" id="message" name="message" required></textarea>
+                </div>
+              </li>
+              <li class="b-form-row">
+                <div class="b-form-inputs">
+                  <input class="bu" type="submit" name="" value="Absenden"/>
+                </div>
+              </li>
+            </ol>
+          </form>
+        </div>
+      </div>
+
+      <div class=" four columns">
+        <div class="neos-contentcollection">
+          <div class="typo3-neos-nodetypes-html">
+            <div id="fb-root"></div>
+            <script>(function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "http://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
+
+            <h3 class="page_headline">Kontaktinformationen</h3>
+            <div class="address_contact">
+              <img style="padding-top: 1px;" alt="Adress-Icon"
+                   src="../static/assets/Static/Packages/EDSH.EdshDe/Images/address_contact.png">
+              <strong>Adresse:</strong> Oberwiese 1, 71522 Backnang
+            </div>
+
+            <div class="address_contact">
+              <img style="padding-top: 1px;" alt="Telefon-Icon"
+                   src="../static/assets/Static/Packages/EDSH.EdshDe/Images/phone_contact.png">
+              <strong>Telefon:</strong> <a href="tel:+49719164334">+49 (0) 7191-64334</a>
+            </div>
+
+            <div class="address_contact">
+              <img style="padding-top: 3px;" alt="E-Mail-Icon"
+                   src="../static/assets/Static/Packages/EDSH.EdshDe/Images/mail_contact.png">
+              <strong>E-Mail:</strong>
+              <a href="#">info@edsh.de</a>
+            </div>
+
+            <div class="address_contact">
+              <div class="fb-page" data-href="https://www.facebook.com/edsh.de/" data-tabs="timeline" data-height="350"
+                   data-small-header="true" data-adapt-container-width="true" data-hide-cover="true"
+                   data-show-facepile="true">
+                <blockquote cite="https://www.facebook.com/edsh.de/" class="fb-xfbml-parse-ignore"><a
+                        href="https://www.facebook.com/edsh.de/">Flugplatz Backnang-Heiningen EDSH</a></blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

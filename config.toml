@@ -1,0 +1,6 @@
+baseURL = "https://www.edsh.de/"
+DefaultContentLanguage = "de"
+languageCode = "de-DE"
+title = "Luftsportverein Backnang-Heiningen e.V."
+disableKinds = ["taxonomy", "term"]
+uglyurls = true
