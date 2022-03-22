@@ -788,6 +788,18 @@ form.b-form .b-form-inputs input:focus {border: 1px solid #ddd;}
 	border-bottom: 1px solid #e1e1e1;
 }
 
+.portfolio-item-meta dl {}
+.portfolio-item-meta dt {
+	font-weight: bold;
+	float: left;
+	clear: left;
+	margin-right: .2em;
+}
+.portfolio-item-meta dt:after {
+	content: ":";
+}
+.portfolio-item-meta dd {}
+
 .portfolio-item-meta a, .item-meta a {color:#464646;}
 .portfolio-item-meta a:hover {color:#5b96c6;}
 .portfolio-item-meta p {color: #888;}

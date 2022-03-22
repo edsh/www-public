@@ -240,31 +240,6 @@ table.standard-table td{
 table.standard-table tr:hover td{background-color:#fafafa;}
 
 /*================================================= */
-/* Definition list,
- * @author adrian@foeder.de
-================================================== */
-dl { font-size: 14px;
-	overflow: hidden; }
-dl dt {
-	border: 1px solid #dedede;
-	background-color: #fafafa;
-	text-align:left;
-	padding:10px 15px;
-	color:#464646;
-	font-weight: bold;
-	float:left;
-	clear:left;
-	width: 20%;
-}
-
-dl dd {
-	padding:10px 15px;
-	border:#e7e7e7 1px solid;
-	width:68%;
-	float:left;
-}
-
-/*================================================= */
 /* Tooltip / Popover
 ================================================== */
 .tooltip {
