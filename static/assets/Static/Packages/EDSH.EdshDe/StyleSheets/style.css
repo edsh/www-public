@@ -774,7 +774,9 @@ form.b-form .b-form-inputs input:focus {border: 1px solid #ddd;}
 
 .portfolio-item {margin-bottom: 20px;}
 
-.portfolio-item figure.item-img figcaption { float: right; font-size: 60%; line-height: 1.5em }
+.portfolio-item figure.item-img figcaption,
+.portfolio-item figure.item-img footer small { float: right; font-size: 60%; line-height: 1.5em }
+
 
 .portfolio-item-meta h4 {
 	font-size: 12px;
