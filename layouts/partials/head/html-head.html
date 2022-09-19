@@ -3,9 +3,7 @@
     <title>{{ block "title" . }}{{ with .Params.Title }}{{ . }} — {{ end }}{{ .Site.Title }}{{ end }}</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" type="text/css" href="{{ relURL  ("assets/Static/Packages/EDSH.EdshDe/StyleSheets/style.css") }}"/>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin,latin-ext" rel="stylesheet"
-          type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="{{ relURL  ("assets/Static/Packages/EDSH.EdshDe/StyleSheets/style.css?1663586767") }}"/>
 
     {{ hugo.Generator }}
 
@@ -15,7 +13,7 @@
         <meta name="robots" content="noindex, follow">
     {{ end }}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="{{ relURL  ("assets/jquery-1.7.2.min.js") }}"></script>
 
     <script src="{{ relURL  ("assets/Static/Packages/EDSH.EdshDe/JavaScript/jquery.isotope.min.js") }}"></script>
     <script src="{{ relURL  ("assets/Static/Packages/EDSH.EdshDe/JavaScript/custom.js") }}"></script>
