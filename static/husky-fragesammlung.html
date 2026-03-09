@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fragebogen Flugbetrieb – Husky A‑1 (D‑EXYZ) – Formular</title>
+<style>
+:root{--bg:#0b132b;--card:#1c2541;--ink:#eaeaea;--muted:#b8c1ec;--line:#2f3b69;--accent:#5bc0be}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+main{max-width:1000px;margin:0 auto;padding:24px}
+h1,h2,h3{margin:.2em 0}
+.card{background:#18213e;border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+.grid{display:grid;gap:10px}
+.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+label{font-weight:600}
+input,select,textarea{width:100%;margin-top:6px;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:#0f1733;color:var(--ink)}
+small.muted{color:var(--muted)}
+.table{display:grid;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.table .row{display:grid;grid-template-columns:1.2fr 1fr}
+.table .row.header{background:#111a36;font-weight:700}
+.table .row>div{padding:8px;border-bottom:1px solid var(--line)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+button{cursor:pointer;border:0;border-radius:8px;padding:10px 14px;font-weight:700}
+.primary{background:var(--accent);color:#001219}
+.ghost{background:transparent;border:1px dashed var(--line);color:var(--muted)}
+hr.sep{border:none;border-top:1px solid var(--line);margin:16px 0}
+.signature{display:grid;gap:10px;grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:900px){.grid.two,.grid.three,.signature{grid-template-columns:1fr}.table .row{grid-template-columns:1fr}}
+@media print{.actions{display:none} body{background:#fff;color:#000} .card{background:#fff;border-color:#ccc}}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Fragebogen Flugbetrieb – Aviat Husky A‑1 (D‑EXYZ)</h1>
+    <p class="small"><small class="muted">Diese Übersicht wird vor Beginn der Einweisung ausgefüllt und anschließend gemeinsam mit dem Fluglehrer/Einweisungsberechtigten nachbesprochen. Danach bitte ausgefüllt, ggf. korrigiert und unterschrieben digital ablegen.</small></p>
+  </header>
+
+  <section class="card">
+    <h2>Allgemeine Angaben</h2>
+    <div class="grid two">
+      <label>Datum*<input type="date" id="datum" required></label>
+      <label>Name, Vorname (Einzuweisender)*<input type="text" id="name" placeholder="Max Mustermann" required></label>
+    </div>
+    <div class="grid two">
+      <label>Husky‑Erfahrung?
+        <select id="huskyExp" required>
+          <option value="">Bitte wählen</option>
+          <option>Ja</option>
+          <option>Nein</option>
+        </select>
+      </label>
+      <label>Spornraderfahrung?
+        <select id="tailwheelExp" required>
+          <option value="">Bitte wählen</option>
+          <option>Ja</option>
+          <option>Nein</option>
+        </select>
+      </label>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Massen</h2>
+    <div class="table">
+      <div class="row header"><div>Bezeichnung</div><div>Wert</div></div>
+      <div class="row"><div>Leergewicht</div><div><input type="text" id="leergewicht" placeholder="z. B. 1190 lbs"></div></div>
+      <div class="row"><div>Max. Abfluggewicht</div><div><input type="text" id="mtow" placeholder="lbs"></div></div>
+      <div class="row"><div>Max. Landegewicht</div><div><input type="text" id="mlw" placeholder="lbs"></div></div>
+      <div class="row"><div>Max. Zuladung</div><div><input type="text" id="payload" placeholder="lbs"></div></div>
+      <div class="row"><div>Max. Zuladung im Gepäckfach</div><div><input type="text" id="baggage" placeholder="lbs"></div></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Betriebsstoffe</h2>
+    <div class="table">
+      <div class="row header"><div>Bezeichnung</div><div>Wert</div></div>
+      <div class="row"><div>Max. Treibstoffmenge</div><div><input type="text" id="fuel_total" placeholder="US gal"></div></div>
+      <div class="row"><div>Ausfliegbare Treibstoffmenge</div><div><input type="text" id="fuel_usable" placeholder="US gal"></div></div>
+      <div class="row"><div>Maximale Treibstoffmasse</div><div><input type="text" id="fuel_mass" placeholder="lbs"></div></div>
+      <div class="row"><div>Max. Zuladung in der Kabine bei vollen Tanks</div><div><input type="text" id="cabin_payload_full" placeholder="lbs"></div></div>
+      <div class="row"><div>Ölstand mindestens</div><div><input type="text" id="oil_min" placeholder="qts"></div></div>
+      <div class="row"><div>Ölstand maximal</div><div><input type="text" id="oil_max" placeholder="qts"></div></div>
+      <div class="row"><div>1 qt nachfüllen bei Ölstand von</div><div><input type="text" id="oil_add_at" placeholder="qts"></div></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Geschwindigkeiten (IAS, Meereshöhe)</h2>
+    <div class="table">
+      <div class="row header"><div>Bezeichnung</div><div>Wert</div></div>
+      <div class="row"><div>Strömungsabriss Klappen 30° (0° Querlage)</div><div><input type="text" id="vs0_30" placeholder="mph"></div></div>
+      <div class="row"><div>Strömungsabriss Klappen 0° (0° Querlage)</div><div><input type="text" id="vs1_0" placeholder="mph"></div></div>
+      <div class="row"><div>Vx – Geschwindigkeit für besten Steigwinkel</div><div><input type="text" id="vx" placeholder="mph"></div></div>
+      <div class="row"><div>Vy – Geschwindigkeit für beste Steigrate</div><div><input type="text" id="vy" placeholder="mph"></div></div>
+      <div class="row"><div>Bestes Gleiten</div><div><input type="text" id="best_glide" placeholder="mph"></div></div>
+      <div class="row"><div>Beste Kühlung</div><div><input type="text" id="best_cooling" placeholder="mph"></div></div>
+      <div class="row"><div>Vfe – max. Geschwindigkeit mit ausgefahrenen Klappen</div><div><input type="text" id="vfe" placeholder="mph"></div></div>
+      <div class="row"><div>Va – Manövergeschwindigkeit</div><div><input type="text" id="va" placeholder="mph"></div></div>
+      <div class="row"><div>Vno – max. Geschwindigkeit in böiger Luft</div><div><input type="text" id="vno_bump" placeholder="mph"></div></div>
+      <div class="row"><div>Vno – max. Strukturreisegeschwindigkeit</div><div><input type="text" id="vno" placeholder="mph"></div></div>
+      <div class="row"><div>Vne – max. Geschwindigkeit (roter Strich)</div><div><input type="text" id="vne" placeholder="mph"></div></div>
+      <div class="row"><div>Demonstrierte Seitenwindkomponente</div><div><input type="text" id="xwind" placeholder="mph"></div></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Leistungseinstellungen (empfohlen)</h2>
+    <div class="table">
+      <div class="row header"><div>Flugphase</div><div>Einstellung (Leistung / Drehzahl)</div></div>
+      <div class="row"><div>Startlauf</div><div><input type="text" id="p_start"></div></div>
+      <div class="row"><div>Steigflug</div><div><input type="text" id="p_climb"></div></div>
+      <div class="row"><div>Reiseflug 75% (≈ 140 mph, 35 l/h, 470 NM)*</div><div><input type="text" id="p_cruise75"></div></div>
+      <div class="row"><div>Reiseflug 55% (≈ 130 mph, 29 l/h, 600 NM)*</div><div><input type="text" id="p_cruise55"></div></div>
+      <div class="row"><div>Sinkflug</div><div><input type="text" id="p_descent"></div></div>
+      <div class="row"><div>Kein Dauerbetrieb zwischen … U/min und … U/min, sowie über … U/min</div><div><input type="text" id="rpm_bands" placeholder="z. B. 2000–2250; >2700"></div></div>
+    </div>
+    <p><small class="muted">* bei vollen Tanks und „best economy“ Mixture, plus 40 Minuten Reserve</small></p>
+  </section>
+
+  <section class="card">
+    <h2>Besondere Verfahren (empfohlen)</h2>
+    <div class="table">
+      <div class="row header"><div>Beschreibung</div><div>Einstellung (Leistung / Drehzahl)</div></div>
+      <div class="row"><div>Startlauf</div><div><input type="text" id="s_start"></div></div>
+      <div class="row"><div>Steigflug</div><div><input type="text" id="s_climb"></div></div>
+      <div class="row"><div>Reiseflug 75%</div><div><input type="text" id="s_cruise75"></div></div>
+      <div class="row"><div>Reiseflug 55%</div><div><input type="text" id="s_cruise55"></div></div>
+      <div class="row"><div>Sinkflug</div><div><input type="text" id="s_descent"></div></div>
+      <div class="row"><div>Kein Dauerbetrieb zwischen … U/min und … U/min, sowie über … U/min</div><div><input type="text" id="s_rpm_bands"></div></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Gegenprüfung & Unterschriften</h2>
+    <div class="grid two">
+      <label>Ort<input type="text" id="ort" placeholder="z. B. Backnang"></label>
+      <label>Datum<input type="date" id="datum_sign"></label>
+    </div>
+    <hr class="sep">
+    <div class="signature">
+      <div>
+        <label>Einzuweisender – Name (in Druckbuchstaben)<input type="text" id="trainee_name"></label>
+        <label>Unterschrift Einzuweisender<textarea id="trainee_sign" rows="3" placeholder="Hier unterschreiben (bei Tablet/Touch Stift verwenden oder Name als Bestätigung notieren)"></textarea></label>
+      </div>
+      <div>
+        <label>Fluglehrer/Einweisungsberechtigter – Name<input type="text" id="instructor_name"></label>
+        <label>Unterschrift Fluglehrer<textarea id="instructor_sign" rows="3" placeholder="Hier unterschreiben / Bestätigungstext"></textarea></label>
+      </div>
+      <div>
+        <label>Gegenprüfung
+          <div style="margin-top:6px">
+            <input type="checkbox" id="review_ok"> Ich bestätige als FI/CRI, dass ich den Fragebogen inkl. Antworten gegengeprüft habe.
+          </div>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="actions">
+      <button class="primary" onclick="window.print()">Als PDF drucken</button>
+      <button class="ghost" onclick="document.querySelector('form')?.reset();location.reload()">Zurücksetzen</button>
+    </div>
+    <p><small class="muted">Stand: 08.01.2018 · Vorlage basierend auf „Betriebsgrenzen-/Betriebsverfahrenübersicht D‑EXYZ“ (vereinsinterne Unterlage).</small></p>
+  </section>
+
+</main>
+</body>
+</html>
