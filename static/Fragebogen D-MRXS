@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Fragebogen D-MRXS</title>
+<style>
+body { font-family: Arial; background:#f4f4f4; }
+.container { width: 900px; margin: auto; background:white; padding:20px; border-radius:10px; }
+h2 { background:#ddd; padding:10px; }
+.row { display: flex; justify-content: space-between; padding:5px 0; }
+label { width: 60%; }
+input { width: 35%; padding:5px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h2>Betriebsgrenzen</h2>
+
+<div class="row"><label>Maximales Abfluggewicht</label><input></div>
+<div class="row"><label>Leergewicht</label><input></div>
+<div class="row"><label>Maximale Zuladung</label><input></div>
+<div class="row"><label>Zuladung Gepäckfach</label><input></div>
+
+<h2>Betriebsstoffe</h2>
+
+<div class="row"><label>Maximale Treibstoffmenge</label><input></div>
+<div class="row"><label>Ausfliegbare Treibstoffmenge</label><input></div>
+<div class="row"><label>Zuladung bei vollen Tanks</label><input></div>
+<div class="row"><label>Treibstoff</label><input></div>
+
+<h2>Geschwindigkeiten</h2>
+
+<div class="row"><label>Optimale Steigfluggeschwindigkeit</label><input></div>
+<div class="row"><label>Manövergeschwindigkeit</label><input></div>
+<div class="row"><label>Max. Geschwindigkeit bei Turbulenz</label><input></div>
+<div class="row"><label>Zulässige Höchstgeschwindigkeit</label><input></div>
+<div class="row"><label>Max. Klappengeschwindigkeit</label><input></div>
+<div class="row"><label>Mindestgeschwindigkeit</label><input></div>
+<div class="row"><label>Seitenwindkomponente max.</label><input></div>
+
+<h2>Motoreinstellungen</h2>
+
+<div class="row"><label>Drehzahl Start</label><input></div>
+<div class="row"><label>Drehzahl Landung / Go-Around</label><input></div>
+<div class="row"><label>Drehzahl Reiseflug</label><input></div>
+<div class="row"><label>Dauerleistung max.</label><input></div>
+<div class="row"><label>Maximale Drehzahl</label><input></div>
+<div class="row"><label>Max. Ladedruck</label><input></div>
+
+<h2>Technik</h2>
+
+<div class="row"><label>Allgemeine Bauweise</label><input></div>
+<div class="row"><label>Strukturelle Bauweise</label><input></div>
+<div class="row"><label>Leitwerk</label><input></div>
+<div class="row"><label>Klappen</label><input></div>
+<div class="row"><label>Klappenstellungen</label><input></div>
+<div class="row"><label>Rudertrimmung</label><input></div>
+
+<div class="row"><label>Flügelspannweite</label><input></div>
+<div class="row"><label>Rumpflänge</label><input></div>
+<div class="row"><label>Rumpfhöhe</label><input></div>
+<div class="row"><label>Lastenvielfaches</label><input></div>
+
+<h2>Motor</h2>
+
+<div class="row"><label>Motor</label><input></div>
+<div class="row"><label>Motorbauweise</label><input></div>
+<div class="row"><label>Treibstoff</label><input></div>
+<div class="row"><label>Anzahl Tanks</label><input></div>
+<div class="row"><label>Kraftstoffpumpe</label><input></div>
+<div class="row"><label>Tankwahlschalter</label><input></div>
+<div class="row"><label>TCU Schalter</label><input></div>
+<div class="row"><label>TCU Siegel</label><input></div>
+<div class="row"><label>Propeller</label><input></div>
+
+<h2>Fahrwerk</h2>
+
+<div class="row"><label>Fahrwerk</label><input></div>
+<div class="row"><label>Hauptfahrwerk Federung</label><input></div>
+
+</div>
+</body>
+</html>
