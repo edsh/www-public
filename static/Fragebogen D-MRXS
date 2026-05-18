@@ -2,84 +2,210 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Fragebogen D-MRXS</title>
+<title>D-MRXS Fragesammlung</title>
+
 <style>
-body { font-family: Arial; background:#f4f4f4; }
-.container { width: 900px; margin: auto; background:white; padding:20px; border-radius:10px; }
-h2 { background:#ddd; padding:10px; }
-.row { display: flex; justify-content: space-between; padding:5px 0; }
-label { width: 60%; }
-input { width: 35%; padding:5px; }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #e6e6e6;
+}
+
+/* Hauptbox wie EDSH */
+.container {
+    width: 850px;
+    margin: 40px auto;
+    background: white;
+    border: 1px solid #999;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* Überschrift */
+.header {
+    background: #2c3e50;
+    color: white;
+    padding: 15px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Abschnitt */
+.section {
+    margin-top: 20px;
+}
+
+/* Tabellen-Look */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #cccccc;
+    text-align: left;
+    padding: 8px;
+    font-size: 16px;
+}
+
+td {
+    padding: 6px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+/* Eingaben */
+input {
+    width: 95%;
+    padding: 5px;
+    border: 1px solid #aaa;
+}
+
+.correct {
+    background: #c8f7c5;
+}
+
+.wrong {
+    background: #f7c5c5;
+}
+
+/* Button */
+.button-area {
+    padding: 15px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 25px;
+    font-size: 16px;
+    background: #2c3e50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1f2d3a;
+}
+
+.result {
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
 </style>
 </head>
+
 <body>
 
 <div class="container">
 
-<h2>Betriebsgrenzen</h2>
+<div class="header">Fragesammlung D-MRXS</div>
 
-<div class="row"><label>Maximales Abfluggewicht</label><input></div>
-<div class="row"><label>Leergewicht</label><input></div>
-<div class="row"><label>Maximale Zuladung</label><input></div>
-<div class="row"><label>Zuladung Gepäckfach</label><input></div>
+<table>
+<tr><th colspan="2">Betriebsgrenzen</th></tr>
 
-<h2>Betriebsstoffe</h2>
+<tr><td>Maximales Abfluggewicht</td><td><input data-answer="472.5"></td></tr>
+<tr><td>Leergewicht</td><td><input data-answer="342"></td></tr>
+<tr><td>Maximale Zuladung</td><td><input data-answer="130.5"></td></tr>
+<tr><td>Zuladung Gepäckfach</td><td><input data-answer="10"></td></tr>
 
-<div class="row"><label>Maximale Treibstoffmenge</label><input></div>
-<div class="row"><label>Ausfliegbare Treibstoffmenge</label><input></div>
-<div class="row"><label>Zuladung bei vollen Tanks</label><input></div>
-<div class="row"><label>Treibstoff</label><input></div>
+<tr><th colspan="2">Betriebsstoffe</th></tr>
 
-<h2>Geschwindigkeiten</h2>
+<tr><td>Maximale Treibstoffmenge</td><td><input data-answer="125"></td></tr>
+<tr><td>Ausfliegbare Treibstoffmenge</td><td><input data-answer="119"></td></tr>
+<tr><td>Zuladung bei vollen Tanks</td><td><input data-answer="29.1"></td></tr>
+<tr><td>Treibstoff</td><td><input data-answer="mogas"></td></tr>
 
-<div class="row"><label>Optimale Steigfluggeschwindigkeit</label><input></div>
-<div class="row"><label>Manövergeschwindigkeit</label><input></div>
-<div class="row"><label>Max. Geschwindigkeit bei Turbulenz</label><input></div>
-<div class="row"><label>Zulässige Höchstgeschwindigkeit</label><input></div>
-<div class="row"><label>Max. Klappengeschwindigkeit</label><input></div>
-<div class="row"><label>Mindestgeschwindigkeit</label><input></div>
-<div class="row"><label>Seitenwindkomponente max.</label><input></div>
+<tr><th colspan="2">Geschwindigkeiten</th></tr>
 
-<h2>Motoreinstellungen</h2>
+<tr><td>Optimale Steigfluggeschwindigkeit</td><td><input data-answer="115"></td></tr>
+<tr><td>Manövergeschwindigkeit</td><td><input data-answer="160"></td></tr>
+<tr><td>Max. Geschwindigkeit bei Turbulenz</td><td><input data-answer="130"></td></tr>
+<tr><td>Zulässige Höchstgeschwindigkeit</td><td><input data-answer="270"></td></tr>
+<tr><td>Max. Klappengeschwindigkeit</td><td><input data-answer="135"></td></tr>
+<tr><td>Mindestgeschwindigkeit</td><td><input data-answer="65"></td></tr>
+<tr><td>Seitenwindkomponente max.</td><td><input data-answer="44"></td></tr>
 
-<div class="row"><label>Drehzahl Start</label><input></div>
-<div class="row"><label>Drehzahl Landung / Go-Around</label><input></div>
-<div class="row"><label>Drehzahl Reiseflug</label><input></div>
-<div class="row"><label>Dauerleistung max.</label><input></div>
-<div class="row"><label>Maximale Drehzahl</label><input></div>
-<div class="row"><label>Max. Ladedruck</label><input></div>
+<tr><th colspan="2">Motoreinstellungen</th></tr>
 
-<h2>Technik</h2>
+<tr><td>Drehzahl Start</td><td><input data-answer="5700"></td></tr>
+<tr><td>Drehzahl Landung / Go-Around</td><td><input data-answer="5500"></td></tr>
+<tr><td>Drehzahl Reiseflug</td><td><input data-answer="5000"></td></tr>
+<tr><td>Dauerleistung max.</td><td><input data-answer="5500"></td></tr>
+<tr><td>Maximale Drehzahl</td><td><input data-answer="5800"></td></tr>
+<tr><td>Max. Ladedruck</td><td><input data-answer="40.5"></td></tr>
 
-<div class="row"><label>Allgemeine Bauweise</label><input></div>
-<div class="row"><label>Strukturelle Bauweise</label><input></div>
-<div class="row"><label>Leitwerk</label><input></div>
-<div class="row"><label>Klappen</label><input></div>
-<div class="row"><label>Klappenstellungen</label><input></div>
-<div class="row"><label>Rudertrimmung</label><input></div>
+<tr><th colspan="2">Technik</th></tr>
 
-<div class="row"><label>Flügelspannweite</label><input></div>
-<div class="row"><label>Rumpflänge</label><input></div>
-<div class="row"><label>Rumpfhöhe</label><input></div>
-<div class="row"><label>Lastenvielfaches</label><input></div>
+<tr><td>Allgemeine Bauweise</td><td><input data-answer="tiefdecker"></td></tr>
+<tr><td>Strukturelle Bauweise</td><td><input data-answer="faserverbund"></td></tr>
+<tr><td>Leitwerk</td><td><input data-answer="kreuzleitwerk"></td></tr>
+<tr><td>Klappen</td><td><input data-answer="spaltklappen"></td></tr>
+<tr><td>Klappenstellungen</td><td><input data-answer="0 15 24 38"></td></tr>
+<tr><td>Rudertrimmung</td><td><input data-answer="höhenruder"></td></tr>
 
-<h2>Motor</h2>
+<tr><td>Flügelspannweite</td><td><input data-answer="9"></td></tr>
+<tr><td>Rumpflänge</td><td><input data-answer="6.4"></td></tr>
+<tr><td>Rumpfhöhe</td><td><input data-answer="2"></td></tr>
+<tr><td>Lastenvielfaches</td><td><input data-answer="+4"></td></tr>
 
-<div class="row"><label>Motor</label><input></div>
-<div class="row"><label>Motorbauweise</label><input></div>
-<div class="row"><label>Treibstoff</label><input></div>
-<div class="row"><label>Anzahl Tanks</label><input></div>
-<div class="row"><label>Kraftstoffpumpe</label><input></div>
-<div class="row"><label>Tankwahlschalter</label><input></div>
-<div class="row"><label>TCU Schalter</label><input></div>
-<div class="row"><label>TCU Siegel</label><input></div>
-<div class="row"><label>Propeller</label><input></div>
+<tr><th colspan="2">Motor</th></tr>
 
-<h2>Fahrwerk</h2>
+<tr><td>Motor</td><td><input data-answer="rotax 914"></td></tr>
+<tr><td>Motorbauweise</td><td><input data-answer="boxer"></td></tr>
+<tr><td>Treibstoff</td><td><input data-answer="mogas"></td></tr>
+<tr><td>Anzahl Tanks</td><td><input data-answer="2"></td></tr>
+<tr><td>Kraftstoffpumpe</td><td><input data-answer="ja"></td></tr>
+<tr><td>Tankwahlschalter</td><td><input data-answer="ja"></td></tr>
+<tr><td>TCU Schalter</td><td><input data-answer="an"></td></tr>
+<tr><td>TCU Siegel</td><td><input data-answer="intakt"></td></tr>
+<tr><td>Propeller</td><td><input data-answer="3"></td></tr>
 
-<div class="row"><label>Fahrwerk</label><input></div>
-<div class="row"><label>Hauptfahrwerk Federung</label><input></div>
+<tr><th colspan="2">Fahrwerk</th></tr>
+
+<tr><td>Fahrwerk</td><td><input data-answer="festfahrwerk"></td></tr>
+<tr><td>Hauptfahrwerk Federung</td><td><input data-answer="gfk"></td></tr>
+
+</table>
+
+<div class="button-area">
+<button onclick="check()">Prüfen</button>
+</div>
+
+<div class="result" id="result"></div>
 
 </div>
+
+<script>
+function norm(t){
+    return t.toLowerCase().replace(",",".").trim();
+}
+
+function check(){
+    let inputs = document.querySelectorAll("input");
+    let correct = 0;
+
+    inputs.forEach(i => {
+        let u = norm(i.value);
+        let a = norm(i.dataset.answer);
+
+        if(u.includes(a)){
+            i.classList.add("correct");
+            i.classList.remove("wrong");
+            correct++;
+        } else {
+            i.classList.add("wrong");
+            i.classList.remove("correct");
+        }
+    });
+
+    document.getElementById("result").innerText =
+        "Ergebnis: " + correct + " / " + inputs.length + " richtig";
+}
+</script>
+
 </body>
 </html>
