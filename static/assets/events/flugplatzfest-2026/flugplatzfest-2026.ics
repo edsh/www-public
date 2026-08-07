@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//EDSH//Flugplatzfest 2026//DE
+BEGIN:VEVENT
+UID:flugplatzfest-2026@edsh.de
+DTSTAMP:20260806T060000Z
+DTSTART:20260822T100000Z
+DTEND:20260823T180000Z
+SUMMARY:Flugplatzfest 2026 – EDSH
+LOCATION:Flugplatz EDSH\, Oberwiese 1\, 71522 Backnang
+DESCRIPTION:Flugplatzfest am 22. und 23. August 2026 jeweils ab 12 Uhr.
+URL:https://www.edsh.de/flugplatzfest/
+END:VEVENT
+END:VCALENDAR
