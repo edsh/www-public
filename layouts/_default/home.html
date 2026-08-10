@@ -50,7 +50,7 @@
         .fact:last-child{border-right:0}
         .fact b{display:block;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,Helvetica,sans-serif;font-size:1.55rem;font-weight:850;letter-spacing:-.02em;color:var(--navy)}
         .fact span{color:#415a70;font-size:.92rem;font-weight:650}
-        .section{padding:90px 0}
+        .section{padding:90px 0;overflow-x:hidden;overflow-x:clip}
         .eyebrow{font-family:"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.18em;color:var(--red);font-size:.85rem;margin-bottom:12px}
         h2{font-family:"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-weight:800;font-size:clamp(2.9rem,6vw,5.5rem);letter-spacing:-.035em;color:var(--night)}
         .lead{font-size:clamp(1.08rem,2vw,1.35rem);color:var(--muted);max-width:760px}
@@ -71,7 +71,7 @@
         .nr{font-family:"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-size:3.1rem;font-weight:900;color:rgba(255,255,255,.12);position:absolute;right:18px;top:12px}
         .program-card h3{font-family:"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-size:2rem;color:#fff;margin-bottom:12px}
         .program-card p{color:#b9d3e5;margin:0}
-        .photo-band{display:grid;grid-template-columns:1.25fr .75fr .75fr;height:520px}
+        .photo-band{display:grid;grid-template-columns:1.25fr .75fr .75fr;height:520px;overflow-x:hidden;overflow-x:clip}
         .photo-band figure{margin:0;position:relative;overflow:hidden}
         .photo-band img{height:100%;object-fit:cover;transition:opacity 1.15s ease}
         .photo-band figure:hover img{transform:none}
@@ -113,13 +113,38 @@
         }
         @media(max-width:650px){
             .route-panel{grid-template-columns:1fr;padding:28px}.route-mark{width:110px;height:110px;font-size:1.8rem}
-            .top-links .pill{display:none}.hero{min-height:760px}.hero-content{padding-top:130px}
-            h1{font-size:4.9rem}.date-ribbon{font-size:2.05rem}.hero-sub{display:grid;gap:5px}
+            .top-inner{align-items:flex-start;gap:12px}
+            .brand{max-width:150px;font-size:.92rem;line-height:1.45}
+            .top-links{gap:10px}.top-links a{font-size:.9rem}.top-links .pill{display:none}
+            .hero{min-height:max(760px,100svh)}
+            .hero-content{min-width:0;padding-top:130px;padding-bottom:64px}
+            h1{
+                max-width:100%;
+                font-family:Arial,Helvetica,sans-serif;
+                font-size:clamp(3rem,15.3vw,4.9rem);
+                line-height:.94;
+                letter-spacing:-.06em;
+            }
+            .date-ribbon{
+                max-width:calc(100% - 8px);
+                padding-inline:clamp(12px,4vw,22px);
+                font-size:clamp(1.45rem,7.2vw,2.05rem);
+                white-space:nowrap;
+            }
+            .hero-sub{display:grid;gap:5px;min-width:0}
+            .hero-sub span:last-child{overflow-wrap:anywhere}
+            .hero-actions{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);width:100%}
+            .hero-actions .btn{min-width:0;padding-inline:12px;text-align:center}
+            .scroll-mark{display:none}
             .facts{grid-template-columns:1fr}.fact{border-right:0;border-bottom:1px solid var(--line)}
             .section{padding:64px 0}.intro{gap:40px}.program-grid,.days{grid-template-columns:1fr}
             .photo-band{display:block}.photo-band figure,.photo-band figure:first-child{height:280px}
             .gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:170px}.gallery-grid>*{grid-column:span 1!important;grid-row:span 1!important}
             .footer-inner{align-items:flex-start;flex-direction:column}.footer a{margin:0 14px 0 0}
+        }
+        @media(max-width:360px){
+            .hero-actions{grid-template-columns:1fr}
+            .hero-actions .btn{width:100%}
         }
 
         /* ===== Reversible scroll-bound motion, based strictly on V3 ===== */
