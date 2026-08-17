@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Fragebogen D-MRXS</title>
+
+<style>
+:root{--bg:#0b132b;--card:#1c2541;--ink:#eaeaea;--muted:#b8c1ec;--line:#2f3b69;--accent:#5bc0be}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+main{max-width:1000px;margin:0 auto;padding:24px}
+h1,h2{margin:.2em 0}
+.card{background:#18213e;border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+
+.grid{display:grid;gap:10px}
+.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+input,select,textarea{
+width:100%;margin-top:6px;padding:8px;border-radius:8px;border:1px solid var(--line);
+background:#0f1733;color:#fff}
+
+.table{display:grid;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.table .row{display:grid;grid-template-columns:1.2fr 1fr}
+.table .row.header{background:#111a36;font-weight:700}
+.table .row>div{padding:8px;border-bottom:1px solid var(--line)}
+
+.signature{display:grid;gap:10px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.actions{display:flex;gap:10px;margin-top:12px}
+
+button{cursor:pointer;border:0;border-radius:8px;padding:10px 14px;font-weight:700}
+.primary{background:var(--accent);color:#001219}
+.ghost{background:transparent;border:1px dashed var(--line);color:var(--muted)}
+
+.correct{background:#2e7d32}
+.wrong{background:#8b0000}
+</style>
+</head>
+
+<body>
+<main>
+
+<header>
+<h1>Fragebogen Flugbetrieb – D-MRXS</h1>
+<p><small style="color:#b8c1ec">
+Vor Einweisung ausfüllen und anschließend mit Fluglehrer besprechen.
+</small></p>
+</header>
+
+<!-- Allgemeine Angaben -->
+<section class="card">
+<h2>Allgemeine Angaben</h2>
+
+<div class="grid two">
+<label>Datum*<input type="date"></label>
+<label>Name*<input type="text"></label>
+</div>
+
+<div class="grid two">
+<label>UL-Erfahrung?
+<select><option></option><option>Ja</option><option>Nein</option></select>
+</label>
+<label>Turbo-Erfahrung?
+<select><option></option><option>Ja</option><option>Nein</option></select>
+</label>
+</div>
+</section>
+
+<!-- Betriebsgrenzen -->
+<section class="card">
+<h2>Betriebsgrenzen</h2>
+<div class="table">
+<div class="row header"><div>Bezeichnung</div><div>Wert</div></div>
+
+<div class="row"><div>Maximales Abfluggewicht</div><div><input data-a="472.5"></div></div>
+<div class="row"><div>Leergewicht</div><div><input data-a="342"></div></div>
+<div class="row"><div>Maximale Zuladung</div><div><input data-a="130.5"></div></div>
+<div class="row"><div>Zuladung Gepäckfach</div><div><input data-a="10"></div></div>
+
+</div>
+</section>
+
+<!-- Betriebsstoffe -->
+<section class="card">
+<h2>Betriebsstoffe</h2>
+<div class="table">
+<div class="row header"><div>Bezeichnung</div><div>Wert</div></div>
+
+<div class="row"><div>Max. Treibstoffmenge</div><div><input data-a="125"></div></div>
+<div class="row"><div>Ausfliegbare Treibstoffmenge</div><div><input data-a="119"></div></div>
+<div class="row"><div>Zuladung bei vollen Tanks</div><div><input data-a="29.1"></div></div>
+<div class="row"><div>Treibstoff</div><div><input data-a="mogas"></div></div>
+
+</div>
+</section>
+
+<!-- Geschwindigkeiten -->
+<section class="card">
+<h2>Geschwindigkeiten</h2>
+<div class="table">
+
+<div class="row header"><div>Bezeichnung</div><div>Wert</div></div>
+
+<div class="row"><div>Steigfluggeschwindigkeit</div><div><input data-a="115"></div></div>
+<div class="row"><div>Manövergeschwindigkeit</div><div><input data-a="160"></div></div>
+<div class="row"><div>Max. Turbulenzgeschwindigkeit</div><div><input data-a="130"></div></div>
+<div class="row"><div>Höchstgeschwindigkeit</div><div><input data-a="270"></div></div>
+<div class="row"><div>Klappengeschwindigkeit</div><div><input data-a="135"></div></div>
+<div class="row"><div>Mindestgeschwindigkeit</div><div><input data-a="65"></div></div>
+<div class="row"><div>Seitenwindkomponente</div><div><input data-a="44"></div></div>
+
+</div>
+</section>
+
+<!-- Motor -->
+<section class="card">
+<h2>Motoreinstellungen</h2>
+<div class="table">
+
+<div class="row header"><div>Phase</div><div>Drehzahl</div></div>
+
+<div class="row"><div>Start</div><div><input data-a="5700"></div></div>
+<div class="row"><div>Landung / Go-Around</div><div><input data-a="5500"></div></div>
+<div class="row"><div>Reiseflug</div><div><input data-a="5000"></div></div>
+<div class="row"><div>Dauerleistung</div><div><input data-a="5500"></div></div>
+<div class="row"><div>Max Drehzahl</div><div><input data-a="5800"></div></div>
+<div class="row"><div>Ladedruck</div><div><input data-a="40.5"></div></div>
+
+</div>
+</section>
+
+<!-- Technik -->
+<section class="card">
+<h2>Technische Daten</h2>
+
+<div class="table">
+<div class="row header"><div>Bezeichnung</div><div>Antwort</div></div>
+
+<div class="row"><div>Bauweise</div><div><input data-a="tiefdecker"></div></div>
+<div class="row"><div>Struktur</div><div><input data-a="faserverbund"></div></div>
+<div class="row"><div>Leitwerk</div><div><input data-a="kreuzleitwerk"></div></div>
+<div class="row"><div>Klappen</div><div><input data-a="spaltklappen"></div></div>
+<div class="row"><div>Klappenstellungen</div><div><input data-a="0 15 24 38"></div></div>
+<div class="row"><div>Flügelspannweite</div><div><input data-a="9"></div></div>
+<div class="row"><div>Rumpflänge</div><div><input data-a="6.4"></div></div>
+<div class="row"><div>Rumpfhöhe</div><div><input data-a="2"></div></div>
+<div class="row"><div>Motor</div><div><input data-a="rotax 914"></div></div>
+
+</div>
+
+</section>
+
+<!-- Unterschriften -->
+<section class="card">
+<h2>Gegenprüfung & Unterschriften</h2>
+
+<div class="grid two">
+<label>Ort<input type="text"></label>
+<label>Datum<input type="date"></label>
+</div>
+
+<br>
+
+<div class="signature">
+
+<div>
+<label>Name (Pilot)<input type="text"></label>
+<label>Unterschrift<textarea rows="3"></textarea></label>
+</div>
+
+<div>
+<label>Fluglehrer<input type="text"></label>
+<label>Unterschrift<textarea rows="3"></textarea></label>
+</div>
+
+<div>
+<input type="checkbox"> Gegenprüfung erfolgt
+</div>
+
+</div>
+
+</section>
+
+<!-- Buttons -->
+<section class="card">
+
+<div class="actions">
+<button class="primary" onclick="check()">Prüfen</button>
+<button class="primary" onclick="window.print()">Als PDF drucken</button>
+<button class="ghost" onclick="location.reload()">Zurücksetzen</button>
+</div>
+
+<p id="result"></p>
+
+</section>
+
+</main>
+
+<script>
+function n(t){return t.toLowerCase().replace(",",".").trim();}
+function check(){
+ let i=document.querySelectorAll("input[data-a]");
+ let c=0;
+ i.forEach(x=>{
+  if(n(x.value).includes(n(x.dataset.a))){
+    x.classList.add("correct");x.classList.remove("wrong");c++;
+  } else {
+    x.classList.add("wrong");x.classList.remove("correct");
+  }
+ });
+ document.getElementById("result").innerText="Ergebnis: "+c+" / "+i.length;
+}
+</script>
+
+</body>
+</html>
