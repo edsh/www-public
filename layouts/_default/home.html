@@ -1,854 +1,899 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flugplatzfest 2026 | EDSH Backnang-Heiningen</title>
-    <meta name="description" content="Flugplatzfest am 22. und 23. August 2026 am Flugplatz EDSH in Backnang-Heiningen: Kunstflug, Rundflüge, Fly-In, Hangarparty, Frühschoppen und Gastronomie.">
-    <meta property="og:title" content="Flugplatzfest 2026 – EDSH">
-    <meta property="og:description" content="22.–23. August 2026, jeweils ab 12 Uhr. Zwei Tage Flugplatz, Kunstflug und Sommerabend am EDSH.">
-    <meta property="og:image" content="/assets/events/flugplatzfest-2026/facebook-cover.png">
-    <meta name="theme-color" content="#061a33">
-    <style>
-        @font-face{
-            font-family:"Oswald";
-            src:url("/assets/fonts/Oswald-Bold.woff2") format("woff2"),
-                url("/assets/fonts/Oswald-Bold.woff") format("woff");
-            font-weight:700;
-            font-style:normal;
-            font-display:swap;
-        }
-        @font-face{
-            font-family:"Oswald";
-            src:url("/assets/fonts/Oswald-SemiBold.woff2") format("woff2"),
-                url("/assets/fonts/Oswald-SemiBold.woff") format("woff");
-            font-weight:600;
-            font-style:normal;
-            font-display:swap;
-        }
-        @font-face{
-            font-family:"Oswald";
-            src:url("/assets/fonts/Oswald-Medium.woff2") format("woff2"),
-                url("/assets/fonts/Oswald-Medium.woff") format("woff");
-            font-weight:500;
-            font-style:normal;
-            font-display:swap;
-        }
-        @font-face{
-            font-family:"Jost";
-            src:url("/assets/fonts/Jost-VariableFont_wght.woff2") format("woff2-variations"),
-                url("/assets/fonts/Jost-VariableFont_wght.woff2") format("woff2"),
-                url("/assets/fonts/Jost-VariableFont_wght.woff") format("woff");
-            font-weight:100 900;
-            font-style:normal;
-            font-display:swap;
-        }
-        :root{
-            --night:#051426; --navy:#082949; --blue:#087fbe; --sky:#42b6e7;
-            --red:#a31c21; --white:#fff; --mist:#dff3fb; --text:#0d2135;
-            --muted:#5d7489; --line:rgba(6,42,76,.14); --max:1240px;
-        }
-        *{box-sizing:border-box} html{scroll-behavior:smooth}
-        body{margin:0;font-family:"Jost",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,Helvetica,sans-serif;background:#f8fbfd;color:var(--text);line-height:1.55}
-        img{display:block;width:100%} a{color:inherit}
-        .wrap{width:min(var(--max),calc(100% - 34px));margin:auto}
-        .cond{font-family:"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif}
-        .top{position:absolute;z-index:20;top:0;left:0;right:0;padding:22px 0;color:#fff}
-        .top-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
-        .brand{font-weight:700;letter-spacing:.03em}.brand span{font-weight:300;opacity:.7}
-        .top-links{display:flex;gap:12px;align-items:center}
-        .top-links a{text-decoration:none;font-weight:600;font-size:.94rem}
-        .pill{border:1px solid rgba(255,255,255,.42);padding:9px 13px;border-radius:999px}
-        .hero{min-height:92vh;position:relative;display:flex;align-items:flex-end;overflow:hidden;background:var(--night)}
-        .hero-bg{position:absolute;inset:0;background:url("/assets/events/flugplatzfest-2026/hero.jpg") center 42%/cover no-repeat;transform:scale(1.02)}
-        .hero::before{content:"";position:absolute;inset:0;background:
-                linear-gradient(90deg,rgba(3,16,32,.96) 0%,rgba(3,16,32,.78) 35%,rgba(3,16,32,.18) 70%,rgba(3,16,32,.28) 100%),
-                linear-gradient(0deg,rgba(3,16,32,.95) 0%,transparent 48%)}
-        .hero::after{content:"";position:absolute;right:-8vw;top:-18vh;width:50vw;height:100vh;border-left:3px solid rgba(66,182,231,.5);transform:skewX(-14deg);background:linear-gradient(140deg,rgba(8,127,190,.22),transparent 70%)}
-        .hero-content{position:relative;z-index:3;color:#fff;padding:150px 0 72px}
-        .kicker{font-size:1.4rem;font-weight:400;color:white;margin-bottom:18px}
-        h1,h2,h3{margin:0;line-height:.95}
-        h1{font-family:"Oswald","Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-size:clamp(4.1rem,10.5vw,9.2rem);font-weight:700;letter-spacing:-.04em;max-width:930px;text-shadow:.05em .05em 0 #000}
-        .date-ribbon{display:inline-block;font-family:"Oswald","Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-size:clamp(1.8rem,4vw,3.8rem);font-weight:700;color:var(--red);margin:18px 0 20px}
-        .date-ribbon .slate{display:inline-flex;align-items:center;justify-content:center;background:#fff;line-height:1;padding:.0em .1em .1em .1em;margin-right:.05em}
-        .hero-sub{display:flex;gap:18px;flex-wrap:wrap;align-items:center;font-size:1.05rem}
-        .hero-sub strong{font-size:1.2rem}
-        .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-        .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 18px;text-decoration:none;border-radius:4px;font-weight:700;border:1px solid transparent;cursor:pointer;font:inherit}
-        .btn-red{background:var(--red);color:#fff}.btn-ghost{border-color:rgba(255,255,255,.5);color:#fff;background:rgba(255,255,255,.06)}.insta-button{width:54px;height:48px;padding:0}
-        .scroll-mark{position:absolute;right:35px;bottom:35px;color:#fff;z-index:5;writing-mode:vertical-rl;text-transform:uppercase;letter-spacing:.2em;font-size:.7rem;opacity:.7}
-        .fact-strip{background:#fff;position:relative;z-index:8;box-shadow:0 20px 50px rgba(4,34,62,.1)}
-        .facts{display:grid;grid-template-columns:repeat(4,1fr)}
-        .fact{padding:25px;border-right:1px solid var(--line)}
-        .fact:last-child{border-right:0}
-        .fact b{display:block;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,Helvetica,sans-serif;font-size:1.55rem;font-weight:850;letter-spacing:-.02em;color:var(--navy)}
-        .fact span{color:#415a70;font-size:.92rem;font-weight:650}
-        .section{padding:90px 0;overflow-x:hidden;overflow-x:clip}
-        .eyebrow{font-family:"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.18em;color:var(--red);font-size:.85rem;margin-bottom:12px}
-        h2{font-family:"Oswald","Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-weight:600;font-size:clamp(2.9rem,6vw,5.5rem);letter-spacing:-.035em;color:var(--night)}
-        h3{font-family:"Oswald","Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-weight:500}
-        .lead{font-size:clamp(1.08rem,2vw,1.35rem);color:var(--muted);max-width:760px}
-        .intro{display:grid;grid-template-columns:.88fr 1.12fr;gap:68px;align-items:center}
-        .poster-frame{position:relative;padding:24px;background:#fff;box-shadow:0 30px 80px rgba(3,31,58,.18);transform:rotate(-1.2deg)}
-        .poster-frame img{aspect-ratio:4/5;object-fit:cover}
-        .poster-frame::before{content:"REAL EVENT · REAL AVIATION";position:absolute;left:-22px;top:55px;background:var(--red);color:#fff;font-family:"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-weight:800;padding:7px 13px;letter-spacing:.1em;font-size:.78rem}
-        .story-copy p{max-width:650px}
-        .signature{font-family:"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-size:1.35rem;font-weight:700;color:var(--navy);border-left:4px solid var(--red);padding-left:16px;margin-top:25px}
-        .program{background:var(--night);color:#fff;position:relative;overflow:hidden}
-        .program::before{content:"";position:absolute;inset:0;background:url("/assets/events/flugplatzfest-2026/kunstflug-1.jpg") center/cover;opacity:.17;filter:grayscale(.2)}
-        .program .wrap{position:relative}
-        .program h2{color:#fff}.program .lead{color:#b9d3e5}
-        .program-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.16);margin-top:42px;border:1px solid rgba(255,255,255,.16)}
-        .program-card{background:rgba(5,20,38,.86);padding:30px;min-height:225px;position:relative;overflow:hidden}
-        .program-card::after{content:"";position:absolute;left:0;bottom:0;width:0;height:4px;background:var(--red);transition:.25s}
-        .program-card:hover::after{width:100%}
-        .nr{font-family:"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-size:3.1rem;font-weight:900;color:rgba(255,255,255,.12);position:absolute;right:18px;top:12px}
-        .program-card h3{font-family:"Oswald","Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-weight:500;font-size:2rem;color:#fff;margin-bottom:12px}
-        .program-card p{color:#b9d3e5;margin:0}
-        .photo-band{display:grid;grid-template-columns:1.25fr .75fr .75fr;height:520px;overflow-x:hidden;overflow-x:clip}
-        .photo-band figure{margin:0;position:relative;overflow:hidden}
-        .photo-band img{height:100%;object-fit:cover;transition:opacity 1.15s ease}
-        .photo-band figure:hover img{transform:none}
-        .photo-band figure::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(2,18,35,.65),transparent 55%)}
-        .photo-band figcaption{position:absolute;z-index:2;left:22px;bottom:20px;color:#fff;font-family:"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-size:1.4rem;font-weight:700}
-        .day-section{background:#fff}
-        .days{display:grid;grid-template-columns:1fr 1fr;gap:25px;margin-top:40px}
-        .day{position:relative;min-height:520px;overflow:hidden;color:#fff;display:flex;align-items:flex-end;padding:34px}
-        .day img{position:absolute;inset:0;height:100%;object-fit:cover}
-        .day::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(3,17,33,.95),rgba(3,17,33,.12) 68%)}
-        .day-copy{position:relative;z-index:2}
-        .day-label{font-family:"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-size:5rem;font-weight:900;line-height:.8;color:#fff}
-        .day h3{font-family:"Oswald","Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-weight:500;font-size:2.5rem;margin:14px 0 8px}
-        .day p{color:#d5e6f2;max-width:460px}
-        .gallery{background:#eaf5fa}
-        .gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:120px;gap:12px;margin-top:40px}
-        .gallery-grid img{height:100%;object-fit:cover;border-radius:2px}
-        .g1{grid-column:span 5;grid-row:span 3}.g2{grid-column:span 3;grid-row:span 2}.g3{grid-column:span 4;grid-row:span 2}
-        .g4{grid-column:span 5;grid-row:span 3;object-position:center 58%}.g5{grid-column:span 3;grid-row:span 3}.g6{grid-column:span 4;grid-row:span 3}
-        .info{background:#fff}
-        .info-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:35px}
-        .info-card{background:var(--night);color:#fff;padding:36px}
-        .info-card h2{color:#fff;font-size:4rem}
-        .info-card p{color:#bdd2e2}
-        .route-panel{min-height:460px;background:linear-gradient(135deg,#e9f6fb,#cdeaf5);display:grid;grid-template-columns:170px 1fr;gap:30px;align-items:center;padding:42px;border:1px solid var(--line)}
-        .route-mark{width:150px;height:150px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-weight:900;font-size:2.4rem;letter-spacing:.08em;box-shadow:0 18px 45px rgba(5,20,38,.18)}
-        .route-panel h3{font-size:2.5rem;line-height:1.05;margin:0 0 12px;color:var(--night)}
-        .route-panel p{color:var(--muted);max-width:520px}
-        .faq details{border-bottom:1px solid var(--line);padding:20px 0}
-        .faq summary{cursor:pointer;font-weight:600;color:var(--navy)}
-        .cta{background:var(--red);color:#fff;text-align:center;padding:75px 0}
-        .cta h2{color:#fff}.cta p{max-width:680px;margin:16px auto 28px;color:#ffe6e8}
-        .footer{background:#020d19;color:#9bb5c9;padding:36px 0}
-        .footer-inner{display:flex;justify-content:space-between;gap:30px;align-items:center}
-        .footer a{text-decoration:none}
-        @media(max-width:900px){
-            .facts{grid-template-columns:1fr 1fr}.intro,.info-grid{grid-template-columns:1fr}.program-grid{grid-template-columns:1fr 1fr}
-            .photo-band{height:auto;grid-template-columns:1fr 1fr}.photo-band figure:first-child{grid-column:span 2;height:430px}.photo-band figure:not(:first-child){height:300px}
-        }
-        @media(max-width:650px){
-            .route-panel{grid-template-columns:1fr;padding:28px}.route-mark{width:110px;height:110px;font-size:1.8rem}
-            .top-inner{align-items:flex-start;gap:12px}
-            .brand{max-width:150px;font-size:.92rem;line-height:1.45}
-            .top-links{gap:10px}.top-links a{font-size:.9rem}.top-links .pill{display:none}
-            .hero{min-height:max(760px,100svh)}
-            .hero-content{min-width:0;padding-top:130px;padding-bottom:64px}
-            h1{
-                max-width:100%;
-                font-family:"Oswald",Arial,Helvetica,sans-serif;
-                font-size:clamp(3rem,15.3vw,4.9rem);
-                line-height:.94;
-                letter-spacing:-.06em;
-            }
-            .date-ribbon{
-                max-width:calc(100% - 8px);
-                font-size:clamp(1.45rem,7.2vw,2.05rem);
-                white-space:nowrap;
-            }
-            .hero-sub{display:grid;gap:5px;min-width:0}
-            .hero-sub span:last-child{overflow-wrap:anywhere}
-            .hero-actions{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);width:100%}
-            .hero-actions .btn{min-width:0;padding-inline:12px;text-align:center}
-            .scroll-mark{display:none}
-            .facts{grid-template-columns:1fr}.fact{border-right:0;border-bottom:1px solid var(--line)}
-            .section{padding:64px 0}.intro{gap:40px}.program-grid,.days{grid-template-columns:1fr}
-            .photo-band{display:block}.photo-band figure,.photo-band figure:first-child{height:280px}
-            .gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:170px}.gallery-grid>*{grid-column:span 1!important;grid-row:span 1!important}
-            .footer-inner{align-items:flex-start;flex-direction:column}.footer a{margin:0 14px 0 0}
-        }
-        @media(max-width:360px){
-            .hero-actions{grid-template-columns:1fr}
-            .hero-actions .btn{width:100%}
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flugplatzfest 2026 – 75 Jahre LSV | EDSH Backnang-Heiningen</title>
+  <meta name="description" content="75 Jahre LSV Backnang-Heiningen: Flugplatzfest am 22. und 23. August 2026 am Flugplatz EDSH mit Kunstflug, Rundflügen, Fly-In, Ballonglühen, Hangarparty, Frühschoppen und Gastronomie.">
+  <meta property="og:title" content="Flugplatzfest 2026 – EDSH">
+  <meta property="og:description" content="75 Jahre LSV Backnang-Heiningen: 22.–23. August 2026 mit Kunstflug, Rundflügen, Ballonglühen und Sommerabend am EDSH.">
+  <meta property="og:image" content="/assets/events/flugplatzfest-2026/facebook-cover.png">
+  <meta name="theme-color" content="#061a33">
+  <style>
+    @font-face{
+      font-family:Oswald;
+      src:url("/assets/fonts/Oswald-Bold.woff2") format("woff2"),url("/assets/fonts/Oswald-Bold.woff") format("woff");
+      font-weight:700;
+      font-style:normal;
+      font-display:swap;
+    }
+    @font-face{
+      font-family:Oswald;
+      src:url("/assets/fonts/Oswald-SemiBold.woff2") format("woff2"),url("/assets/fonts/Oswald-SemiBold.woff") format("woff");
+      font-weight:600;
+      font-style:normal;
+      font-display:swap;
+    }
+    @font-face{
+      font-family:Oswald;
+      src:url("/assets/fonts/Oswald-Medium.woff2") format("woff2"),url("/assets/fonts/Oswald-Medium.woff") format("woff");
+      font-weight:500;
+      font-style:normal;
+      font-display:swap;
+    }
+    @font-face{
+      font-family:Jost;
+      src:url("/assets/fonts/Jost-VariableFont_wght.woff2") format("woff2-variations"),url("/assets/fonts/Jost-VariableFont_wght.woff2") format("woff2"),url("/assets/events/flugplatzfest-2026/fonts/Jost-VariableFont_wght.woff") format("woff");
+      font-weight:100 900;
+      font-style:normal;
+      font-display:swap;
+    }
+    :root{
+      --night:#051426; --navy:#082949; --blue:#087fbe; --sky:#42b6e7;
+      --red:#a31c21; --white:#fff; --mist:#dff3fb; --text:#0d2135;
+      --muted:#5d7489; --line:rgba(6,42,76,.14); --max:1240px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:Jost,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,Helvetica,sans-serif;background:#f8fbfd;color:var(--text);line-height:1.55}
+    img{display:block;width:100%} a{color:inherit}
+    .wrap{width:min(var(--max),calc(100% - 34px));margin:auto}
+    .top{position:absolute;z-index:20;top:0;left:0;right:0;padding:22px 0;color:#fff}
+    .top-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-weight:700;letter-spacing:.03em}
+    .top-links{display:flex;gap:12px;align-items:center}
+    .top-links a{text-decoration:none;font-weight:600;font-size:.94rem}
+    .pill{border:1px solid rgba(255,255,255,.42);padding:9px 13px;border-radius:999px}
+    .hero{min-height:92vh;position:relative;display:flex;align-items:flex-end;overflow:hidden;background:var(--night)}
+    .hero-bg{position:absolute;inset:0;background:url("/assets/events/flugplatzfest-2026/hero.jpg") center 42%/cover no-repeat;transform:scale(1.02)}
+    .hero::before{content:"";position:absolute;inset:0;background:
+            linear-gradient(90deg,rgba(3,16,32,.96) 0%,rgba(3,16,32,.78) 35%,rgba(3,16,32,.18) 70%,rgba(3,16,32,.28) 100%),
+            linear-gradient(0deg,rgba(3,16,32,.95) 0%,transparent 48%)}
+    .hero::after{content:"";position:absolute;right:-8vw;top:-18vh;width:50vw;height:100vh;border-left:3px solid rgba(66,182,231,.5);transform:skewX(-14deg);background:linear-gradient(140deg,rgba(8,127,190,.22),transparent 70%)}
+    .hero-content{position:relative;z-index:3;color:#fff;padding:60px 0 72px}
+    .hero-title-block{position:relative;display:flex;flex-direction:column;align-items:flex-start;width:min(100%,700px)}
+    .kicker{font-size:1.18rem;font-weight:400;color:#fff;margin:0 0 17px}
+    .anniversary-lockup{display:inline-flex;align-items:stretch;gap:14px;margin:0 0 15px;color:#fff}
+    .anniversary-75{font-family:Oswald,"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-size:clamp(3.25rem,4.8vw,4.35rem);font-weight:700;line-height:.78;letter-spacing:-.035em;color:rgba(255,255,255,.96)}
+    .anniversary-rule{width:3px;background:var(--red);transform:skewY(-8deg);box-shadow:7px 0 18px rgba(163,28,33,.2)}
+    .anniversary-copy{display:flex;flex-direction:column;justify-content:center;gap:4px;line-height:1}
+    .anniversary-copy strong{font-family:Oswald,"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-size:.74rem;font-weight:600;letter-spacing:.24em;color:#8edfff}
+    .anniversary-copy span{font-size:.76rem;font-weight:700;letter-spacing:.13em;color:rgba(255,255,255,.82)}
+    h1,h2,h3{margin:0;line-height:.95}
+    h1{font-family:Oswald,"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-size:clamp(4.1rem,10.5vw,9.2rem);font-weight:700;letter-spacing:-.04em;max-width:930px;text-shadow:.05em .05em 0 #000}
+    h3{font-family:Oswald,"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-weight:500}
+    .date-ribbon{display:inline-flex;align-items:baseline;flex-wrap:nowrap;font-family:Oswald,"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-size:clamp(1.8rem,4vw,3.8rem);font-weight:700;color:var(--red);margin:18px 0 20px;white-space:nowrap}
+    .date-ribbon .slate{display:inline-flex;align-items:center;justify-content:center;background:#fff;line-height:1;padding:0 .1em .1em;margin-right:.05em;box-shadow:0 .08em .22em rgba(2,14,28,.2)}
+    .date-ribbon .date-gap{display:inline-block;width:.14em}
+    .hero-sub{display:flex;gap:18px;flex-wrap:wrap;align-items:center;font-size:1.05rem}
+    .hero-sub strong{font-size:1.2rem}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 18px;text-decoration:none;border-radius:4px;font-weight:700;border:1px solid transparent;cursor:pointer;font:inherit}
+    .btn-red{background:var(--red);color:#fff}.btn-ghost{border-color:rgba(255,255,255,.5);color:#fff;background:rgba(255,255,255,.06)}.insta-button{width:54px;height:48px;padding:0}
+    .scroll-mark{position:absolute;right:35px;bottom:35px;color:#fff;z-index:5;writing-mode:vertical-rl;text-transform:uppercase;letter-spacing:.2em;font-size:.7rem;opacity:.7}
+    .fact-strip{background:#fff;position:relative;z-index:8;box-shadow:0 20px 50px rgba(4,34,62,.1)}
+    .facts{display:grid;grid-template-columns:repeat(4,1fr)}
+    .fact{padding:25px;border-right:1px solid var(--line)}
+    .fact:last-child{border-right:0}
+    .fact b{display:block;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,Helvetica,sans-serif;font-size:1.55rem;font-weight:850;letter-spacing:-.02em;color:var(--navy)}
+    .fact span{color:#415a70;font-size:.92rem;font-weight:650}
+    .section{padding:90px 0;overflow-x:hidden;overflow-x:clip}
+    .eyebrow{font-family:"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.18em;color:var(--red);font-size:.85rem;margin-bottom:12px}
+    h2{font-family:Oswald,"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-weight:600;font-size:clamp(2.9rem,6vw,5.5rem);letter-spacing:-.035em;color:var(--night)}
+    .lead{font-size:clamp(1.08rem,2vw,1.35rem);color:var(--muted);max-width:760px}
+    .intro{display:grid;grid-template-columns:.88fr 1.12fr;gap:68px;align-items:center}
+    .poster-frame{position:relative;padding:24px;background:#fff;box-shadow:0 30px 80px rgba(3,31,58,.18);transform:rotate(-1.2deg)}
+    .poster-frame img{aspect-ratio:4/5;object-fit:cover}
+    .poster-frame::before{content:"REAL EVENT · REAL AVIATION";position:absolute;left:-22px;top:55px;background:var(--red);color:#fff;font-family:"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-weight:800;padding:7px 13px;letter-spacing:.1em;font-size:.78rem}
+    .story-copy p{max-width:650px}
+    .signature{font-family:"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-size:1.35rem;font-weight:700;color:var(--navy);border-left:4px solid var(--red);padding-left:16px;margin-top:25px}
+    .program{background:var(--night);color:#fff;position:relative;overflow:hidden}
+    .program::before{content:"";position:absolute;inset:0;background:url("/assets/events/flugplatzfest-2026/kunstflug-1.jpg") center/cover;opacity:.17;filter:grayscale(.2)}
+    .program .wrap{position:relative}
+    .program h2{color:#fff}.program .lead{color:#b9d3e5}
+    .program-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.16);margin-top:42px;border:1px solid rgba(255,255,255,.16)}
+    .program-card{background:rgba(5,20,38,.86);padding:30px;min-height:225px;position:relative;overflow:hidden}
+    .program-card::after{content:"";position:absolute;left:0;bottom:0;width:0;height:4px;background:var(--red);transition:.25s}
+    .program-card:hover::after{width:100%}
+    .nr{font-family:"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-size:3.1rem;font-weight:900;color:rgba(255,255,255,.12);position:absolute;right:18px;top:12px}
+    .program-card h3{font-family:Oswald,"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-weight:500;font-size:2rem;color:#fff;margin-bottom:12px}
+    .program-card p{color:#b9d3e5;margin:0}
+    .program-card-feature{grid-column:1/-1;min-height:320px;padding:0;display:flex;align-items:stretch;background:#051426}
+    .program-card-feature::before{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(90deg,rgba(5,20,38,.98) 0%,rgba(5,20,38,.91) 42%,rgba(5,20,38,.3) 72%,rgba(5,20,38,.08) 100%)}
+    .program-card-feature::after{z-index:3}
+    .program-feature-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+    .program-feature-copy{position:relative;z-index:2;align-self:center;max-width:660px;padding:40px}
+    .program-feature-tag{display:inline-block;margin-bottom:14px;color:#79dcff;font-size:.76rem;font-weight:850;letter-spacing:.15em;text-transform:uppercase}
+    .program-card-feature h3{font-size:clamp(2.8rem,5vw,4.8rem);margin-bottom:16px}
+    .program-card-feature p{max-width:610px;font-size:1.08rem;color:#d6e8f3}
+    .program-card-feature .nr{z-index:2}
+    .photo-band{display:grid;grid-template-columns:1.25fr .75fr .75fr;height:520px;overflow-x:hidden;overflow-x:clip}
+    .photo-band figure{margin:0;position:relative;overflow:hidden}
+    .photo-band img{height:100%;object-fit:cover;transition:opacity 1.15s ease}
+    .photo-band figure:hover img{transform:none}
+    .photo-band figure::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(2,18,35,.65),transparent 55%)}
+    .photo-band figcaption{position:absolute;z-index:2;left:22px;bottom:20px;color:#fff;font-family:"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-size:1.4rem;font-weight:700}
+    .day-section{background:#fff}
+    .days{display:grid;grid-template-columns:1fr 1fr;gap:25px;margin-top:40px}
+    .day{position:relative;min-height:520px;overflow:hidden;color:#fff;display:flex;align-items:flex-end;padding:34px}
+    .day img{position:absolute;inset:0;height:100%;object-fit:cover}
+    .day::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(3,17,33,.95),rgba(3,17,33,.12) 68%)}
+    .day-copy{position:relative;z-index:2}
+    .day-label{font-family:"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-size:5rem;font-weight:900;line-height:.8;color:#fff}
+    .day h3{font-family:Oswald,"Arial Narrow","Aptos Narrow","Segoe UI",Arial,sans-serif;font-weight:500;font-size:2.5rem;margin:14px 0 8px}
+    .day p{color:#d5e6f2;max-width:460px}
+    .gallery{background:#eaf5fa}
+    .gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:120px;gap:12px;margin-top:40px}
+    .gallery-grid img{height:100%;object-fit:cover;border-radius:2px}
+    .g1{grid-column:span 5;grid-row:span 3}.g2{grid-column:span 3;grid-row:span 2}.g3{grid-column:span 4;grid-row:span 2}
+    .g4{grid-column:span 5;grid-row:span 3;object-position:center 58%}.g5{grid-column:span 3;grid-row:span 3}.g6{grid-column:span 4;grid-row:span 3}
+    .info{background:#fff}
+    .info-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:35px}
+    .info-card{background:var(--night);color:#fff;padding:36px}
+    .info-card h2{color:#fff;font-size:4rem}
+    .info-card p{color:#bdd2e2}
+    .pilot-info{margin-top:2rem;padding-top:1.45rem;border-top:1px solid rgba(255,255,255,.18)}
+    .pilot-info h3{font-size:1.3rem;letter-spacing:.01em;margin-bottom:.65rem}
+    .pilot-info p{margin-bottom:0}
+    .pilot-info a{color:#8edfff;text-underline-offset:.18em}
+    .route-panel{min-height:460px;background:linear-gradient(135deg,#e9f6fb,#cdeaf5);display:grid;grid-template-columns:170px 1fr;gap:30px;align-items:center;padding:42px;border:1px solid var(--line)}
+    .route-mark{width:150px;height:150px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-weight:900;font-size:2.4rem;letter-spacing:.08em;box-shadow:0 18px 45px rgba(5,20,38,.18)}
+    .route-panel h3{font-size:2.5rem;line-height:1.05;margin:0 0 12px;color:var(--night)}
+    .route-panel p{color:var(--muted);max-width:520px}
+    .faq details{border-bottom:1px solid var(--line);padding:20px 0}
+    .faq summary{cursor:pointer;font-weight:700;color:var(--navy)}
+    .cta{background:var(--red);color:#fff;text-align:center;padding:75px 0}
+    .cta h2{color:#fff}.cta p{max-width:680px;margin:16px auto 28px;color:#ffe6e8}
+    .footer{background:#020d19;color:#9bb5c9;padding:36px 0}
+    .footer-inner{display:flex;justify-content:space-between;gap:30px;align-items:center}
+    .footer a{text-decoration:none;margin-left:16px}
+    @media(max-width:900px){
+      .facts{grid-template-columns:1fr 1fr}.intro,.info-grid{grid-template-columns:1fr}.program-grid{grid-template-columns:1fr 1fr}
+      .photo-band{height:auto;grid-template-columns:1fr 1fr}.photo-band figure:first-child{grid-column:span 2;height:430px}.photo-band figure:not(:first-child){height:300px}
+    }
+    @media(max-width:650px){
+      .top-inner{align-items:flex-start;gap:12px}
+      .brand{max-width:150px;font-size:.92rem;line-height:1.45}
+      .top-links{gap:10px}.top-links a{font-size:.9rem}.top-links .pill{display:none}
+      .hero{min-height:max(760px,100svh)}
+      .hero-content{min-width:0;padding-top:130px;padding-bottom:64px}
+      .hero-title-block{width:100%}
+      .hero-title-block .kicker{max-width:100%;margin-bottom:18px;font-size:1rem;line-height:1.4;letter-spacing:0}
+      .anniversary-lockup{gap:11px;margin-bottom:14px}
+      .anniversary-75{font-size:3.2rem}
+      .anniversary-rule{width:2px}
+      .anniversary-copy strong{font-size:.66rem;letter-spacing:.2em}
+      .anniversary-copy span{font-size:.68rem;letter-spacing:.1em}
+      h1{
+        max-width:100%;
+        font-family:Oswald,Arial,Helvetica,sans-serif;
+        font-size:clamp(3rem,15.3vw,4.9rem);
+        line-height:.94;
+        letter-spacing:-.06em;
+      }
+      .date-ribbon{
+        max-width:100%;
+        font-size:clamp(1.22rem,5.95vw,1.86rem);
+        white-space:nowrap;
+      }
+      .hero-sub{display:grid;gap:5px;min-width:0}
+      .hero-sub > span:first-of-type{display:none}
+      .hero-sub span:last-child{overflow-wrap:anywhere}
+      .hero-actions{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);width:100%}
+      .hero-actions .btn{min-width:0;padding-inline:12px;text-align:center}
+      .scroll-mark{display:none}
+      .facts{grid-template-columns:1fr}.fact{border-right:0;border-bottom:1px solid var(--line)}
+      .section{padding:64px 0}.intro{gap:40px}.program-grid,.days{grid-template-columns:1fr}
+      .program-card-feature{min-height:430px;align-items:flex-end}
+      .program-card-feature::before{background:linear-gradient(0deg,rgba(5,20,38,.99) 0%,rgba(5,20,38,.92) 54%,rgba(5,20,38,.2) 100%)}
+      .program-feature-copy{align-self:flex-end;max-width:none;padding:30px}
+      .program-card-feature h3{font-size:2.8rem}
+      .photo-band{display:block}.photo-band figure,.photo-band figure:first-child{height:280px}
+      .gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:170px}.gallery-grid>*{grid-column:span 1!important;grid-row:span 1!important}
+      .footer-inner{align-items:flex-start;flex-direction:column}.footer a{margin:0 14px 0 0}
+    }
+    @media(max-width:360px){
+      .hero-actions{grid-template-columns:1fr}
+      .hero-actions .btn{width:100%}
+    }
 
-        /* ===== Reversible scroll-bound motion, based strictly on V3 ===== */
-        .hero-bg{
-            transform:scale(1.04);
-            will-change:transform;
-        }
+    /* ===== Reversible scroll-bound motion, based strictly on V3 ===== */
+    .hero-bg{
+      transform:scale(1.04);
+      will-change:transform;
+    }
 
-        .reversible-motion,
-        .reversible-group > *{
-            --motion-x:0px;
-            --motion-y:0px;
-            --motion-scale:1;
-            --motion-opacity:1;
-            opacity:var(--motion-opacity);
-            transform:translate3d(var(--motion-x),var(--motion-y),0) scale(var(--motion-scale));
-            will-change:transform,opacity;
-        }
+    .reversible-motion,
+    .reversible-group > *{
+      --motion-x:0px;
+      --motion-y:0px;
+      --motion-scale:1;
+      --motion-opacity:1;
+      opacity:var(--motion-opacity);
+      transform:translate3d(var(--motion-x),var(--motion-y),0) scale(var(--motion-scale));
+      will-change:transform,opacity;
+    }
 
-        /* Direction definitions only; JavaScript converts them into live scroll progress. */
-        #photoBandMotion > *:nth-child(1){--from-x:-120;--from-y:0}
-        #photoBandMotion > *:nth-child(2){--from-x:0;--from-y:70}
-        #photoBandMotion > *:nth-child(3){--from-x:120;--from-y:0}
+    /* Direction definitions only; JavaScript converts them into live scroll progress. */
+    #photoBandMotion > *:nth-child(1){--from-x:-120;--from-y:0}
+    #photoBandMotion > *:nth-child(2){--from-x:0;--from-y:70}
+    #photoBandMotion > *:nth-child(3){--from-x:120;--from-y:0}
 
-        #daysMotion > *:nth-child(1){--from-x:-90;--from-y:0}
-        #daysMotion > *:nth-child(2){--from-x:90;--from-y:0}
+    #daysMotion > *:nth-child(1){--from-x:-90;--from-y:0}
+    #daysMotion > *:nth-child(2){--from-x:90;--from-y:0}
 
-        #galleryMotion > *:nth-child(1){--from-x:-100;--from-y:0}
-        #galleryMotion > *:nth-child(2){--from-x:95;--from-y:-20}
-        #galleryMotion > *:nth-child(3){--from-x:0;--from-y:-75}
-        #galleryMotion > *:nth-child(4){--from-x:-95;--from-y:20}
-        #galleryMotion > *:nth-child(5){--from-x:0;--from-y:80}
-        #galleryMotion > *:nth-child(6){--from-x:105;--from-y:10}
+    #galleryMotion > *:nth-child(1){--from-x:-100;--from-y:0}
+    #galleryMotion > *:nth-child(2){--from-x:95;--from-y:-20}
+    #galleryMotion > *:nth-child(3){--from-x:0;--from-y:-75}
+    #galleryMotion > *:nth-child(4){--from-x:-95;--from-y:20}
+    #galleryMotion > *:nth-child(5){--from-x:0;--from-y:80}
+    #galleryMotion > *:nth-child(6){--from-x:105;--from-y:10}
 
-        @media(max-width:650px){
-            .reversible-motion,
-            .reversible-group > *{
-                --motion-x:0px!important;
-                --motion-y:0px!important;
-                --motion-scale:1!important;
-                --motion-opacity:1!important;
-            }
-        }
+    @media(max-width:650px){
+      .reversible-motion,
+      .reversible-group > *{
+        --motion-x:0px!important;
+        --motion-y:0px!important;
+        --motion-scale:1!important;
+        --motion-opacity:1!important;
+      }
+    }
 
-        @media(prefers-reduced-motion:reduce){
-            .hero-bg{transform:none!important}
-            .reversible-motion,
-            .reversible-group > *{
-                --motion-x:0px!important;
-                --motion-y:0px!important;
-                --motion-scale:1!important;
-                --motion-opacity:1!important;
-            }
-        }
-
-
-        /* ===== Automatic image rotation while the page is idle ===== */
-        img[data-rotate-src]{
-            transition:opacity 1.15s ease;
-        }
-        img[data-rotate-src].is-changing{
-            opacity:0;
-        }
-        @media(prefers-reduced-motion:reduce){
-            img[data-rotate-src]{
-                transition:none!important;
-            }
-        }
-
-
-        /* ===== Final button interaction and footer alignment ===== */
-        .cta-actions{
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            gap:12px;
-            flex-wrap:wrap;
-        }
-        .cta-actions .btn{
-            height:48px;
-            margin:0;
-        }
-        .cta-actions #shareButton{
-            min-width:132px;
-        }
-        .insta-button{
-            width:54px;
-            min-width:54px;
-            height:48px;
-            padding:0;
-            display:inline-flex;
-            align-items:center;
-            justify-content:center;
-        }
-
-        /* One coherent push-out effect for every real button-like element */
-        .btn,
-        .pill{
-            position:relative;
-            overflow:hidden;
-            transform:translateZ(0);
-            transition:
-                    transform .22s cubic-bezier(.2,.8,.2,1),
-                    box-shadow .22s ease,
-                    background-color .22s ease,
-                    border-color .22s ease;
-        }
-        .btn::after,
-        .pill::after{
-            content:"";
-            position:absolute;
-            inset:-40%;
-            background:radial-gradient(circle,rgba(255,255,255,.30),transparent 58%);
-            opacity:0;
-            transform:scale(.55);
-            transition:opacity .28s ease,transform .28s ease;
-            pointer-events:none;
-        }
-        .btn:hover,
-        .btn:focus-visible,
-        .pill:hover,
-        .pill:focus-visible{
-            transform:translateY(-3px) scale(1.035);
-            box-shadow:0 14px 32px rgba(3,31,58,.24);
-        }
-        .btn:hover::after,
-        .btn:focus-visible::after,
-        .pill:hover::after,
-        .pill:focus-visible::after{
-            opacity:1;
-            transform:scale(1);
-        }
-        .btn:active,
-        .pill:active{
-            transform:translateY(0) scale(.985);
-            box-shadow:0 6px 14px rgba(3,31,58,.18);
-        }
-
-        .footer-grid{
-            display:grid;
-            grid-template-columns:1fr auto 1fr;
-            align-items:center;
-            gap:28px;
-        }
-        .footer-credit{
-            text-align:center;
-            color:#9fb4c6;
-            font-size:.78rem;
-            letter-spacing:.02em;
-            white-space:nowrap;
-            opacity:.86;
-        }
-        .footer-credit strong{
-            font-weight:600;
-            color:#b8c9d6;
-        }
-        .footer-links{
-            text-align:right;
-        }
-        .footer-links a{
-            margin-left:16px;
-        }
-
-        @media(max-width:780px){
-            .footer-grid{
-                grid-template-columns:1fr;
-                text-align:left;
-            }
-            .footer-credit{
-                text-align:left;
-                white-space:normal;
-            }
-            .footer-links{
-                text-align:left;
-            }
-            .footer-links a{
-                margin:0 14px 0 0;
-            }
-        }
-
-        @media(prefers-reduced-motion:reduce){
-            .btn,.pill{
-                transition:none!important;
-            }
-            .btn:hover,.btn:focus-visible,.pill:hover,.pill:focus-visible,
-            .btn:active,.pill:active{
-                transform:none!important;
-            }
-        }
+    @media(prefers-reduced-motion:reduce){
+      .hero-bg{transform:none!important}
+      .reversible-motion,
+      .reversible-group > *{
+        --motion-x:0px!important;
+        --motion-y:0px!important;
+        --motion-scale:1!important;
+        --motion-opacity:1!important;
+      }
+    }
 
 
-        /* ===== Static orientation map ===== */
-        .map-card{
-            position:relative;
-            min-height:420px;
-            overflow:hidden;
-            border-radius:24px;
-            background:#dfe8ee;
-            box-shadow:0 24px 60px rgba(3,31,58,.18);
-        }
-        .map-card > img{
-            display:block;
-            width:100%;
-            height:100%;
-            min-height:420px;
-            object-fit:cover;
-        }
-        .map-card-overlay{
-            position:absolute;
-            inset:auto 18px 18px 18px;
-            display:flex;
-            align-items:flex-end;
-            justify-content:space-between;
-            gap:20px;
-            padding:20px;
-            border:1px solid rgba(255,255,255,.32);
-            border-radius:18px;
-            background:rgba(3,31,58,.88);
-            color:#fff;
-            box-shadow:0 16px 38px rgba(3,31,58,.28);
-            backdrop-filter:blur(12px);
-        }
-        .map-card-overlay h3{
-            margin:.25rem 0 .4rem;
-        }
-        .map-card-overlay p{
-            margin:0;
-            max-width:520px;
-            color:#d8e5ee;
-        }
-        .map-card-overlay .btn{
-            flex:0 0 auto;
-            white-space:nowrap;
-        }
-        @media(max-width:800px){
-            .map-card-overlay{
-                position:relative;
-                inset:auto;
-                margin:-84px 14px 14px;
-                flex-direction:column;
-                align-items:flex-start;
-            }
-            .map-card-overlay .btn{
-                width:100%;
-                white-space:normal;
-            }
-        }
+    /* ===== Automatic image rotation while the page is idle ===== */
+    img[data-rotate-src]{
+      transition:opacity 1.15s ease;
+    }
+    img[data-rotate-src].is-changing{
+      opacity:0;
+    }
+    @media(prefers-reduced-motion:reduce){
+      img[data-rotate-src]{
+        transition:none!important;
+      }
+    }
 
-    </style>
+
+    /* ===== Final button interaction and footer alignment ===== */
+    .cta-actions{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .cta-actions .btn{
+      height:48px;
+      margin:0;
+    }
+    .cta-actions #shareButton{
+      min-width:132px;
+    }
+    .insta-button{
+      width:54px;
+      min-width:54px;
+      height:48px;
+      padding:0;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    /* One coherent push-out effect for every real button-like element */
+    .btn,
+    .pill{
+      position:relative;
+      overflow:hidden;
+      transform:translateZ(0);
+      transition:
+              transform .22s cubic-bezier(.2,.8,.2,1),
+              box-shadow .22s ease,
+              background-color .22s ease,
+              border-color .22s ease;
+    }
+    .btn::after,
+    .pill::after{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background:radial-gradient(circle,rgba(255,255,255,.30),transparent 58%);
+      opacity:0;
+      transform:scale(.55);
+      transition:opacity .28s ease,transform .28s ease;
+      pointer-events:none;
+    }
+    .btn:hover,
+    .btn:focus-visible,
+    .pill:hover,
+    .pill:focus-visible{
+      transform:translateY(-3px) scale(1.035);
+      box-shadow:0 14px 32px rgba(3,31,58,.24);
+    }
+    .btn:hover::after,
+    .btn:focus-visible::after,
+    .pill:hover::after,
+    .pill:focus-visible::after{
+      opacity:1;
+      transform:scale(1);
+    }
+    .btn:active,
+    .pill:active{
+      transform:translateY(0) scale(.985);
+      box-shadow:0 6px 14px rgba(3,31,58,.18);
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      gap:28px;
+    }
+    .footer-credit{
+      text-align:center;
+      color:#9fb4c6;
+      font-size:.78rem;
+      letter-spacing:.02em;
+      white-space:nowrap;
+      opacity:.86;
+    }
+    .footer-credit strong{
+      font-weight:600;
+      color:#b8c9d6;
+    }
+    .footer-links{
+      text-align:right;
+    }
+    .footer-links a{
+      margin-left:16px;
+    }
+
+    @media(max-width:780px){
+      .footer-grid{
+        grid-template-columns:1fr;
+        text-align:left;
+      }
+      .footer-credit{
+        text-align:left;
+        white-space:normal;
+      }
+      .footer-links{
+        text-align:left;
+      }
+      .footer-links a{
+        margin:0 14px 0 0;
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      .btn,.pill{
+        transition:none!important;
+      }
+      .btn:hover,.btn:focus-visible,.pill:hover,.pill:focus-visible,
+      .btn:active,.pill:active{
+        transform:none!important;
+      }
+    }
+
+
+    /* ===== Static orientation map ===== */
+    .map-card{
+      position:relative;
+      min-height:420px;
+      overflow:hidden;
+      border-radius:24px;
+      background:#dfe8ee;
+      box-shadow:0 24px 60px rgba(3,31,58,.18);
+    }
+    .map-card > img{
+      display:block;
+      width:100%;
+      height:100%;
+      min-height:420px;
+      object-fit:cover;
+    }
+    .map-card-overlay{
+      position:absolute;
+      inset:auto 18px 18px 18px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:20px;
+      padding:20px;
+      border:1px solid rgba(255,255,255,.32);
+      border-radius:18px;
+      background:rgba(3,31,58,.88);
+      color:#fff;
+      box-shadow:0 16px 38px rgba(3,31,58,.28);
+      backdrop-filter:blur(12px);
+    }
+    .map-card-overlay h3{
+      margin:.25rem 0 .4rem;
+    }
+    .map-card-overlay p{
+      margin:0;
+      max-width:520px;
+      color:#d8e5ee;
+    }
+    .map-card-overlay .btn{
+      flex:0 0 auto;
+      white-space:nowrap;
+    }
+    @media(max-width:800px){
+      .map-card-overlay{
+        position:relative;
+        inset:auto;
+        margin:-84px 14px 14px;
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .map-card-overlay .btn{
+        width:100%;
+        white-space:normal;
+      }
+    }
+
+  </style>
 </head>
 <body>
 <header class="top">
-    <div class="wrap top-inner">
-        <div class="brand">EDSH <span>· Backnang-Heiningen</span></div>
-        <nav class="top-links"><a href="#programm">Programm</a><a href="#anfahrt">Anfahrt</a><a class="pill" href="https://www.instagram.com/edsh/" target="_blank" rel="noopener">Instagram</a></nav>
-    </div>
+  <div class="wrap top-inner">
+    <div class="brand">EDSH</div>
+    <nav class="top-links"><a href="#programm">Programm</a><a href="#anfahrt">Anfahrt</a><a class="pill" href="https://www.instagram.com/edsh.de/" target="_blank" rel="noopener">Instagram</a></nav>
+  </div>
 </header>
 
 <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="wrap hero-content">
-        <div class="kicker">LSV Backnang-Heiningen lädt ein:</div>
-        <h1>FLUGPLATZ<br>FEST 2026</h1>
-        <div class="date-ribbon"><span class="slate">2</span><span class="slate">2</span>.–<span class="slate">2</span><span class="slate">3</span>. <span class="slate">A</span><span class="slate">U</span><span class="slate">G</span><span class="slate">U</span><span class="slate">S</span><span class="slate">T</span></div>
-        <div class="hero-sub"><strong>Jeweils ab 12 Uhr</strong><span>·</span><span>Flugplatz EDSH, Oberwiese 1, 71522 Backnang</span></div>
-        <div class="hero-actions">
-            <a class="btn btn-red" href="#programm">Programm entdecken</a>
-            <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Flugplatz+EDSH+Oberwiese+1+71522+Backnang" target="_blank" rel="noopener">Route planen</a>
-        </div>
+  <div class="hero-bg"></div>
+  <div class="wrap hero-content">
+    <div class="hero-title-block">
+      <div class="anniversary-lockup" aria-label="75 Jahre LSV Backnang-Heiningen, 1951 bis 2026">
+        <span class="anniversary-75" aria-hidden="true">75</span>
+        <span class="anniversary-rule" aria-hidden="true"></span>
+        <span class="anniversary-copy" aria-hidden="true"><strong>JAHRE</strong><span>1951 — 2026</span></span>
+      </div>
+      <div class="kicker">LSV Backnang-Heiningen lädt ein:</div>
+      <h1>FLUGPLATZ<br>FEST 2026</h1>
     </div>
-    <div class="scroll-mark">Scroll to take off ↓</div>
+    <div class="date-ribbon" aria-label="22. bis 23. August 2026">
+      <span class="slate" aria-hidden="true">2</span><span class="slate" aria-hidden="true">2</span><span aria-hidden="true">.–</span><span class="slate" aria-hidden="true">2</span><span class="slate" aria-hidden="true">3</span><span aria-hidden="true">.</span><span class="date-gap" aria-hidden="true"></span><span class="slate" aria-hidden="true">A</span><span class="slate" aria-hidden="true">U</span><span class="slate" aria-hidden="true">G</span><span class="slate" aria-hidden="true">U</span><span class="slate" aria-hidden="true">S</span><span class="slate" aria-hidden="true">T</span>
+    </div>
+    <div class="hero-sub"><strong>Jeweils ab 12 Uhr</strong><span>·</span><span>Flugplatz EDSH, Oberwiese 1, 71522 Backnang</span></div>
+    <div class="hero-actions">
+      <a class="btn btn-red" href="#programm">Programm entdecken</a>
+      <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Flugplatz+EDSH+Oberwiese+1+71522+Backnang" target="_blank" rel="noopener">Route planen</a>
+    </div>
+  </div>
+  <div class="scroll-mark">Scroll to take off ↓</div>
 </section>
 
 <section class="fact-strip">
-    <div class="wrap facts">
-        <div class="fact"><b>22.–23.08.</b><span>Zwei Veranstaltungstage</span></div>
-        <div class="fact"><b>ab 12:00</b><span>Flugplatzfest an beiden Tagen</span></div>
-        <div class="fact"><b>jede Stunde</b><span>Kunstflugprogramm</span></div>
-        <div class="fact"><b>ab 11:00</b><span>Frühschoppen am Sonntag</span></div>
-    </div>
+  <div class="wrap facts">
+    <div class="fact"><b>22.–23.08.</b><span>Zwei Veranstaltungstage</span></div>
+    <div class="fact"><b>ab 12:00</b><span>Flugplatzfest an beiden Tagen</span></div>
+    <div class="fact"><b>jede Stunde</b><span>Kunstflugprogramm</span></div>
+    <div class="fact"><b>ab 11:00</b><span>Frühschoppen am Sonntag</span></div>
+  </div>
 </section>
 
 <section class="section">
-    <div class="wrap intro">
-        <div class="poster-frame reversible-motion" id="flyerMotion" data-from-x="-130"><img src="/assets/events/flugplatzfest-2026/social-feed-ohne-www-sauber.png" alt="Flyer zum Flugplatzfest 2026"></div>
-        <div class="story-copy reversible-motion" id="copyMotion" data-from-x="130">
-            <div class="eyebrow">Mehr als ein Flugtag</div>
-            <h2>Zwei Tage ganz nah an der Fliegerei.</h2>
-            <p class="lead">Das Flugplatzfest verbindet spektakulären Kunstflug, echten Flugbetrieb und die besondere Atmosphäre eines Sommerwochenendes am Flugplatz.</p>
-            <p>Flugzeuge aus nächster Nähe, Starts und Landungen, Rundflüge über die Region und ein Programm für Luftfahrtfans, Familien und spontane Besucher. Am Samstagabend wird der Hangar zur Party-Location, am Sonntag beginnt der Tag entspannt mit Blasmusik und Weißwurstfrühstück.</p>
-            <div class="signature">Flugplatz-Atmosphäre, Kunstflug und ein besonderes Wochenende am EDSH.</div>
-        </div>
+  <div class="wrap intro">
+    <div class="poster-frame reversible-motion" id="flyerMotion" data-from-x="-130"><img src="/assets/events/flugplatzfest-2026/social-feed-ohne-www-sauber.png" alt="Flyer zum Flugplatzfest 2026"></div>
+    <div class="story-copy reversible-motion" id="copyMotion" data-from-x="130">
+      <div class="eyebrow">Mehr als ein Flugtag</div>
+      <h2>Zwei Tage ganz nah an der Fliegerei.</h2>
+      <p class="lead">Das Flugplatzfest verbindet spektakulären Kunstflug, echten Flugbetrieb und die besondere Atmosphäre eines Sommerwochenendes am Flugplatz.</p>
+      <p>Flugzeuge aus nächster Nähe, Starts und Landungen, Rundflüge über die Region und ein Programm für Luftfahrtfans, Familien und spontane Besucher. Am Samstagabend wird der Hangar zur Party-Location, am Sonntag beginnt der Tag entspannt mit Blasmusik und Weißwurstfrühstück.</p>
+      <div class="signature">Flugplatz-Atmosphäre, Kunstflug und ein besonderes Wochenende am EDSH.</div>
     </div>
+  </div>
 </section>
 
 <section class="section program" id="programm">
-    <div class="wrap">
-        <div class="eyebrow" style="color:#79dcff">Programm</div>
-        <h2>Was euch erwartet</h2>
-        <p class="lead">Kompakt, abwechslungsreich und direkt am Fluggeschehen.</p>
-        <div class="program-grid">
-            <article class="program-card"><span class="nr">01</span><h3>Kunstflug</h3><p>Vorführungen jede volle Stunde – mit Rauch, Präzision und freiem Blick vom Flugplatzgelände.</p></article>
-            <article class="program-card"><span class="nr">02</span><h3>Rundflüge</h3><p>Die Region aus einer neuen Perspektive erleben. Verfügbarkeit und Details gibt es vor Ort.</p></article>
-            <article class="program-card"><span class="nr">03</span><h3>Fly-In</h3><p>Gastflugzeuge, Starts, Landungen und echtes Flugplatzleben aus nächster Nähe.</p></article>
-            <article class="program-card"><span class="nr">04</span><h3>Hangarparty</h3><p>Am Samstagabend: DJ, Musik und eine Location, die es so nicht überall gibt.</p></article>
-            <article class="program-card"><span class="nr">05</span><h3>Frühschoppen</h3><p>Sonntag ab 11 Uhr mit Blasmusik und Weißwurstfrühstück.</p></article>
-            <article class="program-card"><span class="nr">06</span><h3>Essen & Getränke</h3><p>Gastronomie an beiden Tagen für einen entspannten Aufenthalt am Flugplatz.</p></article>
+  <div class="wrap">
+    <div class="eyebrow" style="color:#79dcff">Programm</div>
+    <h2>Was euch erwartet</h2>
+    <p class="lead">Kompakt, abwechslungsreich und direkt am Fluggeschehen.</p>
+    <div class="program-grid">
+      <article class="program-card"><span class="nr">01</span><h3>Kunstflug</h3><p>Vorführungen jede volle Stunde – mit Rauch, Präzision und freiem Blick vom Flugplatzgelände.</p></article>
+      <article class="program-card"><span class="nr">02</span><h3>Rundflüge</h3><p>Die Region aus einer neuen Perspektive erleben. Verfügbarkeit und Details gibt es vor Ort.</p></article>
+      <article class="program-card"><span class="nr">03</span><h3>Fly-In</h3><p>Gastflugzeuge, Starts, Landungen und echtes Flugplatzleben aus nächster Nähe.</p></article>
+      <article class="program-card"><span class="nr">04</span><h3>Hangarparty</h3><p>Am Samstagabend: DJ, Musik und eine Location, die es so nicht überall gibt.</p></article>
+      <article class="program-card"><span class="nr">05</span><h3>Frühschoppen</h3><p>Sonntag ab 11 Uhr mit Blasmusik und Weißwurstfrühstück.</p></article>
+      <article class="program-card"><span class="nr">06</span><h3>Essen & Getränke</h3><p>Gastronomie an beiden Tagen für einen entspannten Aufenthalt am Flugplatz.</p></article>
+      <article class="program-card program-card-feature">
+        <img class="program-feature-image" src="/assets/events/flugplatzfest-2026/ballongluehen-highlight.webp" alt="Stimmungsvolle KI-Illustration eines Ballonglühens am Flugplatz">
+        <span class="nr">07</span>
+        <div class="program-feature-copy">
+          <span class="program-feature-tag">Abendhighlight · wetterabhängig</span>
+          <h3>Ballonglühen</h3>
+          <p>Wenn die Dämmerung über den Flugplatz zieht, bringen die Brenner die Ballonhüllen zum Leuchten – ein besonderes Erlebnis für die ganze Familie.</p>
         </div>
+      </article>
     </div>
+  </div>
 </section>
 
 <div class="photo-band reversible-group" id="photoBandMotion">
-    <figure><img src="/assets/events/flugplatzfest-2026/kunstflug-2.jpg" alt="Kunstflug mit Rauchfahne" data-rotate-src="/assets/events/flugplatzfest-2026/wechsel-kunstflug-hautnah.jpg" data-rotate-alt="Kunstflugzeug mit Rauchfahne vor blauem Himmel"><figcaption>Kunstflug hautnah</figcaption></figure>
-    <figure><img src="/assets/events/flugplatzfest-2026/helikopter.jpg" alt="Helikopter am Flugplatz" data-rotate-src="/assets/events/flugplatzfest-2026/wechsel-flugbetrieb.jpg" data-rotate-alt="Helikopter im Flug über dem Flugplatz"><figcaption>Flugbetrieb</figcaption></figure>
-    <figure><img src="/assets/events/flugplatzfest-2026/team.jpg" alt="Team am Flugplatz" data-rotate-src="/assets/events/flugplatzfest-2026/wechsel-atmosphaere.jpg" data-rotate-alt="Flugzeuge auf dem Flugplatzgelände"><figcaption>Flugplatz-Atmosphäre</figcaption></figure>
+  <figure><img src="/assets/events/flugplatzfest-2026/kunstflug-2.jpg" alt="Kunstflug mit Rauchfahne" data-rotate-src="/assets/events/flugplatzfest-2026/wechsel-kunstflug-hautnah.jpg" data-rotate-alt="Kunstflugzeug mit Rauchfahne vor blauem Himmel"><figcaption>Kunstflug hautnah</figcaption></figure>
+  <figure><img src="/assets/events/flugplatzfest-2026/helikopter.jpg" alt="Helikopter am Flugplatz" data-rotate-src="/assets/events/flugplatzfest-2026/wechsel-flugbetrieb.jpg" data-rotate-alt="Helikopter im Flug über dem Flugplatz"><figcaption>Flugbetrieb</figcaption></figure>
+  <figure><img src="/assets/events/flugplatzfest-2026/team.jpg" alt="Team am Flugplatz" data-rotate-src="/assets/events/flugplatzfest-2026/wechsel-atmosphaere.jpg" data-rotate-alt="Flugzeuge auf dem Flugplatzgelände"><figcaption>Flugplatz-Atmosphäre</figcaption></figure>
 </div>
 
 <section class="section day-section">
-    <div class="wrap">
-        <div class="eyebrow">Das Wochenende</div>
-        <h2>Zwei Tage. Zwei Stimmungen.</h2>
-        <div class="days reversible-group" id="daysMotion">
-            <article class="day"><img src="/assets/events/flugplatzfest-2026/kunstflug-3.jpg" alt="Kunstflug am Samstag" data-rotate-src="/assets/events/flugplatzfest-2026/wechsel-samstag.jpg" data-rotate-alt="Kunstflugzeug mit Rauchspur"><div class="day-copy"><div class="day-label">SA</div><h3>Flugprogramm & Hangarparty</h3><p>Ab 12 Uhr Flugplatzfest mit Kunstflug, Rundflügen und Flugbetrieb. Anschließend Hangarparty mit DJ.</p></div></article>
-            <article class="day"><img src="/assets/events/flugplatzfest-2026/sunset.jpg" alt="Flugplatz im Abendlicht" data-rotate-src="/assets/events/flugplatzfest-2026/wechsel-sonntag.jpg" data-rotate-alt="Flugzeuge im warmen Abendlicht"><div class="day-copy"><div class="day-label">SO</div><h3>Frühschoppen & Flugplatzfest</h3><p>Ab 11 Uhr Blasmusik und Weißwurstfrühstück. Ab 12 Uhr startet wieder das vollständige Flugplatzprogramm.</p></div></article>
-        </div>
+  <div class="wrap">
+    <div class="eyebrow">Das Wochenende</div>
+    <h2>Zwei Tage. Zwei Stimmungen.</h2>
+    <div class="days reversible-group" id="daysMotion">
+      <article class="day"><img src="/assets/events/flugplatzfest-2026/kunstflug-3.jpg" alt="Kunstflug am Samstag" data-rotate-src="/assets/events/flugplatzfest-2026/wechsel-samstag.jpg" data-rotate-alt="Kunstflugzeug mit Rauchspur"><div class="day-copy"><div class="day-label">SA</div><h3>Flugprogramm & Hangarparty</h3><p>Ab 12 Uhr Flugplatzfest mit Kunstflug, Rundflügen und Flugbetrieb. Anschließend Hangarparty mit DJ.</p></div></article>
+      <article class="day"><img src="/assets/events/flugplatzfest-2026/sunset.jpg" alt="Flugplatz im Abendlicht" data-rotate-src="/assets/events/flugplatzfest-2026/wechsel-sonntag.jpg" data-rotate-alt="Flugzeuge im warmen Abendlicht"><div class="day-copy"><div class="day-label">SO</div><h3>Frühschoppen & Flugplatzfest</h3><p>Ab 11 Uhr Blasmusik und Weißwurstfrühstück. Ab 12 Uhr startet wieder das vollständige Flugplatzprogramm.</p></div></article>
     </div>
+  </div>
 </section>
 
 <section class="section gallery">
-    <div class="wrap">
-        <div class="eyebrow">Impressionen</div>
-        <h2>So fühlt sich EDSH an.</h2>
-        <p class="lead">Echte Eindrücke vom vergangenen Flugplatzfest am EDSH.</p>
-        <div class="gallery-grid reversible-group" id="galleryMotion">
-            <img class="g1" src="/assets/events/flugplatzfest-2026/flugplatz-1.jpg" alt="Flugzeug im Sonnenlicht" data-rotate-src="/assets/events/flugplatzfest-2026/wechsel-galerie-1.jpg" data-rotate-alt="Flugzeug im Gegenlicht">
-            <img class="g2" src="/assets/events/flugplatzfest-2026/plane-ground.jpg" alt="Flugzeug am Boden" data-rotate-src="/assets/events/flugplatzfest-2026/wechsel-galerie-2.jpg" data-rotate-alt="Historisches Flugzeug auf dem Flugfeld">
-            <img class="g3" src="/assets/events/flugplatzfest-2026/kunstflug-1.jpg" alt="Kunstflug über dem Flugplatz" data-rotate-src="/assets/events/flugplatzfest-2026/wechsel-galerie-3.jpg" data-rotate-alt="Kunstflugzeug mit senkrechter Rauchspur">
-            <img class="g4" src="/assets/events/flugplatzfest-2026/cockpit.jpg" alt="Cockpit eines Flugzeugs" data-rotate-src="/assets/events/flugplatzfest-2026/wechsel-galerie-4.jpg" data-rotate-alt="Pilot am Kunstflugzeug">
-            <img class="g5" src="/assets/events/flugplatzfest-2026/flugplatz-2.jpg" alt="Flugplatzszene" data-rotate-src="/assets/events/flugplatzfest-2026/wechsel-galerie-5.jpg" data-rotate-alt="Menschen und Flugzeug auf dem Flugplatz">
-            <img class="g6" src="/assets/events/flugplatzfest-2026/flugplatz-3.jpg" alt="Flugzeuge am Flugplatz" data-rotate-src="/assets/events/flugplatzfest-2026/wechsel-galerie-6.jpg" data-rotate-alt="Mehrere Flugzeuge auf dem Vorfeld">
-        </div>
+  <div class="wrap">
+    <div class="eyebrow">Impressionen</div>
+    <h2>So fühlt sich EDSH an.</h2>
+    <p class="lead">Echte Eindrücke vom vergangenen Flugplatzfest am EDSH.</p>
+    <div class="gallery-grid reversible-group" id="galleryMotion">
+      <img class="g1" src="/assets/events/flugplatzfest-2026/flugplatz-1.jpg" alt="Flugzeug im Sonnenlicht" data-rotate-src="/assets/events/flugplatzfest-2026/wechsel-galerie-1.jpg" data-rotate-alt="Flugzeug im Gegenlicht">
+      <img class="g2" src="/assets/events/flugplatzfest-2026/plane-ground.jpg" alt="Flugzeug am Boden" data-rotate-src="/assets/events/flugplatzfest-2026/wechsel-galerie-2.jpg" data-rotate-alt="Historisches Flugzeug auf dem Flugfeld">
+      <img class="g3" src="/assets/events/flugplatzfest-2026/kunstflug-1.jpg" alt="Kunstflug über dem Flugplatz" data-rotate-src="/assets/events/flugplatzfest-2026/wechsel-galerie-3.jpg" data-rotate-alt="Kunstflugzeug mit senkrechter Rauchspur">
+      <img class="g4" src="/assets/events/flugplatzfest-2026/cockpit.jpg" alt="Cockpit eines Flugzeugs" data-rotate-src="/assets/events/flugplatzfest-2026/wechsel-galerie-4.jpg" data-rotate-alt="Pilot am Kunstflugzeug">
+      <img class="g5" src="/assets/events/flugplatzfest-2026/flugplatz-2.jpg" alt="Flugplatzszene" data-rotate-src="/assets/events/flugplatzfest-2026/wechsel-galerie-5.jpg" data-rotate-alt="Menschen und Flugzeug auf dem Flugplatz">
+      <img class="g6" src="/assets/events/flugplatzfest-2026/flugplatz-3.jpg" alt="Flugzeuge am Flugplatz" data-rotate-src="/assets/events/flugplatzfest-2026/wechsel-galerie-6.jpg" data-rotate-alt="Mehrere Flugzeuge auf dem Vorfeld">
     </div>
+  </div>
 </section>
 
 <section class="section info" id="anfahrt">
-    <div class="wrap info-grid">
-        <div class="info-card">
-            <div class="eyebrow" style="color:#73d7ff">Anfahrt & Infos</div>
-            <h2>Flugplatz EDSH</h2>
-            <p><strong>Oberwiese 1<br>71522 Backnang</strong></p>
-            <p>Das Flugplatzfest beginnt am Samstag und Sonntag jeweils um 12 Uhr. Der Frühschoppen startet am Sonntag bereits um 11 Uhr.</p>
-            <a class="btn btn-ghost" href="flugplatzfest-2026.ics" download>Zum Kalender hinzufügen</a>
-
-            <h3 style="margin-top: 2rem;">Infos für Piloten</h3>
-            <p>Besuche uns gerne auch per Flugzeug: es gelten die veröffentlichten amtlichen Informationen, sowie die Hinweise
-                auf unserer <a href="flugplatz/piloteninfo.html">Anflugseite</a>. Während unseres Flugbetriebs gilt besonders:
-                Augen auf, Ohren auf, Rausgucken und funken funken funken! PPR gilt weiterhin.</p>
-        </div>
-
-        <div class="map-card">
-            <img src="/assets/events/flugplatzfest-2026/anfahrt-edsh-karte.png" alt="Stilisierte Anfahrtskarte zum Flugplatz EDSH bei Backnang-Heiningen">
-            <div class="map-card-overlay">
-                <div>
-                    <div class="eyebrow">Direkt zur Navigation</div>
-                    <h3>Route zum Flugplatz öffnen</h3>
-                    <p>Die Karte dient zur Orientierung. Die genaue Navigation öffnet sich über Google Maps.</p>
-                </div>
-                <a class="btn btn-red" href="https://www.google.com/maps/dir/?api=1&destination=48.919724,9.455278&destination_place_id=Flugplatz+EDSH" target="_blank" rel="noopener noreferrer">Route zum Flugplatz öffnen</a>
-            </div>
-        </div>
+  <div class="wrap info-grid">
+    <div class="info-card">
+      <div class="eyebrow" style="color:#73d7ff">Anfahrt & Infos</div>
+      <h2>Flugplatz EDSH</h2>
+      <p><strong>Oberwiese 1<br>71522 Backnang</strong></p>
+      <p>Das Flugplatzfest beginnt am Samstag und Sonntag jeweils um 12 Uhr. Der Frühschoppen startet am Sonntag bereits um 11 Uhr.</p>
+      <a class="btn btn-ghost" href="flugplatzfest-2026.ics" download>Zum Kalender hinzufügen</a>
+      <div class="pilot-info">
+        <h3>Infos für Piloten</h3>
+        <p>Besucht uns gerne auch mit dem eigenen Flugzeug. Es gelten die veröffentlichten amtlichen Informationen und die Hinweise auf unserer <a href="https://www.edsh.de/flugplatz/piloteninfo.html" target="_blank" rel="noopener">Anflugseite</a>. Während unseres Flugbetriebs gilt besonders: Augen auf, Ohren auf, rausschauen und funken, funken, funken. PPR gilt weiterhin.</p>
+      </div>
     </div>
+
+    <div class="map-card">
+      <img src="/assets/events/flugplatzfest-2026/anfahrt-edsh-karte.png" alt="Stilisierte Anfahrtskarte zum Flugplatz EDSH bei Backnang-Heiningen">
+      <div class="map-card-overlay">
+        <div>
+          <div class="eyebrow">Direkt zur Navigation</div>
+          <h3>Route zum Flugplatz öffnen</h3>
+          <p>Die Karte dient zur Orientierung. Die genaue Navigation öffnet sich über Google Maps.</p>
+        </div>
+        <a class="btn btn-red" href="https://www.google.com/maps/dir/?api=1&amp;destination=48.919724,9.455278&amp;destination_place_id=Flugplatz+EDSH" target="_blank" rel="noopener noreferrer">Route zum Flugplatz öffnen</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="section faq">
-    <div class="wrap" style="max-width:900px">
-        <div class="eyebrow">Kurz beantwortet</div>
-        <h2>Gut zu wissen</h2>
-        <details><summary>Wann beginnt das Flugplatzfest?</summary><p>Samstag und Sonntag jeweils ab 12 Uhr. Der Frühschoppen beginnt am Sonntag bereits um 11 Uhr.</p></details>
-        <details><summary>Ist der Flugbetrieb wetterabhängig?</summary><p>Ja. Rundflüge und Kunstflug sind von Wetter und Flugbetrieb abhängig. Aktuelle Hinweise veröffentlicht der Verein über seine offiziellen Kanäle.</p></details>
-        <details><summary>Gibt es Essen und Getränke?</summary><p>Ja, an beiden Tagen. Am Sonntag ergänzt ein Weißwurstfrühstück den Frühschoppen.</p></details>
-        <details><summary>Muss man sich anmelden?</summary><p>Für den Besuch ist keine Anmeldung vorgesehen. Ihr könnt während der Veranstaltungszeiten vorbeikommen. Für Rundflüge könnt Ihr Euch vor Ort einen Platz sichern, eine Anmeldung an den Tagen vorher ist nicht nötig. Piloten, die mit dem eigenen Flugzeug anreisen, sind gerne willkommen: es gelten die veröffentlichten Bedingungen, u.a. PPR.</p></details>
-    </div>
+  <div class="wrap" style="max-width:900px">
+    <div class="eyebrow">Kurz beantwortet</div>
+    <h2>Gut zu wissen</h2>
+    <details><summary>Wann beginnt das Flugplatzfest?</summary><p>Samstag und Sonntag jeweils ab 12 Uhr. Der Frühschoppen beginnt am Sonntag bereits um 11 Uhr.</p></details>
+    <details><summary>Ist der Flugbetrieb wetterabhängig?</summary><p>Ja. Rundflüge und Kunstflug sind von Wetter und Flugbetrieb abhängig. Aktuelle Hinweise veröffentlicht der Verein über seine offiziellen Kanäle.</p></details>
+    <details><summary>Müssen Rundflüge vorab gebucht oder reserviert werden?</summary><p>Nein. Meldet euch während des Flugplatzfests einfach am Rundflug-Stand. Wenn ein Platz verfügbar ist, kann es schon kurz darauf losgehen. Bei größerem Andrang kann es zu Wartezeiten kommen. Rundflüge sind wetter-, betriebs- und kapazitätsabhängig.</p></details>
+    <details><summary>Was ist Ballonglühen?</summary><p>Beim Ballonglühen werden Heißluftballons aufgestellt und bleiben am Boden. In der Dämmerung bringen die Flammen der Brenner die Ballonhüllen von innen zum Leuchten – ein besonderes Schauspiel nach Sonnenuntergang. Das Ballonglühen ist wetterabhängig.</p></details>
+    <details><summary>Gibt es Essen und Getränke?</summary><p>Ja, an beiden Tagen. Am Sonntag ergänzt ein Weißwurstfrühstück den Frühschoppen.</p></details>
+    <details><summary>Muss man sich anmelden?</summary><p>Für den normalen Besuch ist keine Anmeldung vorgesehen. Ihr könnt während der Veranstaltungszeiten vorbeikommen. Piloten, die mit dem eigenen Flugzeug anreisen, beachten bitte die veröffentlichten Bedingungen einschließlich PPR und die Hinweise im Bereich „Anfahrt &amp; Infos“.</p></details>
+  </div>
 </section>
 
 <section class="cta">
-    <div class="wrap">
-        <div class="eyebrow" style="color:#fff">22.–23. August 2026</div>
-        <h2>Termin vormerken. Freunde mitbringen. Flugplatz erleben.</h2>
-        <p>Teilt die Seite direkt per WhatsApp oder öffnet die Route zum Flugplatz.</p>
-        <div class="cta-actions">
-            <a class="btn btn-ghost" id="shareButton" href="#">Seite teilen</a>
-            <a class="btn btn-ghost insta-button" href="https://www.instagram.com/edsh/" target="_blank" rel="noopener noreferrer" aria-label="Instagram öffnen" title="Instagram öffnen">
-                <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-                    <rect x="3" y="3" width="18" height="18" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/>
-                    <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
-                    <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
-                </svg>
-            </a>
-        </div>
+  <div class="wrap">
+    <div class="eyebrow" style="color:#fff">22.–23. August 2026</div>
+    <h2>Termin vormerken. Freunde mitbringen. Flugplatz erleben.</h2>
+    <p>Teilt die Seite direkt per WhatsApp oder öffnet die Route zum Flugplatz.</p>
+    <div class="cta-actions">
+      <a class="btn btn-ghost" id="shareButton" href="#">Seite teilen</a>
+      <a class="btn btn-ghost insta-button" href="https://www.instagram.com/edsh.de/" target="_blank" rel="noopener noreferrer" aria-label="Instagram öffnen" title="Instagram öffnen">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
+        </svg>
+      </a>
     </div>
+  </div>
 </section>
 
 <footer class="footer">
-    <div class="wrap footer-inner footer-grid">
-        <div class="footer-identity"><strong>LSV Backnang-Heiningen e. V.</strong><br><span>Flugplatz EDSH</span></div>
-        <div class="footer-credit">Design &amp; Umsetzung · <strong>E. Knödler – OMM</strong><br>Fonts „Oswald" © Oswald Project Authors, <a href="/assets/fonts/OFL-Oswald.txt">OFL 1.1</a><br>„Jost" © Jost Project Authors, <a href="/assets/fonts/OFL-Jost.txt">OFL 1.1</a></div>
-        <div class="footer-links"><a href="https://www.edsh.de/home.html" target="_blank" rel="noopener">edsh.de</a><a href="https://www.edsh.de/impressum.html" target="_blank" rel="noopener">Impressum</a><a href="https://www.edsh.de/datenschutzerklaerung.html" target="_blank" rel="noopener">Datenschutz</a></div>
-    </div>
+  <div class="wrap footer-inner footer-grid">
+    <div class="footer-identity"><strong>LSV Backnang-Heiningen e. V.</strong><br><span>Flugplatz EDSH</span></div>
+    <div class="footer-credit">Design &amp; Umsetzung · <strong>E. Knödler – OMM</strong></div>
+    <div class="footer-links"><a href="https://www.edsh.de/" target="_blank" rel="noopener">edsh.de</a><a href="https://www.edsh.de/impressum.html" target="_blank" rel="noopener">Impressum</a><a href="https://www.edsh.de/datenschutzerklaerung.html" target="_blank" rel="noopener">Datenschutz</a></div>
+  </div>
 </footer>
 <script>
-    const share={title:"Flugplatzfest 2026 – EDSH",text:"Flugplatzfest am 22. und 23. August 2026 am Flugplatz EDSH.",url:location.href};
-    document.getElementById("shareButton").addEventListener("click",async e=>{
-        e.preventDefault();
-        if(navigator.share){try{await navigator.share(share)}catch(_){}}
-        else{window.open("https://wa.me/?text="+encodeURIComponent(share.text+" "+share.url),"_blank")}
-    });
+  const share={title:"Flugplatzfest 2026 – EDSH",text:"Flugplatzfest am 22. und 23. August 2026 am Flugplatz EDSH.",url:location.href};
+  document.getElementById("shareButton").addEventListener("click",async e=>{
+    e.preventDefault();
+    if(navigator.share){try{await navigator.share(share)}catch(_){}}
+    else{window.open("https://wa.me/?text="+encodeURIComponent(share.text+" "+share.url),"_blank")}
+  });
 </script>
 
 <script>
-    (() => {
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
-        const ease = value => 1 - Math.pow(1 - value, 3);
+  (() => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
+    const ease = value => 1 - Math.pow(1 - value, 3);
 
-        const hero = document.querySelector('.hero');
-        const heroBg = document.querySelector('.hero-bg');
+    const hero = document.querySelector('.hero');
+    const heroBg = document.querySelector('.hero-bg');
 
-        const singleItems = [
-            document.getElementById('flyerMotion'),
-            document.getElementById('copyMotion')
-        ].filter(Boolean);
+    const singleItems = [
+      document.getElementById('flyerMotion'),
+      document.getElementById('copyMotion')
+    ].filter(Boolean);
 
-        const groups = [
-            document.getElementById('photoBandMotion'),
-            document.getElementById('daysMotion'),
-            document.getElementById('galleryMotion')
-        ].filter(Boolean);
+    const groups = [
+      document.getElementById('photoBandMotion'),
+      document.getElementById('daysMotion'),
+      document.getElementById('galleryMotion')
+    ].filter(Boolean);
 
-        function sectionProgress(element) {
-            const rect = element.getBoundingClientRect();
+    function sectionProgress(element) {
+      const rect = element.getBoundingClientRect();
 
-            /*
-              This value is tied directly to the element's current position.
-              Scrolling down increases it; scrolling back up decreases it.
-              Therefore every movement reverses automatically.
-            */
-            const start = window.innerHeight * 0.90;
-            const distance = window.innerHeight * 0.62 + rect.height * 0.30;
-            return clamp((start - rect.top) / distance);
-        }
+      /*
+        This value is tied directly to the element's current position.
+        Scrolling down increases it; scrolling back up decreases it.
+        Therefore every movement reverses automatically.
+      */
+      const start = window.innerHeight * 0.90;
+      const distance = window.innerHeight * 0.62 + rect.height * 0.30;
+      return clamp((start - rect.top) / distance);
+    }
 
-        function applyMotion(item, progress, fromX, fromY, delay = 0) {
-            const local = clamp((progress - delay) / (1 - delay));
-            const t = ease(local);
+    function applyMotion(item, progress, fromX, fromY, delay = 0) {
+      const local = clamp((progress - delay) / (1 - delay));
+      const t = ease(local);
 
-            item.style.setProperty('--motion-x', `${fromX * (1 - t)}px`);
-            item.style.setProperty('--motion-y', `${fromY * (1 - t)}px`);
-            item.style.setProperty('--motion-scale', String(0.96 + t * 0.04));
-            item.style.setProperty('--motion-opacity', String(0.18 + t * 0.82));
-        }
+      item.style.setProperty('--motion-x', `${fromX * (1 - t)}px`);
+      item.style.setProperty('--motion-y', `${fromY * (1 - t)}px`);
+      item.style.setProperty('--motion-scale', String(0.96 + t * 0.04));
+      item.style.setProperty('--motion-opacity', String(0.18 + t * 0.82));
+    }
 
-        function render() {
-            if (reduceMotion || window.innerWidth <= 650) return;
+    function render() {
+      if (reduceMotion || window.innerWidth <= 650) return;
 
-            if (hero && heroBg) {
-                const rect = hero.getBoundingClientRect();
-                const p = clamp(-rect.top / Math.max(1, hero.offsetHeight));
-                heroBg.style.transform =
-                    `scale(${1.04 + p * 0.035}) translate3d(0,${p * 22}px,0)`;
-            }
+      if (hero && heroBg) {
+        const rect = hero.getBoundingClientRect();
+        const p = clamp(-rect.top / Math.max(1, hero.offsetHeight));
+        heroBg.style.transform =
+                `scale(${1.04 + p * 0.035}) translate3d(0,${p * 22}px,0)`;
+      }
 
-            singleItems.forEach(item => {
-                const p = sectionProgress(item);
-                const x = Number(item.dataset.fromX || 0);
-                const y = Number(item.dataset.fromY || 0);
-                applyMotion(item, p, x, y);
-            });
+      singleItems.forEach(item => {
+        const p = sectionProgress(item);
+        const x = Number(item.dataset.fromX || 0);
+        const y = Number(item.dataset.fromY || 0);
+        applyMotion(item, p, x, y);
+      });
 
-            groups.forEach(group => {
-                const p = sectionProgress(group);
-                [...group.children].forEach((item, index) => {
-                    const style = getComputedStyle(item);
-                    const x = Number(style.getPropertyValue('--from-x')) || 0;
-                    const y = Number(style.getPropertyValue('--from-y')) || 0;
-                    applyMotion(item, p, x, y, index * 0.045);
-                });
-            });
-        }
-
-        let scheduled = false;
-        function requestRender() {
-            if (scheduled) return;
-            scheduled = true;
-            requestAnimationFrame(() => {
-                scheduled = false;
-                render();
-            });
-        }
-
-        window.addEventListener('scroll', requestRender, {passive:true});
-        window.addEventListener('resize', requestRender, {passive:true});
-        requestRender();
-    })();
-</script>
-
-
-<script>
-    (() => {
-        const allImages = [...document.querySelectorAll('img[data-rotate-src]')];
-        if (!allImages.length) return;
-
-        allImages.forEach(image => {
-            image.dataset.originalSrc = image.getAttribute('src');
-            image.dataset.originalAlt = image.getAttribute('alt') || '';
-            image.dataset.showingAlternate = 'false';
-
-            const preload = new Image();
-            preload.src = image.dataset.rotateSrc;
+      groups.forEach(group => {
+        const p = sectionProgress(group);
+        [...group.children].forEach((item, index) => {
+          const style = getComputedStyle(item);
+          const x = Number(style.getPropertyValue('--from-x')) || 0;
+          const y = Number(style.getPropertyValue('--from-y')) || 0;
+          applyMotion(item, p, x, y, index * 0.045);
         });
+      });
+    }
+
+    let scheduled = false;
+    function requestRender() {
+      if (scheduled) return;
+      scheduled = true;
+      requestAnimationFrame(() => {
+        scheduled = false;
+        render();
+      });
+    }
+
+    window.addEventListener('scroll', requestRender, {passive:true});
+    window.addEventListener('resize', requestRender, {passive:true});
+    requestRender();
+  })();
+</script>
+
+
+<script>
+  (() => {
+    const allImages = [...document.querySelectorAll('img[data-rotate-src]')];
+    if (!allImages.length) return;
+
+    allImages.forEach(image => {
+      image.dataset.originalSrc = image.getAttribute('src');
+      image.dataset.originalAlt = image.getAttribute('alt') || '';
+      image.dataset.showingAlternate = 'false';
+
+      const preload = new Image();
+      preload.src = image.dataset.rotateSrc;
+    });
+
+    /*
+      Each visual section gets its own independent scheduler.
+      Images inside one section change one at a time, with a consistent gap.
+      The order is reshuffled after every complete pass.
+    */
+    const sections = [
+      {
+        name: 'photo-band',
+        root: document.getElementById('photoBandMotion'),
+        images: [...document.querySelectorAll('#photoBandMotion img[data-rotate-src]')],
+        gap: 5000
+      },
+      {
+        name: 'weekend',
+        root: document.getElementById('daysMotion'),
+        images: [...document.querySelectorAll('#daysMotion img[data-rotate-src]')],
+        gap: 5400
+      },
+      {
+        name: 'gallery',
+        root: document.getElementById('galleryMotion'),
+        images: [...document.querySelectorAll('#galleryMotion img[data-rotate-src]')],
+        gap: 5800
+      }
+    ].filter(section => section.root && section.images.length);
+
+    let idleTimer = null;
+    let pageIsIdle = false;
+
+    function shuffle(items) {
+      const result = [...items];
+      for (let i = result.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [result[i], result[j]] = [result[j], result[i]];
+      }
+      return result;
+    }
+
+    function isSectionVisible(section) {
+      const rect = section.root.getBoundingClientRect();
+      return rect.bottom > 0 && rect.top < window.innerHeight;
+    }
+
+    function changeImage(image) {
+      if (!pageIsIdle || !image) return;
+
+      image.classList.add('is-changing');
+
+      setTimeout(() => {
+        const showAlternate = image.dataset.showingAlternate !== 'true';
+
+        image.src = showAlternate
+                ? image.dataset.rotateSrc
+                : image.dataset.originalSrc;
+
+        image.alt = showAlternate
+                ? image.dataset.rotateAlt
+                : image.dataset.originalAlt;
+
+        image.dataset.showingAlternate = String(showAlternate);
+
+        requestAnimationFrame(() => {
+          image.classList.remove('is-changing');
+        });
+      }, 1150);
+    }
+
+    function resetSection(section) {
+      clearTimeout(section.timer);
+      section.timer = null;
+      section.queue = shuffle(section.images);
+      section.index = 0;
+    }
+
+    function scheduleNext(section, initialDelay = 0) {
+      clearTimeout(section.timer);
+
+      section.timer = setTimeout(() => {
+        if (!pageIsIdle) return;
+
+        if (!isSectionVisible(section)) {
+          scheduleNext(section, 700);
+          return;
+        }
+
+        if (section.index >= section.queue.length) {
+          section.queue = shuffle(section.images);
+          section.index = 0;
+        }
+
+        const image = section.queue[section.index];
+        section.index += 1;
+        changeImage(image);
 
         /*
-          Each visual section gets its own independent scheduler.
-          Images inside one section change one at a time, with a consistent gap.
-          The order is reshuffled after every complete pass.
+          The next item in the same section waits for the full section gap.
+          This prevents rapid cascades and keeps the rhythm calm.
         */
-        const sections = [
-            {
-                name: 'photo-band',
-                root: document.getElementById('photoBandMotion'),
-                images: [...document.querySelectorAll('#photoBandMotion img[data-rotate-src]')],
-                gap: 5000
-            },
-            {
-                name: 'weekend',
-                root: document.getElementById('daysMotion'),
-                images: [...document.querySelectorAll('#daysMotion img[data-rotate-src]')],
-                gap: 5400
-            },
-            {
-                name: 'gallery',
-                root: document.getElementById('galleryMotion'),
-                images: [...document.querySelectorAll('#galleryMotion img[data-rotate-src]')],
-                gap: 5800
-            }
-        ].filter(section => section.root && section.images.length);
+        scheduleNext(section, section.gap);
+      }, initialDelay);
+    }
 
-        let idleTimer = null;
-        let pageIsIdle = false;
+    function startVisibleSections() {
+      sections.forEach((section, index) => {
+        if (!section.queue) resetSection(section);
 
-        function shuffle(items) {
-            const result = [...items];
-            for (let i = result.length - 1; i > 0; i -= 1) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [result[i], result[j]] = [result[j], result[i]];
-            }
-            return result;
-        }
+        /*
+          Sections themselves are slightly offset from one another,
+          while image changes inside each section retain equal spacing.
+        */
+        const sectionOffset = index * 450;
+        scheduleNext(section, 300 + sectionOffset);
+      });
+    }
 
-        function isSectionVisible(section) {
-            const rect = section.root.getBoundingClientRect();
-            return rect.bottom > 0 && rect.top < window.innerHeight;
-        }
+    function stopAllSections() {
+      sections.forEach(section => {
+        clearTimeout(section.timer);
+        section.timer = null;
+      });
+    }
 
-        function changeImage(image) {
-            if (!pageIsIdle || !image) return;
+    function pauseAndRestart() {
+      pageIsIdle = false;
+      clearTimeout(idleTimer);
+      stopAllSections();
 
-            image.classList.add('is-changing');
+      idleTimer = setTimeout(() => {
+        pageIsIdle = true;
+        startVisibleSections();
+      }, 350);
+    }
 
-            setTimeout(() => {
-                const showAlternate = image.dataset.showingAlternate !== 'true';
+    window.addEventListener('scroll', pauseAndRestart, {passive:true});
+    window.addEventListener('touchmove', pauseAndRestart, {passive:true});
+    window.addEventListener('wheel', pauseAndRestart, {passive:true});
+    window.addEventListener('resize', pauseAndRestart, {passive:true});
 
-                image.src = showAlternate
-                    ? image.dataset.rotateSrc
-                    : image.dataset.originalSrc;
-
-                image.alt = showAlternate
-                    ? image.dataset.rotateAlt
-                    : image.dataset.originalAlt;
-
-                image.dataset.showingAlternate = String(showAlternate);
-
-                requestAnimationFrame(() => {
-                    image.classList.remove('is-changing');
-                });
-            }, 1150);
-        }
-
-        function resetSection(section) {
-            clearTimeout(section.timer);
-            section.timer = null;
-            section.queue = shuffle(section.images);
-            section.index = 0;
-        }
-
-        function scheduleNext(section, initialDelay = 0) {
-            clearTimeout(section.timer);
-
-            section.timer = setTimeout(() => {
-                if (!pageIsIdle) return;
-
-                if (!isSectionVisible(section)) {
-                    scheduleNext(section, 700);
-                    return;
-                }
-
-                if (section.index >= section.queue.length) {
-                    section.queue = shuffle(section.images);
-                    section.index = 0;
-                }
-
-                const image = section.queue[section.index];
-                section.index += 1;
-                changeImage(image);
-
-                /*
-                  The next item in the same section waits for the full section gap.
-                  This prevents rapid cascades and keeps the rhythm calm.
-                */
-                scheduleNext(section, section.gap);
-            }, initialDelay);
-        }
-
-        function startVisibleSections() {
-            sections.forEach((section, index) => {
-                if (!section.queue) resetSection(section);
-
-                /*
-                  Sections themselves are slightly offset from one another,
-                  while image changes inside each section retain equal spacing.
-                */
-                const sectionOffset = index * 450;
-                scheduleNext(section, 300 + sectionOffset);
-            });
-        }
-
-        function stopAllSections() {
-            sections.forEach(section => {
-                clearTimeout(section.timer);
-                section.timer = null;
-            });
-        }
-
-        function pauseAndRestart() {
-            pageIsIdle = false;
-            clearTimeout(idleTimer);
-            stopAllSections();
-
-            idleTimer = setTimeout(() => {
-                pageIsIdle = true;
-                startVisibleSections();
-            }, 350);
-        }
-
-        window.addEventListener('scroll', pauseAndRestart, {passive:true});
-        window.addEventListener('touchmove', pauseAndRestart, {passive:true});
-        window.addEventListener('wheel', pauseAndRestart, {passive:true});
-        window.addEventListener('resize', pauseAndRestart, {passive:true});
-
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                pageIsIdle = false;
-                clearTimeout(idleTimer);
-                stopAllSections();
-            } else {
-                pauseAndRestart();
-            }
-        });
-
-        sections.forEach(resetSection);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        pageIsIdle = false;
+        clearTimeout(idleTimer);
+        stopAllSections();
+      } else {
         pauseAndRestart();
-    })();
+      }
+    });
+
+    sections.forEach(resetSection);
+    pauseAndRestart();
+  })();
 </script>
 
 </body>
