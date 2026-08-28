@@ -85,7 +85,7 @@ h1, h2, h3, h4 {
 }
 
 .navi { display: flex; align-items: center; gap: 34px; }
-.navi a { font-size: 16px; font-weight: 500; color: var(--text); }
+.navi a:not(.knopf) { font-size: 16px; font-weight: 500; color: var(--text); }
 .navi a.aktiv {
   font-weight: 600; color: var(--interaktiv);
   border-bottom: 2px solid var(--interaktiv); padding-bottom: 3px;
@@ -93,9 +93,10 @@ h1, h2, h3, h4 {
 
 .knopf {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  min-height: 44px; padding: 0 20px; border-radius: 2px;
+  min-height: 44px; padding: 0 20px; border-radius: 2px; border: 0;
   background: var(--interaktiv); color: #fff;
-  font-size: 15px; font-weight: 600; letter-spacing: .02em;
+  font-family: inherit; font-size: 15px; font-weight: 600; letter-spacing: .02em;
+  cursor: pointer;
 }
 .knopf:hover { background: var(--navy); color: #fff; }
 .knopf--rot { background: var(--rot); }
@@ -103,6 +104,32 @@ h1, h2, h3, h4 {
 .knopf--linie { background: none; border: 1px solid rgba(255,255,255,.34); color: #fff; }
 .knopf--linie:hover { background: rgba(255,255,255,.1); color: #fff; }
 .knopf--breit { width: 100%; min-height: 52px; font-size: 16px; }
+
+/* PPR-Anfrage als Split-Button: linker Teil ist die Standardaktion (echter
+   Link, funktioniert ohne JavaScript), der schmale Pfeil rechts öffnet die
+   Zusatzoption „Zustimmung Drohnenflug“. */
+.anfrage { position: relative; display: inline-flex; align-items: stretch; }
+.anfrage-haupt { border-radius: 2px 0 0 2px; }
+.anfrage-schalter {
+  border-radius: 0 2px 2px 0; padding: 0 14px;
+  border-left: 1px solid rgba(255,255,255,.30);
+}
+.anfrage-pfeil { transition: transform .15s ease; flex-shrink: 0; }
+.anfrage-schalter[aria-expanded="true"] .anfrage-pfeil { transform: rotate(180deg); }
+.anfrage-menue {
+  position: absolute; top: calc(100% + 8px); right: 0; z-index: 30;
+  display: flex; flex-direction: column; gap: 2px;
+  min-width: 260px; padding: 6px;
+  background: #fff; border: 1px solid var(--linie); border-radius: 6px;
+  box-shadow: 0 12px 28px rgba(5, 20, 38, .18);
+}
+.anfrage-menue[hidden] { display: none; }
+.anfrage-menue a {
+  display: flex; align-items: center; gap: 12px; min-height: 44px;
+  padding: 0 14px; border-radius: 4px; white-space: nowrap;
+  font-size: 15px; font-weight: 500; color: var(--text);
+}
+.anfrage-menue a:hover { background: var(--dunst); color: var(--interaktiv); }
 
 /* Auf großen Schirmen trägt die Navigation den PPR-Knopf selbst */
 .kopf-rechts { display: none; }
@@ -422,6 +449,8 @@ h1, h2, h3, h4 {
   .marke-zusatz { display: none; }
   .kopf .knopf { padding: 0 14px; font-size: 14px; }
   .kopf .knopf span { display: none; }        /* „anfragen“ weg, „PPR“ bleibt */
+  .kopf .anfrage-schalter { padding: 0 10px; }
+  .kopf .anfrage-menue { min-width: 220px; }
 
   .hero { height: 480px; }
   .hero-inhalt { justify-content: flex-end; gap: 14px; padding: 0 var(--rand) 28px; }
