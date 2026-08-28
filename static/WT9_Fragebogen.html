@@ -1,215 +1,477 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fragebogen D-MRXS</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Jost:wght@400;500;600&display=swap">
+
 <style>
-:root{--bg:#0b132b;--card:#1c2541;--ink:#eaeaea;--muted:#b8c1ec;--line:#2f3b69;--accent:#5bc0be}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-main{max-width:1000px;margin:0 auto;padding:24px}
-h1,h2{margin:.2em 0}
-.card{background:#18213e;border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+/* ==========================================================================
+   Fragebogen Flugbetrieb D-MRXS (WT9 Dynamic)
 
-.grid{display:grid;gap:10px}
-.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+   Eigenstaendige Datei: alles Noetige steckt hier drin, es wird nichts aus
+   dem Web-Auftritt nachgeladen. Farben und Schriften sind nur lose an den
+   Entwurf unter vorschau/ angelehnt, damit der Bogen zum Vereinsauftritt
+   passt, ohne von dessen Stylesheet abzuhaengen. Die Schriften kommen von
+   Google Fonts; ohne Netz greifen die Ersatzschriften.
+   ========================================================================== */
 
-input,select,textarea{
-width:100%;margin-top:6px;padding:8px;border-radius:8px;border:1px solid var(--line);
-background:#0f1733;color:#fff}
+:root {
+  --marke:      #198DCD;
+  --interaktiv: #157AB0;
+  --hell:       #8edfff;
+  --navy:       #082949;
+  --nacht:      #051426;
+  --rot:        #a31c21;
+  --gruen:      #2f6d33;
+  --stroh-text: #96691f;
+  --sand:       #f6f1e6;
+  --dunst:      #f4f7fa;
+  --text:       #0d2135;
+  --text-weich: #4a6076;
+  --grau:       #5d7489;
+  --linie:      rgba(6, 42, 76, .14);
+  --max:        980px;
+  --rand:       48px;
+}
 
-.table{display:grid;border:1px solid var(--line);border-radius:8px;overflow:hidden}
-.table .row{display:grid;grid-template-columns:1.2fr 1fr}
-.table .row.header{background:#111a36;font-weight:700}
-.table .row>div{padding:8px;border-bottom:1px solid var(--line)}
+*, *::before, *::after { box-sizing: border-box; }
 
-.signature{display:grid;gap:10px;grid-template-columns:repeat(3,minmax(0,1fr))}
-.actions{display:flex;gap:10px;margin-top:12px}
+body {
+  margin: 0;
+  background: var(--dunst);
+  color: var(--text);
+  font-family: Jost, "Segoe UI", Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-text-size-adjust: 100%;
+}
 
-button{cursor:pointer;border:0;border-radius:8px;padding:10px 14px;font-weight:700}
-.primary{background:var(--accent);color:#001219}
-.ghost{background:transparent;border:1px dashed var(--line);color:var(--muted)}
+h1, h2, h3 {
+  font-family: Oswald, "Arial Narrow", Arial, sans-serif;
+  margin: 0;
+  color: var(--nacht);
+  letter-spacing: -.03em;
+  line-height: 1.1;
+}
 
-.correct{background:#2e7d32}
-.wrong{background:#8b0000}
+.kleinzeile {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--grau);
+}
+
+.bahn { max-width: var(--max); margin: 0 auto; }
+
+/* ============================== Kopf ==================================== */
+
+.seitenkopf {
+  background: #fff;
+  border-bottom: 1px solid var(--linie);
+  padding: 34px var(--rand) 38px;
+}
+.seitenkopf .kleinzeile { color: var(--stroh-text); }
+.seitenkopf h1 {
+  margin: 12px 0 0;
+  font-size: 46px;
+  font-weight: 600;
+  letter-spacing: -.035em;
+}
+.seitenkopf p {
+  margin: 16px 0 0;
+  max-width: 640px;
+  font-size: 18px;
+  color: var(--text-weich);
+}
+
+/* ============================= Abschnitte =============================== */
+
+.inhalt { padding: 40px var(--rand) 24px; }
+
+.karte {
+  background: #fff;
+  border: 1px solid var(--linie);
+  border-top: 4px solid var(--marke);
+  margin-bottom: 24px;
+}
+.karte--abschluss { border-top-color: var(--rot); }
+.karte-kopf {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 22px 28px 18px;
+}
+.karte-kopf h2 { font-size: 30px; font-weight: 500; }
+.karte-koerper { padding: 0 28px 26px; }
+
+/* Freie Felder (Name, Datum, Unterschriften) */
+
+.felder { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 24px; }
+.felder--drei { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+label.feld { display: flex; flex-direction: column; gap: 6px; }
+label.feld > span {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--grau);
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  min-height: 44px;
+  background: #fff;
+  border: 1px solid rgba(6, 42, 76, .30);
+  border-radius: 2px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 16px;
+}
+textarea { min-height: 74px; resize: vertical; }
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--interaktiv);
+  outline-offset: 1px;
+  border-color: var(--interaktiv);
+}
+
+.haken { display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 16px; }
+.haken input { width: 20px; min-height: 20px; height: 20px; flex-shrink: 0; }
+
+/* Frageblock: links die Bezeichnung, rechts die Antwort, dahinter das
+   Pruefzeichen. Das Zeichen ist Text, nicht nur Farbe — sonst waere das
+   Ergebnis fuer Farbfehlsichtige und im Ausdruck nicht lesbar. */
+
+.block { border: 1px solid var(--linie); }
+.zeile {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 30px;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 18px;
+  border-bottom: 1px solid rgba(6, 42, 76, .10);
+}
+.zeile:last-child { border-bottom: 0; }
+.zeile:nth-child(even) { background: #fafcfe; }
+.zeile--kopf {
+  background: var(--navy);
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.zeile--kopf > span {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--hell);
+}
+.zeile > label { font-size: 16px; color: var(--text); }
+
+.zeichen {
+  font-family: Oswald, "Arial Narrow", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+.zeichen--richtig { color: var(--gruen); }
+.zeichen--falsch { color: var(--rot); }
+
+input.richtig { border-color: var(--gruen); background: #f1f8f1; }
+input.falsch  { border-color: var(--rot);   background: #fff5f5; }
+
+/* ============================== Aktionen ================================ */
+
+.aktionen { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.knopf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 2px;
+  background: var(--interaktiv);
+  color: #fff;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  cursor: pointer;
+}
+.knopf:hover { background: var(--navy); }
+.knopf--linie {
+  background: none;
+  border: 1px solid rgba(6, 42, 76, .30);
+  color: var(--text);
+}
+.knopf--linie:hover { background: var(--dunst); color: var(--interaktiv); }
+
+.ergebnis {
+  margin: 20px 0 0;
+  padding: 16px 20px;
+  background: var(--sand);
+  border-left: 4px solid var(--stroh-text);
+  font-size: 17px;
+}
+.ergebnis:empty { display: none; }
+.ergebnis b {
+  font-family: Oswald, "Arial Narrow", Arial, sans-serif;
+  font-size: 21px;
+  font-weight: 600;
+}
+
+/* ============================== Fuss ==================================== */
+
+.fuss {
+  padding: 8px var(--rand) 44px;
+  color: var(--grau);
+  font-size: 14px;
+}
+.fuss p { margin: 0; }
+
+/* ============================== Klein =================================== */
+
+@media (max-width: 860px) {
+  :root { --rand: 24px; }
+  .seitenkopf h1 { font-size: 36px; }
+  .seitenkopf p { font-size: 17px; }
+  .karte-kopf h2 { font-size: 26px; }
+  .felder, .felder--drei { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 620px) {
+  :root { --rand: 16px; }
+  body { font-size: 16px; }
+  .karte-kopf { padding: 18px 18px 14px; }
+  .karte-koerper { padding: 0 18px 20px; }
+
+  /* Zwei Spalten sind hier zu eng: Bezeichnung ueber die Antwort legen,
+     das Pruefzeichen bleibt rechts daneben stehen. */
+  .zeile { grid-template-columns: minmax(0, 1fr) 30px; gap: 6px 12px; padding: 12px 14px; }
+  .zeile > label { grid-column: 1; }
+  .zeile > div  { grid-column: 1; }
+  .zeile > .zeichen { grid-column: 2; grid-row: 1 / 3; }
+  .zeile--kopf { display: none; }
+  .aktionen .knopf { width: 100%; }
+}
+
+/* ============================== Druck =================================== */
+
+@media print {
+  /* Der Blattrand kommt von @page, nicht mehr vom Seitenrand der Ansicht.
+     Auf A4 greift sonst der 860-px-Umbruch und legt die Eingabefelder
+     einspaltig untereinander — auf Papier ist dafuer genug Platz. */
+  @page { margin: 14mm; }
+
+  :root { --rand: 0; }
+  body { background: #fff; font-size: 11pt; }
+  .felder { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10pt 16pt; }
+  .inhalt { padding: 12pt 0 0; }
+  .seitenkopf { padding: 0 0 12pt; }
+  .seitenkopf h1 { font-size: 24pt; }
+  .seitenkopf p { font-size: 11pt; }
+  .karte { break-inside: avoid; margin-bottom: 12pt; }
+  .karte-kopf { padding: 10pt 0 6pt; }
+  .karte-koerper { padding: 0; }
+  .karte-kopf h2 { font-size: 15pt; }
+  .zeile--kopf { background: none; border-bottom: 1px solid #999; }
+  .zeile--kopf > span { color: #333; }
+  .zeile:nth-child(even) { background: none; }
+  input, select, textarea { border-color: #999; }
+  .aktionen, .fuss { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
 </style>
 </head>
 
 <body>
-<main>
 
-<header>
-<h1>Fragebogen Flugbetrieb – D-MRXS</h1>
-<p><small style="color:#b8c1ec">
-Vor Einweisung ausfüllen und anschließend mit Fluglehrer besprechen.
-</small></p>
+<header class="seitenkopf">
+  <div class="bahn">
+    <span class="kleinzeile">Einweisung &middot; WT9 Dynamic</span>
+    <h1>Fragebogen Flugbetrieb D-MRXS</h1>
+    <p>Vor der Einweisung ausfüllen und anschließend mit dem Fluglehrer besprechen.</p>
+  </div>
 </header>
 
-<!-- Allgemeine Angaben -->
-<section class="card">
-<h2>Allgemeine Angaben</h2>
+<main class="inhalt">
+<div class="bahn">
 
-<div class="grid two">
-<label>Datum*<input type="date"></label>
-<label>Name*<input type="text"></label>
+  <section class="karte">
+    <div class="karte-kopf"><h2>Allgemeine Angaben</h2></div>
+    <div class="karte-koerper">
+      <div class="felder">
+        <label class="feld"><span>Datum</span><input type="date" id="a-datum"></label>
+        <label class="feld"><span>Name</span><input type="text" id="a-name" autocomplete="name"></label>
+        <label class="feld"><span>UL-Erfahrung?</span>
+          <select id="a-ul"><option value=""></option><option>Ja</option><option>Nein</option></select>
+        </label>
+        <label class="feld"><span>Turbo-Erfahrung?</span>
+          <select id="a-turbo"><option value=""></option><option>Ja</option><option>Nein</option></select>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <section class="karte">
+    <div class="karte-kopf">
+      <h2>Betriebsgrenzen</h2>
+      <span class="kleinzeile">Angaben in kg</span>
+    </div>
+    <div class="karte-koerper">
+      <div class="block">
+        <div class="zeile zeile--kopf"><span>Bezeichnung</span><span>Wert</span><span></span></div>
+        <div class="zeile"><label for="f1">Maximales Abfluggewicht</label><div><input id="f1" data-a="472.5"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f2">Leergewicht</label><div><input id="f2" data-a="342"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f3">Maximale Zuladung</label><div><input id="f3" data-a="130.5"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f4">Zuladung Gepäckfach</label><div><input id="f4" data-a="10"></div><span class="zeichen"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="karte">
+    <div class="karte-kopf"><h2>Betriebsstoffe</h2></div>
+    <div class="karte-koerper">
+      <div class="block">
+        <div class="zeile zeile--kopf"><span>Bezeichnung</span><span>Wert</span><span></span></div>
+        <div class="zeile"><label for="f5">Max. Treibstoffmenge</label><div><input id="f5" data-a="125"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f6">Ausfliegbare Treibstoffmenge</label><div><input id="f6" data-a="119"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f7">Zuladung bei vollen Tanks</label><div><input id="f7" data-a="29.1"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f8">Treibstoff</label><div><input id="f8" data-a="mogas"></div><span class="zeichen"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="karte">
+    <div class="karte-kopf"><h2>Geschwindigkeiten</h2></div>
+    <div class="karte-koerper">
+      <div class="block">
+        <div class="zeile zeile--kopf"><span>Bezeichnung</span><span>Wert</span><span></span></div>
+        <div class="zeile"><label for="f9">Steigfluggeschwindigkeit</label><div><input id="f9" data-a="115"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f10">Manövergeschwindigkeit</label><div><input id="f10" data-a="160"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f11">Max. Turbulenzgeschwindigkeit</label><div><input id="f11" data-a="130"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f12">Höchstgeschwindigkeit</label><div><input id="f12" data-a="270"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f13">Klappengeschwindigkeit</label><div><input id="f13" data-a="135"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f14">Mindestgeschwindigkeit</label><div><input id="f14" data-a="65"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f15">Seitenwindkomponente</label><div><input id="f15" data-a="44"></div><span class="zeichen"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="karte">
+    <div class="karte-kopf"><h2>Motoreinstellungen</h2></div>
+    <div class="karte-koerper">
+      <div class="block">
+        <div class="zeile zeile--kopf"><span>Phase</span><span>Drehzahl</span><span></span></div>
+        <div class="zeile"><label for="f16">Start</label><div><input id="f16" data-a="5700"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f17">Landung / Go-Around</label><div><input id="f17" data-a="5500"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f18">Reiseflug</label><div><input id="f18" data-a="5000"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f19">Dauerleistung</label><div><input id="f19" data-a="5500"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f20">Max. Drehzahl</label><div><input id="f20" data-a="5800"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f21">Ladedruck</label><div><input id="f21" data-a="40.5"></div><span class="zeichen"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="karte">
+    <div class="karte-kopf"><h2>Technische Daten</h2></div>
+    <div class="karte-koerper">
+      <div class="block">
+        <div class="zeile zeile--kopf"><span>Bezeichnung</span><span>Antwort</span><span></span></div>
+        <div class="zeile"><label for="f22">Bauweise</label><div><input id="f22" data-a="tiefdecker"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f23">Struktur</label><div><input id="f23" data-a="faserverbund"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f24">Leitwerk</label><div><input id="f24" data-a="kreuzleitwerk"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f25">Klappen</label><div><input id="f25" data-a="spaltklappen"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f26">Klappenstellungen</label><div><input id="f26" data-a="0 15 24 38"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f27">Flügelspannweite</label><div><input id="f27" data-a="9"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f28">Rumpflänge</label><div><input id="f28" data-a="6.4"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f29">Rumpfhöhe</label><div><input id="f29" data-a="2"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f30">Motor</label><div><input id="f30" data-a="rotax 914"></div><span class="zeichen"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="karte karte--abschluss">
+    <div class="karte-kopf">
+      <h2>Gegenprüfung &amp; Unterschriften</h2>
+      <span class="kleinzeile">Gemeinsam mit dem Fluglehrer</span>
+    </div>
+    <div class="karte-koerper">
+      <div class="felder">
+        <label class="feld"><span>Ort</span><input type="text" id="u-ort"></label>
+        <label class="feld"><span>Datum</span><input type="date" id="u-datum"></label>
+      </div>
+      <div class="felder" style="margin-top:18px">
+        <label class="feld"><span>Name (Pilot)</span><input type="text" id="u-pilot"></label>
+        <label class="feld"><span>Name (Fluglehrer)</span><input type="text" id="u-fi"></label>
+        <label class="feld"><span>Unterschrift Pilot</span><textarea id="u-pilot-sig" rows="3"></textarea></label>
+        <label class="feld"><span>Unterschrift Fluglehrer</span><textarea id="u-fi-sig" rows="3"></textarea></label>
+      </div>
+      <label class="haken" style="margin-top:18px">
+        <input type="checkbox" id="u-geprueft"> Gegenprüfung erfolgt
+      </label>
+    </div>
+  </section>
+
+  <section class="karte">
+    <div class="karte-koerper" style="padding-top:22px">
+      <div class="aktionen">
+        <button type="button" class="knopf" onclick="pruefen()">Prüfen</button>
+        <button type="button" class="knopf knopf--linie" onclick="window.print()">Als PDF drucken</button>
+        <button type="button" class="knopf knopf--linie" onclick="location.reload()">Zurücksetzen</button>
+      </div>
+      <p class="ergebnis" id="ergebnis" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+
 </div>
-
-<div class="grid two">
-<label>UL-Erfahrung?
-<select><option></option><option>Ja</option><option>Nein</option></select>
-</label>
-<label>Turbo-Erfahrung?
-<select><option></option><option>Ja</option><option>Nein</option></select>
-</label>
-</div>
-</section>
-
-<!-- Betriebsgrenzen -->
-<section class="card">
-<h2>Betriebsgrenzen</h2>
-<div class="table">
-<div class="row header"><div>Bezeichnung</div><div>Wert</div></div>
-
-<div class="row"><div>Maximales Abfluggewicht</div><div><input data-a="472.5"></div></div>
-<div class="row"><div>Leergewicht</div><div><input data-a="342"></div></div>
-<div class="row"><div>Maximale Zuladung</div><div><input data-a="130.5"></div></div>
-<div class="row"><div>Zuladung Gepäckfach</div><div><input data-a="10"></div></div>
-
-</div>
-</section>
-
-<!-- Betriebsstoffe -->
-<section class="card">
-<h2>Betriebsstoffe</h2>
-<div class="table">
-<div class="row header"><div>Bezeichnung</div><div>Wert</div></div>
-
-<div class="row"><div>Max. Treibstoffmenge</div><div><input data-a="125"></div></div>
-<div class="row"><div>Ausfliegbare Treibstoffmenge</div><div><input data-a="119"></div></div>
-<div class="row"><div>Zuladung bei vollen Tanks</div><div><input data-a="29.1"></div></div>
-<div class="row"><div>Treibstoff</div><div><input data-a="mogas"></div></div>
-
-</div>
-</section>
-
-<!-- Geschwindigkeiten -->
-<section class="card">
-<h2>Geschwindigkeiten</h2>
-<div class="table">
-
-<div class="row header"><div>Bezeichnung</div><div>Wert</div></div>
-
-<div class="row"><div>Steigfluggeschwindigkeit</div><div><input data-a="115"></div></div>
-<div class="row"><div>Manövergeschwindigkeit</div><div><input data-a="160"></div></div>
-<div class="row"><div>Max. Turbulenzgeschwindigkeit</div><div><input data-a="130"></div></div>
-<div class="row"><div>Höchstgeschwindigkeit</div><div><input data-a="270"></div></div>
-<div class="row"><div>Klappengeschwindigkeit</div><div><input data-a="135"></div></div>
-<div class="row"><div>Mindestgeschwindigkeit</div><div><input data-a="65"></div></div>
-<div class="row"><div>Seitenwindkomponente</div><div><input data-a="44"></div></div>
-
-</div>
-</section>
-
-<!-- Motor -->
-<section class="card">
-<h2>Motoreinstellungen</h2>
-<div class="table">
-
-<div class="row header"><div>Phase</div><div>Drehzahl</div></div>
-
-<div class="row"><div>Start</div><div><input data-a="5700"></div></div>
-<div class="row"><div>Landung / Go-Around</div><div><input data-a="5500"></div></div>
-<div class="row"><div>Reiseflug</div><div><input data-a="5000"></div></div>
-<div class="row"><div>Dauerleistung</div><div><input data-a="5500"></div></div>
-<div class="row"><div>Max Drehzahl</div><div><input data-a="5800"></div></div>
-<div class="row"><div>Ladedruck</div><div><input data-a="40.5"></div></div>
-
-</div>
-</section>
-
-<!-- Technik -->
-<section class="card">
-<h2>Technische Daten</h2>
-
-<div class="table">
-<div class="row header"><div>Bezeichnung</div><div>Antwort</div></div>
-
-<div class="row"><div>Bauweise</div><div><input data-a="tiefdecker"></div></div>
-<div class="row"><div>Struktur</div><div><input data-a="faserverbund"></div></div>
-<div class="row"><div>Leitwerk</div><div><input data-a="kreuzleitwerk"></div></div>
-<div class="row"><div>Klappen</div><div><input data-a="spaltklappen"></div></div>
-<div class="row"><div>Klappenstellungen</div><div><input data-a="0 15 24 38"></div></div>
-<div class="row"><div>Flügelspannweite</div><div><input data-a="9"></div></div>
-<div class="row"><div>Rumpflänge</div><div><input data-a="6.4"></div></div>
-<div class="row"><div>Rumpfhöhe</div><div><input data-a="2"></div></div>
-<div class="row"><div>Motor</div><div><input data-a="rotax 914"></div></div>
-
-</div>
-
-</section>
-
-<!-- Unterschriften -->
-<section class="card">
-<h2>Gegenprüfung & Unterschriften</h2>
-
-<div class="grid two">
-<label>Ort<input type="text"></label>
-<label>Datum<input type="date"></label>
-</div>
-
-<br>
-
-<div class="signature">
-
-<div>
-<label>Name (Pilot)<input type="text"></label>
-<label>Unterschrift<textarea rows="3"></textarea></label>
-</div>
-
-<div>
-<label>Fluglehrer<input type="text"></label>
-<label>Unterschrift<textarea rows="3"></textarea></label>
-</div>
-
-<div>
-<input type="checkbox"> Gegenprüfung erfolgt
-</div>
-
-</div>
-
-</section>
-
-<!-- Buttons -->
-<section class="card">
-
-<div class="actions">
-<button class="primary" onclick="check()">Prüfen</button>
-<button class="primary" onclick="window.print()">Als PDF drucken</button>
-<button class="ghost" onclick="location.reload()">Zurücksetzen</button>
-</div>
-
-<p id="result"></p>
-
-</section>
-
 </main>
 
+<footer class="fuss">
+  <div class="bahn">
+    <p>Der Bogen ersetzt nicht das Flughandbuch. Im Zweifel gilt immer das Handbuch des Musters.</p>
+  </div>
+</footer>
+
 <script>
-function n(t){return t.toLowerCase().replace(",",".").trim();}
-function check(){
- let i=document.querySelectorAll("input[data-a]");
- let c=0;
- i.forEach(x=>{
-  if(n(x.value).includes(n(x.dataset.a))){
-    x.classList.add("correct");x.classList.remove("wrong");c++;
-  } else {
-    x.classList.add("wrong");x.classList.remove("correct");
-  }
- });
- document.getElementById("result").innerText="Ergebnis: "+c+" / "+i.length;
+function normal(t) {
+  return t.toLowerCase().replace(",", ".").trim();
+}
+
+function pruefen() {
+  var felder = document.querySelectorAll("input[data-a]");
+  var treffer = 0;
+
+  felder.forEach(function (feld) {
+    var zeichen = feld.closest(".zeile").querySelector(".zeichen");
+    var passt = normal(feld.value).includes(normal(feld.dataset.a));
+
+    feld.classList.toggle("richtig", passt);
+    feld.classList.toggle("falsch", !passt);
+    feld.setAttribute("aria-invalid", passt ? "false" : "true");
+
+    zeichen.textContent = passt ? "✓" : "✗";
+    zeichen.className = "zeichen " + (passt ? "zeichen--richtig" : "zeichen--falsch");
+    zeichen.title = passt ? "richtig" : "noch nicht richtig";
+
+    if (passt) { treffer++; }
+  });
+
+  document.getElementById("ergebnis").innerHTML =
+    "Ergebnis: <b>" + treffer + " von " + felder.length + "</b> Angaben stimmen.";
 }
 </script>
 
