@@ -159,6 +159,7 @@ fieldset.wahlfeld > legend {
 
 input, textarea {
   width: 100%;
+  min-width: 0;
   padding: 10px 12px;
   min-height: 44px;
   background: #fff;
@@ -169,6 +170,16 @@ input, textarea {
   font-size: 16px;
 }
 textarea { min-height: 74px; resize: vertical; }
+
+/* Safari auf dem iPhone gibt Datumsfeldern eine eigene Mindestbreite. Mit
+   width: 100% allein lassen sie sich nicht darunter ziehen und treten
+   seitlich aus der Karte heraus. appearance: none nimmt ihnen dieses Mass;
+   der Kalenderknopf und die native Auswahl bleiben erhalten. */
+input[type="date"] {
+  -webkit-appearance: none;
+  appearance: none;
+  max-width: 100%;
+}
 input:focus, textarea:focus {
   outline: 2px solid var(--interaktiv);
   outline-offset: 1px;
@@ -503,7 +514,9 @@ input.falsch  { border-color: var(--rot);   background: #fff5f5; }
   </section>
 
   <section class="karte">
-    <div class="karte-kopf"><h2>Betriebsstoffe</h2></div>
+    <div class="karte-kopf">
+      <h2>Betriebsstoffe</h2>
+      <span class="kleinzeile">Angaben in Litern</span></div>
     <div class="karte-koerper">
       <div class="block">
         <div class="zeile"><label for="f5">Max. Treibstoffmenge</label><div><input id="f5" inputmode="decimal" data-a="125"><span class="zeichen"></span></div></div>
@@ -557,10 +570,10 @@ input.falsch  { border-color: var(--rot);   background: #fff5f5; }
         <div class="zeile"><label for="f23">Struktur</label><div><input id="f23" data-a="faserverbund"><span class="zeichen"></span></div></div>
         <div class="zeile"><label for="f24">Leitwerk</label><div><input id="f24" data-a="kreuzleitwerk"><span class="zeichen"></span></div></div>
         <div class="zeile"><label for="f25">Klappen</label><div><input id="f25" data-a="spaltklappen"><span class="zeichen"></span></div></div>
-        <div class="zeile"><label for="f26">Klappenstellungen</label><div><input id="f26" data-a="0 15 24 38"><span class="zeichen"></span></div></div>
-        <div class="zeile"><label for="f27">Flügelspannweite</label><div><input id="f27" inputmode="decimal" data-a="9"><span class="zeichen"></span></div></div>
-        <div class="zeile"><label for="f28">Rumpflänge</label><div><input id="f28" inputmode="decimal" data-a="6.4"><span class="zeichen"></span></div></div>
-        <div class="zeile"><label for="f29">Rumpfhöhe</label><div><input id="f29" inputmode="decimal" data-a="2"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f26">Klappenstellungen <small>in °, Leerzeichengetrennt</small></label><div><input id="f26" data-a="0 15 24 38"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f27">Flügelspannweite <small>in m</small></label><div><input id="f27" inputmode="decimal" data-a="9"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f28">Rumpflänge <small>in m</small></label><div><input id="f28" inputmode="decimal" data-a="6.4"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f29">Rumpfhöhe <small>in m</small></label><div><input id="f29" inputmode="decimal" data-a="2"><span class="zeichen"></span></div></div>
         <div class="zeile"><label for="f30">Motor</label><div><input id="f30" data-a="rotax 914"><span class="zeichen"></span></div></div>
       </div>
     </div>
