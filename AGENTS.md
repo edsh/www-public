@@ -43,6 +43,15 @@ zuvor ein Aufräum-Commit direkt auf `main` durfte.
   Sitzungsprotokolle: die zeigen für jeden ins Leere, der keinen Zugang zu der
   Sitzung hat, und stehen trotzdem dauerhaft in der Historie.
 
+## Sprache
+
+Deutsche Texte mit echten Umlauten: ä, ö, ü, ß — nicht ae, oe, ue, ss. Das gilt
+für Commit-Nachrichten, Code-Kommentare und die Inhalte des Auftritts. Ältere
+Commits in der Historie halten sich nicht daran; sie sind kein Vorbild.
+
+Antworten im Dialog knapp halten: Ergebnis und Begründung, kein Zwischenbericht
+über jeden einzelnen Schritt.
+
 ## Schriften
 
 Schriften werden **nie** von Google Fonts oder einem anderen fremden Server
