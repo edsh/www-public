@@ -2,6 +2,10 @@
 
 This is a [Hugo](https://gohugo.io/) site.
 
+```bash
+brew install hugo
+```
+
 If Hugo is set up on the system already, start the server with
 
 ```bash
