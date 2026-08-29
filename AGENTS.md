@@ -29,8 +29,19 @@ zuvor ein Aufräum-Commit direkt auf `main` durfte.
   mit denen die Änderung abgesprochen war.
 * Commit-Nachrichten auf Deutsch. Erst in einer Zeile, *was* sich ändert, dann
   nach einer Leerzeile *warum* — der Diff zeigt ohnehin schon das Wie.
-* Keine Modell- oder Werkzeugnamen im Commit-Text, in Code-Kommentaren oder
-  sonst irgendwo im Repository.
+* Keine Modell- oder Werkzeugnamen in Texten, die jemand liest: nicht im
+  Fließtext der Commit-Nachricht, nicht in Code-Kommentaren, nicht in
+  Beschreibungen von Pull Requests und nirgends in den Inhalten des
+  Auftritts. Wer den Code später liest, soll sehen, *was* er tut — nicht,
+  *womit* er entstanden ist. Werkzeugnamen altern zudem schlecht: der Code
+  lebt weiter, der Name von heute wirkt in zwei Jahren wie ein Fundstück.
+* Ausgenommen davon ist allein die `Co-Authored-By:`-Zeile. Sie ist kein Text,
+  sondern eine maschinenlesbare Angabe zur Urheberschaft, und darf den Namen
+  nennen, unter dem der Agent tatsächlich gearbeitet hat. Eine anonymisierte
+  Angabe wäre an dieser Stelle weniger ehrlich als eine zutreffende.
+* Sonst keine maschinell erzeugten Trailer. Insbesondere keine Verweise auf
+  Sitzungsprotokolle: die zeigen für jeden ins Leere, der keinen Zugang zu der
+  Sitzung hat, und stehen trotzdem dauerhaft in der Historie.
 
 ## Dateien unter `static/`
 
