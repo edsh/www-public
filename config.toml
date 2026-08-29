@@ -1,6 +1,13 @@
 baseURL = "https://www.edsh.de/"
 DefaultContentLanguage = "de"
-languageCode = "de-DE"
+locale = "de-DE"
 title = "Luftsportverein Backnang-Heiningen e.V."
 disableKinds = ["taxonomy", "term"]
 uglyurls = true
+
+# Hugo lehnt HTML-Dateien unter content/ seit Version 0.158.0 von sich aus ab.
+# Die Inhalte dieses Auftritts sind fast durchweg HTML und stammen ausschließlich
+# aus diesem Repository, nicht aus fremder Zulieferung — die Freigabe ist deshalb
+# unbedenklich.
+[security]
+  allowContent = ['.*']
