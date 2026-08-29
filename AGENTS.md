@@ -43,13 +43,30 @@ zuvor ein Aufräum-Commit direkt auf `main` durfte.
   Sitzungsprotokolle: die zeigen für jeden ins Leere, der keinen Zugang zu der
   Sitzung hat, und stehen trotzdem dauerhaft in der Historie.
 
+## Schriften
+
+Schriften werden **nie** von Google Fonts oder einem anderen fremden Server
+nachgeladen — weder per `<link>` noch per `@import`. Jeder Aufruf einer solchen
+Adresse überträgt die IP-Adresse der Besucherin an einen Dritten, ohne dass sie
+gefragt wurde; für den Auftritt eines Vereins ist das weder nötig noch zulässig.
+
+Die benötigten Schriften liegen unter `static/assets/fonts/` und werden von dort
+über `@font-face` und `/assets/fonts/…` eingebunden. Wer eine neue Schrift
+braucht, lädt die Dateien einmal herunter, legt sie dort ab und legt den
+Lizenztext daneben. Ein Muster steht in `layouts/_default/home.html`.
+
+Zu jeder Schriftfamilie gehört eine Ersatzkette im `font-family`, damit die
+Seite auch dann lesbar bleibt, wenn eine Datei fehlt.
+
 ## Dateien unter `static/`
 
 `static/` wird von Hugo unverändert ausgeliefert. Die Dateien dort sind
 eigenständig: kein Rückgriff auf Layouts, Partials oder Stylesheets des
-Auftritts. Wer eine solche Seite an den Vereinslook angleicht, kopiert die
-Gestaltung (Farben, Schriften, Abstände) in die Datei hinein, statt eine
-Abhängigkeit zu `layouts/` oder zu `vorschau/` aufzubauen.
+Auftritts. Gemeinsam genutzte Anhänge sind davon ausgenommen — Bilder und die
+Schriften unter `/assets/fonts/` werden mitbenutzt statt kopiert. Wer eine
+solche Seite an den Vereinslook angleicht, kopiert die Gestaltung (Farben,
+Schriften, Abstände) in die Datei hinein, statt eine Abhängigkeit zu
+`layouts/` oder zu `vorschau/` aufzubauen.
 
 Formulare unter `static/` werden ausgedruckt. Ein eigener `@media print`-Block
 gehört dazu.
