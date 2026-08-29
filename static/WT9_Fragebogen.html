@@ -5,25 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fragebogen D-MRXS</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Jost:wght@400;500;600&display=swap">
-
 <style>
+/* Die Schriften liegen im Auftritt unter /assets/fonts/ und werden von dort
+   geladen, nicht von Google. Beide stehen unter der SIL Open Font License,
+   die Lizenztexte liegen im selben Verzeichnis. Von Oswald braucht der Bogen
+   nur die Schnitte 500 und 600; Jost ist eine variable Schrift und deckt
+   seinen ganzen Bereich mit einer Datei ab. */
+
+@font-face {
+  font-family: Oswald;
+  src: url("/assets/fonts/Oswald-Medium.woff2") format("woff2"),
+       url("/assets/fonts/Oswald-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Oswald;
+  src: url("/assets/fonts/Oswald-SemiBold.woff2") format("woff2"),
+       url("/assets/fonts/Oswald-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Jost;
+  src: url("/assets/fonts/Jost-VariableFont_wght.woff2") format("woff2-variations"),
+       url("/assets/fonts/Jost-VariableFont_wght.woff2") format("woff2"),
+       url("/assets/fonts/Jost-VariableFont_wght.woff") format("woff");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ==========================================================================
    Fragebogen Flugbetrieb D-MRXS (WT9 Dynamic)
 
-   Eigenstaendige Datei: alles Noetige steckt hier drin, es wird nichts aus
-   dem Web-Auftritt nachgeladen. Farben und Schriften sind nur lose an den
-   Entwurf unter vorschau/ angelehnt, damit der Bogen zum Vereinsauftritt
-   passt, ohne von dessen Stylesheet abzuhaengen. Die Schriften kommen von
-   Google Fonts; ohne Netz greifen die Ersatzschriften.
+   Die Gestaltung steckt vollständig in dieser Datei: kein Rückgriff auf
+   Layouts, Partials oder Stylesheets des Auftritts. Farben und Schriften
+   sind nur lose an den Entwurf unter vorschau/ angelehnt, damit der Bogen
+   zum Vereinsauftritt passt, ohne von dessen Stylesheet abzuhängen.
+
+   Einzige Ausnahme sind die Schriftdateien unter /assets/fonts/. Sie werden
+   nicht kopiert, sondern mitbenutzt — bei fehlenden Dateien greifen die
+   Ersatzschriften der Schriftfamilien weiter unten.
    ========================================================================== */
 
 :root {
   --marke:      #198DCD;
   --interaktiv: #157AB0;
-  --hell:       #8edfff;
   --navy:       #082949;
   --nacht:      #051426;
   --rot:        #a31c21;
@@ -76,7 +106,7 @@ h1, h2, h3 {
   border-bottom: 1px solid var(--linie);
   padding: 34px var(--rand) 38px;
 }
-.seitenkopf .kleinzeile { color: var(--stroh-text); }
+.seitenkopf .kleinzeile { color: var(--interaktiv); }
 .seitenkopf h1 {
   margin: 12px 0 0;
   font-size: 46px;
@@ -118,7 +148,8 @@ h1, h2, h3 {
 .felder--drei { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
 label.feld { display: flex; flex-direction: column; gap: 6px; }
-label.feld > span {
+label.feld > span,
+fieldset.wahlfeld > legend {
   font-size: 13px;
   font-weight: 600;
   letter-spacing: .08em;
@@ -126,7 +157,7 @@ label.feld > span {
   color: var(--grau);
 }
 
-input, select, textarea {
+input, textarea {
   width: 100%;
   padding: 10px 12px;
   min-height: 44px;
@@ -138,7 +169,7 @@ input, select, textarea {
   font-size: 16px;
 }
 textarea { min-height: 74px; resize: vertical; }
-input:focus, select:focus, textarea:focus {
+input:focus, textarea:focus {
   outline: 2px solid var(--interaktiv);
   outline-offset: 1px;
   border-color: var(--interaktiv);
@@ -147,40 +178,67 @@ input:focus, select:focus, textarea:focus {
 .haken { display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 16px; }
 .haken input { width: 20px; min-height: 20px; height: 20px; flex-shrink: 0; }
 
-/* Frageblock: links die Bezeichnung, rechts die Antwort, dahinter das
-   Pruefzeichen. Das Zeichen ist Text, nicht nur Farbe — sonst waere das
-   Ergebnis fuer Farbfehlsichtige und im Ausdruck nicht lesbar. */
+/* Fragen über die eigene Erfahrung: ein ganzer Satz statt eines Feldnamens,
+   die Antwort als Knopfpaar. fieldset/legend, damit Ja und Nein auch für
+   Vorlesewerkzeuge zur Frage gehören und nicht allein im Raum stehen. */
 
-.block { border: 1px solid var(--linie); }
+fieldset.wahlfeld { min-width: 0; margin: 0; padding: 0; border: 0; }
+fieldset.wahlfeld > legend { padding: 0; margin-bottom: 6px; }
+.wahl {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  min-height: 44px;
+  /* 9px statt 10px: der Knopf ist höher als eine Textzeile, damit steht
+     der Rahmen sonst zwei Pixel über dem eines Eingabefeldes. */
+  padding: 9px 12px;
+  background: #fff;
+  border: 1px solid rgba(6, 42, 76, .30);
+  border-radius: 2px;
+}
+.wahl > label { display: flex; align-items: center; gap: 8px; font-size: 16px; }
+.wahl input {
+  width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin: 0;
+  flex-shrink: 0;
+  accent-color: var(--interaktiv);
+}
+
+/* Frageblock: links die Bezeichnung, rechts die Antwort. Das Prüfzeichen
+   sitzt im Feld an dessen rechter Kante. Es ist Text, nicht nur Farbe —
+   sonst wäre das Ergebnis für Farbfehlsichtige und im Ausdruck nicht
+   lesbar. Das Feld hält rechts Platz dafür frei, damit der eingetippte
+   Wert nicht darunter läuft. */
+
+/* Kein eigener Kasten: eine Haarlinie trennt die Liste von der
+   Überschrift, den Rest tragen die Linien zwischen den Zeilen. */
+.block { border-top: 1px solid var(--linie); }
 .zeile {
   display: grid;
-  grid-template-columns: 1.15fr 1fr 30px;
+  grid-template-columns: 1.15fr 1fr;
   align-items: center;
   gap: 16px;
-  padding: 10px 18px;
+  padding: 10px 0;
   border-bottom: 1px solid rgba(6, 42, 76, .10);
 }
 .zeile:last-child { border-bottom: 0; }
-.zeile:nth-child(even) { background: #fafcfe; }
-.zeile--kopf {
-  background: var(--navy);
-  padding-top: 12px;
-  padding-bottom: 12px;
-}
-.zeile--kopf > span {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--hell);
-}
 .zeile > label { font-size: 16px; color: var(--text); }
 
+.zeile > div { position: relative; }
+.zeile input { padding-right: 34px; }
+
 .zeichen {
+  position: absolute;
+  right: 11px;
+  top: 50%;
+  transform: translateY(-50%);
   font-family: Oswald, "Arial Narrow", Arial, sans-serif;
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 600;
-  text-align: center;
+  line-height: 1;
+  pointer-events: none;
 }
 .zeichen--richtig { color: var(--gruen); }
 .zeichen--falsch { color: var(--rot); }
@@ -230,7 +288,7 @@ input.falsch  { border-color: var(--rot);   background: #fff5f5; }
   font-weight: 600;
 }
 
-/* ============================== Fuss ==================================== */
+/* ============================== Fuß ==================================== */
 
 .fuss {
   padding: 8px var(--rand) 44px;
@@ -255,40 +313,135 @@ input.falsch  { border-color: var(--rot);   background: #fff5f5; }
   .karte-kopf { padding: 18px 18px 14px; }
   .karte-koerper { padding: 0 18px 20px; }
 
-  /* Zwei Spalten sind hier zu eng: Bezeichnung ueber die Antwort legen,
-     das Pruefzeichen bleibt rechts daneben stehen. */
-  .zeile { grid-template-columns: minmax(0, 1fr) 30px; gap: 6px 12px; padding: 12px 14px; }
-  .zeile > label { grid-column: 1; }
-  .zeile > div  { grid-column: 1; }
-  .zeile > .zeichen { grid-column: 2; grid-row: 1 / 3; }
-  .zeile--kopf { display: none; }
+  /* Zwei Spalten sind hier zu eng: Bezeichnung über die Antwort legen.
+     Das Zeichen sitzt ohnehin im Feld und braucht keinen eigenen Platz. */
+  .zeile { grid-template-columns: minmax(0, 1fr); gap: 6px; padding: 12px 0; }
   .aktionen .knopf { width: 100%; }
 }
 
 /* ============================== Druck =================================== */
 
+/* Auf Papier zählt Platz, nicht Gestaltung: kleinere Schrift, engere
+   Zeilen, keine Karten- und Feldrahmen. Die Eingabefelder werden zu
+   Schreiblinien — so sieht der Bogen aus wie ein Formular und nicht wie
+   eine abfotografierte Webseite. */
+
 @media print {
-  /* Der Blattrand kommt von @page, nicht mehr vom Seitenrand der Ansicht.
-     Auf A4 greift sonst der 860-px-Umbruch und legt die Eingabefelder
-     einspaltig untereinander — auf Papier ist dafuer genug Platz. */
-  @page { margin: 14mm; }
+  /* Deutlich mehr Rand an den Seiten als oben und unten. Über die volle
+     A4-Breite klaffen Bezeichnung und Schreiblinie sonst weit auseinander;
+     der Platz steht am Blattrand besser als in der Zeilenmitte. Satzspiegel
+     damit 154mm.
+
+     Achtung beim Ändern: die Breitenabfragen der Bildschirmansicht messen
+     im Druck den Satzspiegel. Bei 154mm sind das 582px, der 620-px-Umbruch
+     greift hier also. Alles, was er umstellt, wird in diesem Block bewusst
+     wieder gesetzt — Spaltenaufteilung der Zeilen, .felder, Schriftgrößen
+     und Polsterungen. Wer hier Rand hinzufügt, prüft das nach. */
+  @page { margin: 14mm 28mm; }
 
   :root { --rand: 0; }
-  body { background: #fff; font-size: 11pt; }
-  .felder { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10pt 16pt; }
-  .inhalt { padding: 12pt 0 0; }
-  .seitenkopf { padding: 0 0 12pt; }
-  .seitenkopf h1 { font-size: 24pt; }
-  .seitenkopf p { font-size: 11pt; }
-  .karte { break-inside: avoid; margin-bottom: 12pt; }
-  .karte-kopf { padding: 10pt 0 6pt; }
+  body { background: #fff; font-size: 9pt; line-height: 1.3; }
+
+  .seitenkopf { padding: 0 0 5pt; border-bottom: 1px solid #999; }
+  .seitenkopf h1 { font-size: 16pt; }
+  .seitenkopf p { margin-top: 3pt; font-size: 8.5pt; }
+  .inhalt { padding: 7pt 0 0; }
+
+  .kleinzeile { font-size: 6.5pt; letter-spacing: .14em; color: #444; }
+
+  /* Karten dürfen umbrechen — sonst schiebt eine Karte, die nicht mehr
+     ganz aufs Blatt passt, den halben Rest auf die nächste Seite. Nur
+     einzelne Zeilen bleiben zusammen, und eine Überschrift steht nie
+     allein am Seitenfuß. */
+  .karte {
+    border: 0;
+    margin-bottom: 7pt;
+    break-inside: auto;
+  }
+  .karte-kopf {
+    padding: 5pt 0 2pt;
+    gap: 10pt;
+    break-after: avoid;
+  }
+  .karte-kopf h2 { font-size: 11pt; }
   .karte-koerper { padding: 0; }
-  .karte-kopf h2 { font-size: 15pt; }
-  .zeile--kopf { background: none; border-bottom: 1px solid #999; }
-  .zeile--kopf > span { color: #333; }
-  .zeile:nth-child(even) { background: none; }
-  input, select, textarea { border-color: #999; }
-  .aktionen, .fuss { display: none; }
+  .block { border-top: 1px solid #999; }
+
+  /* Bezeichnung, Punktelinie, Schreiblinie: die Punkte führen das Auge
+     über die leere Fläche, geschrieben wird auf der durchgezogenen
+     Linie. Gut zwei Fingerbreit reichen dafür aus. */
+  .zeile {
+    grid-template-columns: 1fr 45mm;
+    /* Unterkante statt Grundlinie: so liegen die Unterkante der Bezeichnung
+       und die des Feldes auf derselben Höhe, und Punktelinie und
+       Schreiblinie treffen sich ohne Nachjustieren. */
+    align-items: end;
+    gap: 0;
+    /* Grosszuegig, nicht gedraengt: der Bogen belegt ohnehin zwei Blaetter,
+       also darf die Zeile so hoch sein, dass man bequem mit der Hand
+       hineinschreiben kann — knapp 10mm, wie auf liniertem Papier. Mehr
+       ginge, aber dann wird die zweite Seite eng. */
+    padding: 8pt 0;
+    border-bottom: 0;
+    break-inside: avoid;
+  }
+  .zeile > label {
+    display: flex;
+    align-items: flex-end;
+    font-size: 9pt;
+  }
+  .zeile > label::after {
+    content: "";
+    flex: 1;
+    margin-left: 6pt;
+    border-bottom: 1px dotted #999;
+  }
+
+  /* Felder als Schreiblinie statt als Kasten */
+  input, textarea {
+    min-height: 0;
+    padding: 0;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid #777;
+    border-radius: 0;
+    font-size: 9pt;
+  }
+  input[type="date"]::-webkit-calendar-picker-indicator { display: none; }
+  .zeile input { padding-right: 12pt; }
+  .zeichen { right: 0; font-size: 10pt; }
+  textarea { min-height: 38pt; resize: none; }
+
+  .felder { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10pt 14pt; }
+  label.feld { gap: 1pt; }
+  /* Sonst drucken die Feldnamen größer als die übrigen Versalien. */
+  label.feld > span,
+  fieldset.wahlfeld > legend { font-size: 7pt; letter-spacing: .1em; }
+  fieldset.wahlfeld > legend { margin-bottom: 1pt; }
+  .wahl { min-height: 0; padding: 0; gap: 14pt; background: none; border: 0; }
+  .wahl input, .haken input { width: 9pt; height: 9pt; min-height: 0; }
+  .haken { min-height: 0; gap: 6pt; font-size: 9pt; }
+  /* Ohne das druckt Chrome den gefüllten Punkt des gewählten Knopfes
+     nicht mit — auf Papier wäre die Antwort dann weg. */
+  input[type="radio"], input[type="checkbox"] {
+    border: 1px solid #777;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* Die Knopfleiste fällt weg; ihre Karte trägt sonst eine leere Fläche
+     mit ans Blattende. */
+  .karte--werkzeug { display: none; }
+
+  /* Der Fuß bleibt stehen. Der ausgefüllte und unterschriebene Bogen wird
+     abgeheftet — der Verweis aufs Flughandbuch gehört auf das Blatt, das
+     später jemand in die Hand nimmt, nicht nur an den Schirm. */
+  .fuss {
+    padding: 6pt 0 0;
+    border-top: 1px solid #999;
+    font-size: 7.5pt;
+    color: #333;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -301,7 +454,7 @@ input.falsch  { border-color: var(--rot);   background: #fff5f5; }
 
 <header class="seitenkopf">
   <div class="bahn">
-    <span class="kleinzeile">Einweisung &middot; WT9 Dynamic</span>
+    <span class="kleinzeile">LSV Backnang-Heiningen &middot; Einweisung &middot; WT9 Dynamic</span>
     <h1>Fragebogen Flugbetrieb D-MRXS</h1>
     <p>Vor der Einweisung ausfüllen und anschließend mit dem Fluglehrer besprechen.</p>
   </div>
@@ -316,12 +469,20 @@ input.falsch  { border-color: var(--rot);   background: #fff5f5; }
       <div class="felder">
         <label class="feld"><span>Datum</span><input type="date" id="a-datum"></label>
         <label class="feld"><span>Name</span><input type="text" id="a-name" autocomplete="name"></label>
-        <label class="feld"><span>UL-Erfahrung?</span>
-          <select id="a-ul"><option value=""></option><option>Ja</option><option>Nein</option></select>
-        </label>
-        <label class="feld"><span>Turbo-Erfahrung?</span>
-          <select id="a-turbo"><option value=""></option><option>Ja</option><option>Nein</option></select>
-        </label>
+        <fieldset class="wahlfeld">
+          <legend>Habe bereits UL-Erfahrung</legend>
+          <div class="wahl">
+            <label><input type="radio" name="a-ul" value="Ja"> Ja</label>
+            <label><input type="radio" name="a-ul" value="Nein"> Nein</label>
+          </div>
+        </fieldset>
+        <fieldset class="wahlfeld">
+          <legend>Habe bereits Turbo-Erfahrung</legend>
+          <div class="wahl">
+            <label><input type="radio" name="a-turbo" value="Ja"> Ja</label>
+            <label><input type="radio" name="a-turbo" value="Nein"> Nein</label>
+          </div>
+        </fieldset>
       </div>
     </div>
   </section>
@@ -333,11 +494,10 @@ input.falsch  { border-color: var(--rot);   background: #fff5f5; }
     </div>
     <div class="karte-koerper">
       <div class="block">
-        <div class="zeile zeile--kopf"><span>Bezeichnung</span><span>Wert</span><span></span></div>
-        <div class="zeile"><label for="f1">Maximales Abfluggewicht</label><div><input id="f1" data-a="472.5"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f2">Leergewicht</label><div><input id="f2" data-a="342"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f3">Maximale Zuladung</label><div><input id="f3" data-a="130.5"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f4">Zuladung Gepäckfach</label><div><input id="f4" data-a="10"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f1">Maximales Abfluggewicht</label><div><input id="f1" inputmode="decimal" data-a="472.5"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f2">Leergewicht</label><div><input id="f2" inputmode="decimal" data-a="342"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f3">Maximale Zuladung</label><div><input id="f3" inputmode="decimal" data-a="130.5"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f4">Zuladung Gepäckfach</label><div><input id="f4" inputmode="decimal" data-a="10"><span class="zeichen"></span></div></div>
       </div>
     </div>
   </section>
@@ -346,42 +506,45 @@ input.falsch  { border-color: var(--rot);   background: #fff5f5; }
     <div class="karte-kopf"><h2>Betriebsstoffe</h2></div>
     <div class="karte-koerper">
       <div class="block">
-        <div class="zeile zeile--kopf"><span>Bezeichnung</span><span>Wert</span><span></span></div>
-        <div class="zeile"><label for="f5">Max. Treibstoffmenge</label><div><input id="f5" data-a="125"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f6">Ausfliegbare Treibstoffmenge</label><div><input id="f6" data-a="119"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f7">Zuladung bei vollen Tanks</label><div><input id="f7" data-a="29.1"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f8">Treibstoff</label><div><input id="f8" data-a="mogas"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f5">Max. Treibstoffmenge</label><div><input id="f5" inputmode="decimal" data-a="125"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f6">Ausfliegbare Treibstoffmenge</label><div><input id="f6" inputmode="decimal" data-a="119"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f7">Zuladung bei vollen Tanks</label><div><input id="f7" inputmode="decimal" data-a="29.1"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f8">Treibstoff</label><div><input id="f8" data-a="mogas"><span class="zeichen"></span></div></div>
       </div>
     </div>
   </section>
 
   <section class="karte">
-    <div class="karte-kopf"><h2>Geschwindigkeiten</h2></div>
+    <div class="karte-kopf">
+      <h2>Geschwindigkeiten</h2>
+      <span class="kleinzeile">Angaben in km/h</span>
+    </div>
     <div class="karte-koerper">
       <div class="block">
-        <div class="zeile zeile--kopf"><span>Bezeichnung</span><span>Wert</span><span></span></div>
-        <div class="zeile"><label for="f9">Steigfluggeschwindigkeit</label><div><input id="f9" data-a="115"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f10">Manövergeschwindigkeit</label><div><input id="f10" data-a="160"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f11">Max. Turbulenzgeschwindigkeit</label><div><input id="f11" data-a="130"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f12">Höchstgeschwindigkeit</label><div><input id="f12" data-a="270"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f13">Klappengeschwindigkeit</label><div><input id="f13" data-a="135"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f14">Mindestgeschwindigkeit</label><div><input id="f14" data-a="65"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f15">Seitenwindkomponente</label><div><input id="f15" data-a="44"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f9">Steigfluggeschwindigkeit</label><div><input id="f9" inputmode="decimal" data-a="115"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f10">Manövergeschwindigkeit</label><div><input id="f10" inputmode="decimal" data-a="160"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f11">Max. Turbulenzgeschwindigkeit</label><div><input id="f11" inputmode="decimal" data-a="130"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f12">Höchstgeschwindigkeit</label><div><input id="f12" inputmode="decimal" data-a="270"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f13">Klappengeschwindigkeit</label><div><input id="f13" inputmode="decimal" data-a="135"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f14">Mindestgeschwindigkeit</label><div><input id="f14" inputmode="decimal" data-a="65"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f15">Seitenwindkomponente</label><div><input id="f15" inputmode="decimal" data-a="44"><span class="zeichen"></span></div></div>
       </div>
     </div>
   </section>
 
   <section class="karte">
-    <div class="karte-kopf"><h2>Motoreinstellungen</h2></div>
+    <div class="karte-kopf">
+      <h2>Motoreinstellungen</h2>
+      <span class="kleinzeile">Drehzahlen in U/min</span>
+    </div>
     <div class="karte-koerper">
       <div class="block">
-        <div class="zeile zeile--kopf"><span>Phase</span><span>Drehzahl</span><span></span></div>
-        <div class="zeile"><label for="f16">Start</label><div><input id="f16" data-a="5700"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f17">Landung / Go-Around</label><div><input id="f17" data-a="5500"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f18">Reiseflug</label><div><input id="f18" data-a="5000"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f19">Dauerleistung</label><div><input id="f19" data-a="5500"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f20">Max. Drehzahl</label><div><input id="f20" data-a="5800"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f21">Ladedruck</label><div><input id="f21" data-a="40.5"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f16">Start</label><div><input id="f16" inputmode="decimal" data-a="5700"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f17">Landung / Go-Around</label><div><input id="f17" inputmode="decimal" data-a="5500"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f18">Reiseflug</label><div><input id="f18" inputmode="decimal" data-a="5000"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f19">Dauerleistung</label><div><input id="f19" inputmode="decimal" data-a="5500"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f20">Max. Drehzahl</label><div><input id="f20" inputmode="decimal" data-a="5800"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f21">Ladedruck</label><div><input id="f21" inputmode="decimal" data-a="40.5"><span class="zeichen"></span></div></div>
       </div>
     </div>
   </section>
@@ -390,16 +553,15 @@ input.falsch  { border-color: var(--rot);   background: #fff5f5; }
     <div class="karte-kopf"><h2>Technische Daten</h2></div>
     <div class="karte-koerper">
       <div class="block">
-        <div class="zeile zeile--kopf"><span>Bezeichnung</span><span>Antwort</span><span></span></div>
-        <div class="zeile"><label for="f22">Bauweise</label><div><input id="f22" data-a="tiefdecker"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f23">Struktur</label><div><input id="f23" data-a="faserverbund"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f24">Leitwerk</label><div><input id="f24" data-a="kreuzleitwerk"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f25">Klappen</label><div><input id="f25" data-a="spaltklappen"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f26">Klappenstellungen</label><div><input id="f26" data-a="0 15 24 38"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f27">Flügelspannweite</label><div><input id="f27" data-a="9"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f28">Rumpflänge</label><div><input id="f28" data-a="6.4"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f29">Rumpfhöhe</label><div><input id="f29" data-a="2"></div><span class="zeichen"></span></div>
-        <div class="zeile"><label for="f30">Motor</label><div><input id="f30" data-a="rotax 914"></div><span class="zeichen"></span></div>
+        <div class="zeile"><label for="f22">Bauweise</label><div><input id="f22" data-a="tiefdecker"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f23">Struktur</label><div><input id="f23" data-a="faserverbund"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f24">Leitwerk</label><div><input id="f24" data-a="kreuzleitwerk"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f25">Klappen</label><div><input id="f25" data-a="spaltklappen"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f26">Klappenstellungen</label><div><input id="f26" data-a="0 15 24 38"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f27">Flügelspannweite</label><div><input id="f27" inputmode="decimal" data-a="9"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f28">Rumpflänge</label><div><input id="f28" inputmode="decimal" data-a="6.4"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f29">Rumpfhöhe</label><div><input id="f29" inputmode="decimal" data-a="2"><span class="zeichen"></span></div></div>
+        <div class="zeile"><label for="f30">Motor</label><div><input id="f30" data-a="rotax 914"><span class="zeichen"></span></div></div>
       </div>
     </div>
   </section>
@@ -426,7 +588,7 @@ input.falsch  { border-color: var(--rot);   background: #fff5f5; }
     </div>
   </section>
 
-  <section class="karte">
+  <section class="karte karte--werkzeug">
     <div class="karte-koerper" style="padding-top:22px">
       <div class="aktionen">
         <button type="button" class="knopf" onclick="pruefen()">Prüfen</button>
@@ -473,6 +635,17 @@ function pruefen() {
   document.getElementById("ergebnis").innerHTML =
     "Ergebnis: <b>" + treffer + " von " + felder.length + "</b> Angaben stimmen.";
 }
+
+/* Das Datum steht beim Ausfüllen fast immer auf heute. Bewusst über den
+   örtlichen Kalender und nicht über toISOString(): das rechnet nach UTC
+   und liegt im Sommer abends einen Tag daneben. */
+function heute() {
+  var d = new Date();
+  var zwei = function (n) { return (n < 10 ? "0" : "") + n; };
+  return d.getFullYear() + "-" + zwei(d.getMonth() + 1) + "-" + zwei(d.getDate());
+}
+
+document.getElementById("a-datum").value = heute();
 </script>
 
 </body>
