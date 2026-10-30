@@ -100,7 +100,9 @@ Der Jahreslauf, wie er sich aus der Historie ergibt: Ab Ostern läuft die Slide
 Winterbar (Fremdbetrieb auf dem Flugplatz, nicht vom Verein, eigene Seite
 <https://www.winterbar-heiningen.de/>) und die Sonnwendfeier am 28.12.
 hinweist. Nach Ostern wird umgekehrt getauscht. Die Spalte „Essen & Trinken“
-weiter unten erzählt dasselbe in Textform und muss mitgezogen werden.
+weiter unten erzählt dasselbe in Textform und muss mitgezogen werden, ebenso
+die Seite `content/flugplatz/bewirtung.html`, auf der Sommer- und Wintertext
+nach demselben Muster wechselweise auskommentiert sind.
 
 Für größere Anlässe (Flugplatzfest) wird die ganze Startseite durch eine
 Microsite ersetzt; wie das geht, steht in der `README.md`.
