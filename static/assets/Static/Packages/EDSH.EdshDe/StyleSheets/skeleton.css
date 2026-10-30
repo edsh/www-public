@@ -103,7 +103,8 @@
         .container .thirteen.columns                { width: 604px; }
         .container .fourteen.columns                { width: 652px; }
         .container .fifteen.columns                 { width: 700px; }
-        .container .sixteen.columns                 { width: 748px; }
+        .container .sixteen.columns,
+        .container.columns-100 .column              { width: 748px; }
 
         .container .one-third.column                { width: 236px; }
         .container .two-thirds.column               { width: 492px; }
@@ -157,6 +158,21 @@
         .container .one-third.column,
         .container .two-thirds.column  { width: 360px; }
 
+        /* Die Spaltenbreiten der Neos-Spaltenelemente haben drei Klassen im
+           Selektor und schlagen damit die Regeln oben; ohne eigene Angabe
+           behielten sie auf dem Telefon ihre Desktop-Breite. */
+        .container .one-third.columns,
+        .container .two-thirds.columns,
+        .container.columns-50-50 .column,
+        .container.columns-100 .column { width: 360px; }
+
+        /* Unter 380 px ist der Bildschirm schmaler als 360 px plus Rand:
+           Container und Spalten schrumpfen dann mit, statt abgeschnitten
+           zu werden. */
+        .container { max-width: calc(100% - 20px); }
+        .container .column,
+        .container .columns { max-width: 100%; }
+
         /* Offsets */
         .container .offset-by-one,
         .container .offset-by-two,
@@ -205,7 +221,11 @@
         .container .fifteen.columns,
         .container .sixteen.columns,
         .container .one-third.column,
-        .container .two-thirds.column { width: 420px; }
+        .container .two-thirds.column,
+        .container .one-third.columns,
+        .container .two-thirds.columns,
+        .container.columns-50-50 .column,
+        .container.columns-100 .column { width: 420px; }
     }
 
 
