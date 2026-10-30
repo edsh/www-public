@@ -1098,7 +1098,8 @@ ul.social li a:hover {
 		.js #nav { display: none; }
 		.js .selectnav { display: block; }
 		#navigation ul {display: none;}
-		.slider-caption {display: none;}
+		.slider-caption {position: static; width: auto; margin: 0; padding: 14px 16px; background: #303030;}
+		.slider-caption p {margin-bottom: 0;}
 		.slider-caption-2 {display: none;}
 		#tagline {font-size: 20px}
 		.mr-rotato-prev, .mr-rotato-next, .mr-rotato-disabled {margin-right: -10px;}
