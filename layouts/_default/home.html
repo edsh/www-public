@@ -1,5 +1,15 @@
 {{ define "head" }}
 <link rel="stylesheet" type="text/css" href="{{ relURL  ("assets/Static/Packages/EDSH.EdshDe/StyleSheets/featherlight.min.css") }}">
+<style>
+  /* Vollbildansicht für Slides mit data-vollbild: im Hochformat das Plakat, im Querformat das Slide-Bild */
+  img[data-vollbild] { cursor: zoom-in; }
+  .vollbild { position: fixed; inset: 0; z-index: 10000; display: flex; align-items: center; justify-content: center;
+    background: #050507; cursor: zoom-out; }
+  .vollbild[hidden] { display: none; }
+  .vollbild img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+  .vollbild button { position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; border: 0; border-radius: 50%;
+    background: rgba(255, 255, 255, .15); color: #fff; font: 28px/44px Arial, sans-serif; cursor: pointer; }
+</style>
 {{ end}}
 
 {{ define "main" }}
@@ -86,6 +96,7 @@
               <ul class="slides">
                 <li>
                   <img src="/assets/events/2026-Winterbar-Teaser.jpg" width="950" height="354"
+                       data-vollbild="/assets/events/2026-Winterbar-Hochformat.jpg"
                        alt="WinterBar am Flugplatz Backnang-Heiningen vom 30.10. bis 29.11.2026, danach Sonnwendfeier am 28.12."/>
                   <div class="slider-caption">
                     <h3>Landebar im Winterschlaf</h3>
@@ -196,6 +207,52 @@
 
               </ul>
             </div>
+
+            <div class="vollbild" role="dialog" aria-modal="true" aria-label="Plakat in voller Größe" hidden>
+              <picture>
+                <source media="(orientation: landscape)">
+                <img alt="">
+              </picture>
+              <button type="button" aria-label="Schließen">×</button>
+            </div>
+
+            <script>
+              // Ein Klick auf ein Slide-Bild mit data-vollbild zeigt es bildschirmfüllend: auf Telefonen
+              // im Hochformat das Plakat aus data-vollbild, im Querformat das Slide-Bild selbst. Wo der
+              // Browser es zulässt, geht die Ansicht zusätzlich in den Vollbildmodus (iPhones können das
+              // nicht, dort bleibt es bei der bildschirmfüllenden Ebene).
+              (function () {
+                var ebene = document.querySelector('.vollbild');
+                if (!ebene) return;
+                var quelle = ebene.querySelector('source');
+                var bild = ebene.querySelector('img');
+
+                function schliessen() {
+                  if (ebene.hidden) return;
+                  ebene.hidden = true;
+                  document.documentElement.style.overflow = '';
+                  if (document.fullscreenElement && document.exitFullscreen) document.exitFullscreen();
+                }
+
+                function oeffnen(slide) {
+                  quelle.srcset = slide.getAttribute('src');
+                  bild.src = slide.getAttribute('data-vollbild');
+                  bild.alt = slide.alt;
+                  ebene.hidden = false;
+                  document.documentElement.style.overflow = 'hidden';
+                  if (ebene.requestFullscreen) ebene.requestFullscreen().catch(function () {});
+                }
+
+                Array.prototype.forEach.call(document.querySelectorAll('img[data-vollbild]'), function (slide) {
+                  slide.addEventListener('click', function () { oeffnen(slide); });
+                });
+                ebene.addEventListener('click', schliessen);
+                document.addEventListener('keydown', function (e) { if (e.key === 'Escape') schliessen(); });
+                document.addEventListener('fullscreenchange', function () {
+                  if (!document.fullscreenElement) schliessen();
+                });
+              })();
+            </script>
 
             <!--
                         <script src="https://cdn.rawgit.com/noelboss/featherlight/1.7.6/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>

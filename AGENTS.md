@@ -115,11 +115,17 @@ Zum Carousel (flexslider):
   deckt ungefähr das linke Drittel ab, auf halber Höhe beginnend. Text im Bild
   gehört deshalb nach rechts, und helle Flächen haben links unten nichts verloren,
   weil die Unterschrift nur halbtransparent hinterlegt ist.
-* Unter 768 px Breite blendet `style.css` die Bildunterschrift aus. Auf dem
-  Telefon muss das Bild allein sagen, worum es geht: Termin und Anlass gehören
-  ins Bild, nicht nur in die Unterschrift.
+* Unter 768 px Breite steht die Bildunterschrift nicht über, sondern unter dem
+  Bild (`style.css`, Block `max-width: 767px`). Das Bild ist dort nur noch gut
+  ein Drittel so breit; Termin und Anlass gehören trotzdem ins Bild, groß
+  genug, um sie auch dann zu lesen.
 * Die Unterschrift kurz halten, zwei bis drei Sätze. Längerer Text lässt den
-  Kasten so hoch werden, dass er das halbe Bild verdeckt.
+  Kasten auf dem Desktop so hoch werden, dass er das halbe Bild verdeckt, und
+  auf dem Telefon springt der Inhalt darunter beim Wechsel der Slides stärker.
+* Ein Slide-Bild mit `data-vollbild="/pfad/zum/plakat.jpg"` öffnet sich beim
+  Antippen bildschirmfüllend: im Hochformat das dort angegebene Plakat, im
+  Querformat das Slide-Bild selbst. Plakate im Format 9:16 (1080×1920)
+  anlegen. Skript und Stil dazu stehen in `home.html`.
 
 ## Dateien unter `static/`
 
