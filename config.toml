@@ -4,6 +4,7 @@ locale = "de-DE"
 title = "Luftsportverein Backnang-Heiningen e.V."
 disableKinds = ["taxonomy", "term"]
 uglyurls = true
+enableRobotsTXT = true
 
 # Hugo lehnt HTML-Dateien unter content/ seit Version 0.158.0 von sich aus ab.
 # Die Inhalte dieses Auftritts sind fast durchweg HTML und stammen ausschließlich
@@ -11,3 +12,8 @@ uglyurls = true
 # unbedenklich.
 [security]
   allowContent = ['.*']
+
+# Vorgaben für Seiten ohne eigene `description` bzw. `images` im Front Matter.
+[params]
+  description = "Sonderlandeplatz Backnang-Heiningen (EDSH): Segelflug, Motorflug und Ultraleicht, Ausbildung zum Pilotenschein, Landebar mit Sonnenterrasse und Infos für Besucher."
+  images = ["assets/teilen.jpg"]

@@ -1,0 +1,2 @@
+{{- /* Die Startseite ist unter / und /index.html erreichbar; maßgeblich ist /. */ -}}
+{{- return cond .IsHome site.BaseURL .Permalink -}}
