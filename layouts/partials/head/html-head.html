@@ -7,11 +7,27 @@
 
     {{ hugo.Generator }}
 
-    {{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production")  }}
+    {{/* `hugo` baut als production, `hugo server` als development — die Vorschau bleibt so aus dem Index. */}}
+    {{ if and hugo.IsProduction (not .Params.noindex) }}
         <meta name="robots" content="index, follow">
     {{ else }}
         <meta name="robots" content="noindex, follow">
     {{ end }}
+
+    {{ $description := .Description | default site.Params.description }}
+    {{ $url := partial "head/kanonische-url.html" . }}
+    {{ $image := index (.Params.images | default site.Params.images) 0 | absURL }}
+    <meta name="description" content="{{ $description }}">
+    <link rel="canonical" href="{{ $url }}">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="{{ site.Title }}">
+    <meta property="og:title" content="{{ .Title | default site.Title }}">
+    <meta property="og:description" content="{{ $description }}">
+    <meta property="og:url" content="{{ $url }}">
+    <meta property="og:image" content="{{ $image }}">
+    <meta name="twitter:card" content="summary_large_image">
 
     <script src="{{ relURL  ("assets/jquery-1.7.2.min.js") }}"></script>
 
